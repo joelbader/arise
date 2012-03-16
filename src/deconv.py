@@ -6,7 +6,6 @@ joel.bader@jhu.edu
 
 import logging
 import os
-from xlrd import open_workbook, cellname
 
 #logging.basicConfig(format='%(levelname)s %(name)s.%(funcName)s: %(message)s')
 logging.basicConfig(format='%(funcName)s: %(message)s')

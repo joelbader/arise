@@ -1,0 +1,1342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+   <META NAME = "ROBOTS" CONTENT = "NOFOLLOW">
+    <title>GenePix® File Formats</title>
+    <!-- added to avoid indexing from the robot-->
+    
+
+
+<link rel="search" type="application/opensearchdescription+xml" title="Support Home Page Search" href="/ci/browserSearch/desc/http%3A%2F%2Fmdc.custhelp.com%2Fapp%2Fanswers%2Flist%2Fkw%2F%7BsearchTerms%7D/Support+Home+Page+Search/Support+Home+Page+Search/%2Feuf%2Fassets%2Fimages%2Ficons%2Ffavicon_browserSearchPlugin.ico"/>
+    
+    <link rel='canonical' href='http://mdc.custhelp.com/app/answers/detail/a_id/18883/~/genepix%E2%AE-file-formats'/>
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Expires" content="-1"/>
+<style type='text/css'>
+.rn_ScreenReaderOnly{position:absolute; height:1px; left:-10000px; overflow:hidden; top:auto; width:1px;}
+.rn_Hidden{display:none;}
+</style>
+<base href='http://mdc.custhelp.com/euf/rightnow/optimized/1328738617/themes/standard/'></base>
+<link href='/euf/rightnow/optimized/1328738617/templates/standard.themes.standard.SITE.css' rel='stylesheet' type='text/css' media='all' />
+<style type="text/css">.rn_RightNowLogo a{background:url(/euf/rightnow/images/RightNowLogo.png) no-repeat scroll 0 0 !important;display:block !important;height:22px !important;width:134px !important;}
+.rn_RightNowLogo a:focus, .rn_RightNowLogo a:hover{background-position:0 -22px !important;}
+.rn_LoginDialog2{width: 210px;}
+.rn_LoginDialog2.rn_ContentLoading{background:url(/euf/rightnow/optimized/1328738617/themes/standard/images/loading.gif) no-repeat center center;}
+.rn_LoginDialog2 input{margin-bottom:5px;}
+.rn_LoginDialog2 input[type="text"], .rn_LoginDialog2 input[type="password"]{width:200px;}
+.rn_LoginDialog2 label{margin-bottom:5px;display:block;}
+.rn_LoginDialog2 div{margin-bottom: 5px;}
+.rn_NavigationTab2{display:inline-block;}
+.rn_NavigationTab2 a{cursor:pointer;float:left;font-size:1em;font-weight:bold;height:20px;_height:18px;margin-right:4px;padding:5px 20px;position:relative;}
+.rn_NavigationTab2 .rn_DropDown{padding-right:28px;}
+.rn_NavigationTab2 a em{display:block;font-size:xx-small;height:18px;margin:3px 4px 0 0;position:absolute;right:0;top:0;width:20px;}
+.rn_NavigationTab2 .rn_SubNavigation{display:block;float:none;position:absolute;z-index:1;width:150px;}
+.rn_NavigationTab2 .rn_SubNavigation.rn_Hidden, .rn_NavigationTab2.rn_Hidden{display:none;}
+.rn_NavigationTab2 .rn_SubNavigation a{display:block;float:none;margin:0;padding:5px 0 0 10px;width:140px;}
+.rn_NavigationTab2 a{background:#EEEEEE url(/euf/rightnow/optimized/1328738617/themes/standard/images/tabBackground.png) repeat-x scroll 0 -22px;border-top:1px solid #FFF;color:#202020;text-decoration:none;}
+.rn_NavigationTab2 a:hover, .rn_NavigationTab2 a:focus{background-color: #F8F8F8;background-position:0 -18px;color:#000;}
+.rn_NavigationTab2 a:focus{outline:thin dotted #FFF;}
+.rn_NavigationTab2 a.rn_SelectedTab{background:#FFF none repeat scroll 0 0;color:#000;background-color:#F3F4F1;}
+.rn_NavigationTab2 a em{background:url(/euf/rightnow/optimized/1328738617/themes/standard/images/tabBackground.png) no-repeat 0 0;color:#000;font-size:0em;}
+.rn_NavigationTab2 a:hover em, .rn_NavigationTab2 a:focus em{background-position:-20px 0;}
+.rn_NavigationTab2 .rn_SubNavigation{background:#FFF none repeat scroll 0 0;border:1px solid #CCC;padding:10px 0 0;top:100px;}
+.rn_NavigationTab2 .rn_SubNavigation a{background:#FFF;border:none;color:#404040;height:auto !important;height:23px;margin-bottom:1px;min-height:23px;text-transform: none;}
+.rn_NavigationTab2 .rn_SubNavigation a:hover{background:#EEE;}
+.rn_NavigationTab2 .rn_SubNavigation a:focus{outline:thin dotted #777;}
+.rn_SimpleSearch{position:relative;}
+.rn_SimpleSearch .rn_SearchField{width:97%;}
+.rn_SimpleSearch .rn_SearchImage{border:none;padding:0;position:absolute;right:0.2em;top:0.46em;*right:0.28em;*top:0.6em;}
+.rn_SimpleSearch{margin:auto;max-width:400px;width:180px;}
+.rn_SimpleSearch form{background-color:#FFF;border:1px solid #B1B1B1;}
+.rn_SimpleSearch .rn_SearchField{border:0px none;color:#222;font-weight:bold;height:1.8em;max-width:200px;padding:4px 4px 0px;width:85%;}
+.yui-panel.rn_Dialog.rn_FeedbackDialog{width:375px;}
+.rn_SiteFeedback2Form label{clear:left;display:block;}
+.rn_SiteFeedback2Form .rn_EmailField{clear:left;display:block;margin-bottom:1em;width:200px;}
+.rn_SiteFeedback2Form .rn_Textarea{clear:left;display:block;margin-bottom:1em;width:340px;}
+</style>
+<link href='/euf/rightnow/optimized/1328738617/pages/answers/detail.themes.standard.css' rel='stylesheet' type='text/css' media='all' />
+
+    <link rel="icon" href="images/favicon.png" type="image/png"/>
+</head>
+<body class="yui-skin-sam">
+<form class='rn_Hidden'><input id='rn_History_Field' type='hidden'/></form>
+
+<div id="rn_Container" >
+    <div id="rn_SkipNav"><a href="#rn_MainContent">Skip Navigation</a></div>
+    <div id="rn_Header">
+    <noscript><h1>Scripting must be enabled to use this site.</h1></noscript>
+        <!-- ORIGINAL RIGHT NOW HEADER -->
+        <!-- <div id="rn_Logo">
+<a href="/app/home"><span class="rn_LogoTitle">Support <span class="rn_LogoTitleMinor">Center</span></span></a></div> -->
+        
+        
+<div id="rn_LoginStatus">
+
+                                    <a href="javascript:void(0);" id="rn_LoginLink">Associates / Distributors Log In</a>&nbsp;
+                     <!--|&nbsp;<a href="/app/utils/create_account">Create Account</a> -->
+                                            <div id="rn_LoginDialog2_1" class="rn_LoginDialog2 rn_Hidden ">
+        <div id="rn_LoginDialog2_1_Content" class="rn_LoginDialogContent">
+        <div id="rn_LoginDialog2_1_ErrorMessage"></div>
+        <form  id="rn_LoginDialog2_1_Form">
+            <label for="rn_LoginDialog2_1_Username">Username</label>
+            <input id="rn_LoginDialog2_1_Username" type="text" maxlength="80" name="rn_LoginDialog2_1_Username" value="" />
+                    <label for="rn_LoginDialog2_1_Password">Password</label>
+            <input id="rn_LoginDialog2_1_Password" type="password" value="" name="rn_LoginDialog2_1_Password" />
+                </form>
+        <span><a href="/app/utils/account_assistance" >Forgot your username or password?</a></span>
+    </div>
+</div>
+                                        
+                            </div>
+        
+
+<!-- NON WIDGET HEADER CODE FOR TESTING to be converted into a widget -->
+<div id="header">
+  <div style="float:left;"><a href="http://www.moleculardevices.com"><img src="http://www.moleculardevices.com/images/logo_molecular_devices.gif" alt="Logo" border="0" /></a></div>
+  <div style="float:left; margin-left:24px; margin-top:33px;">Detect <span style="color: #299D9F">&#8226;</span> Decode <span style="color: #299D9F">&#8226;</span> <em>Discover</em></div>
+  <div style="float:right; margin-top:7px;"><a href="http://www.moleculardevices.com/Support/Request-a-Quote.html"><img src="http://www.moleculardevices.com/images/btn_request_quote.gif" alt="" /></a></div>
+  <div style="float:right; font-size:13px; margin-top:14px; margin-right:11px;"><a href="http://www.nihonmdc.com/index.html" target="_blank">Japan</a> | <a href="http://www.moleculardevices.com.cn/" target="_blank">China</a> | <a href="http://www.moleculardevices.com/Support.html">Support</a> | <a href="http://www.moleculardevices.com/Company/What-We-Do/Events.html">Events</a></div>
+  <div style="float:right; clear:right; margin-top:8px;margin-right:0px;position:relative;">
+    <form action="http://www.moleculardevices.com/x44.xml" id="cat" name="cat" method="get">
+      <div id="addthis"><a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4cbc6e262a9d9929"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0" /></a>
+        <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4cbc6e262a9d9929"></script>
+      </div>
+      <input alt="search_for" id="qs" maxlength="2047" name="q" title="Search" type="text" value="" style="padding:1px;margin-right:25px;height:14px;margin-top:2px;" />
+      <input alt="submit" name="submit" src="http://www.moleculardevices.com/images/btn_go.gif" type="image" style="position: absolute; z-index: 2; right:0px;top:0px;padding:none;border:none;margin:none;" />
+    </form>
+  </div>
+</div>
+<div id="header_nav"><img src="http://www.moleculardevices.com/images/section-banners/section-biotesting.jpg" alt="Molecular Devices Online Support" /></div>
+<!-- END OF MOLDEV HEADER CODE -->
+
+
+
+    </div>
+    <div id="rn_Navigation">
+            <div id="rn_NavigationBar">
+            <ul>
+                <li><span id="rn_NavigationTab2_2" class="rn_NavigationTab2 ">
+    <a class="" href="/app/home"  target="_self">
+        <span>Support Home</span>
+    </a>
+</span>
+</li>
+                <li><span id="rn_NavigationTab2_3" class="rn_NavigationTab2 ">
+    <a class="rn_SelectedTab" href="/app/answers/list"  target="_self">
+        <span>Resource Center</span>
+    </a>
+</span>
+</li>
+                <li><span id="rn_NavigationTab2_4" class="rn_NavigationTab2 ">
+    <a class="" href="/app/ask"  target="_self">
+        <span>Request Support</span>
+    </a>
+</span>
+</li>
+                <li><span id="rn_NavigationTab2_5" class="rn_NavigationTab2 ">
+    <a class="" href="/app/account/overview"  target="_self">
+        <span>Your Account</span>
+    </a>
+</span>
+</li>
+            </ul>
+        </div>
+        </div>
+    <div id="rn_Body">
+        <div id="rn_MainColumn">
+            <a name="rn_MainContent" id="rn_MainContent"></a>
+            
+
+
+<div id="rn_PageTitle" class="rn_AnswerDetail">
+                        <!--<rn:widget path="feedback/AnswerFeedback2" />-->
+                        <table width="100%" border="0">
+<tbody>
+<tr>
+<td><span id="rn_PrintPageLink_6" class="rn_PrintPageLink">
+    <a onclick="window.print(); return false;" href="javascript:void(0);" title="Print this page" >
+                    <img src="images/Print.png" alt=""/>
+                <span>Print</span>
+    </a>
+</span>
+</td>
+<td><div id="rn_AnswerNotificationIcon3_7" class="rn_AnswerNotificationIcon3">
+    <a href="javascript:void(0);" id="rn_AnswerNotificationIcon3_7_Trigger" title="Notify me by email if this answer is updated" >
+            <img src="images/Notification.png" alt=""/>
+               <span>Notify me of updates</span>
+        </a>
+            <div id="rn_LoginDialog2_8" class="rn_LoginDialog2 rn_Hidden ">
+        <div id="rn_LoginDialog2_8_Content" class="rn_LoginDialogContent">
+        <div id="rn_LoginDialog2_8_ErrorMessage"></div>
+        <form  id="rn_LoginDialog2_8_Form">
+            <label for="rn_LoginDialog2_8_Username">Username</label>
+            <input id="rn_LoginDialog2_8_Username" type="text" maxlength="80" name="rn_LoginDialog2_8_Username" value="" />
+                    <label for="rn_LoginDialog2_8_Password">Password</label>
+            <input id="rn_LoginDialog2_8_Password" type="password" value="" name="rn_LoginDialog2_8_Password" />
+                </form>
+        <span><a href="/app/utils/account_assistance" >Forgot your username or password?</a></span>
+    </div>
+</div>
+    </div>
+</td>
+<td><!-- this does not work: suspect that the reference is not correct. tried below as well as orginal from home page
+<form action="http://mdc.custhelp.com/app/answers/detail/a_id/xxxxx/" id="cat" name="cat" method="get">
+                  <a class="addthis_button" align="center" href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4cbc6e262a9d9929"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16"  alt="Bookmark and Share" style="border:0" /></a>
+        <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4cbc6e262a9d9929"></script>--></td>
+</tr>
+</tbody>
+</table>
+
+                        
+                        
+                        
+   
+                        <!--<rn:widget path="utils/EmailAnswerLink" /> -->
+                       <br/>
+    <h1 id="rn_Summary">GenePix® File Formats</h1>
+    <div id="rn_AnswerInfo">
+        Published 02/11/2011 01:33 PM        &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+        Updated 05/05/2011 08:14 AM<!--added answer ID here -->
+        &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+	Answer # 
+	18883 
+
+<!-- note: the following is a conditional section. It will not show for unregistered or registered customers since I set the registered chats to 0, dealers, TSE etc, has no entry here so the statement is true-->
+
+
+
+
+
+   
+    </div>
+
+    <p>&#160;</p>
+<p>GenePix Pro recognizes and uses several different file types:</p></div>
+
+<div id="rn_PageContent" class="rn_AnswerDetail">
+    
+    <div id="rn_AnswerText">
+        <table cellspacing="0" cellpadding="0" width="100%">
+<tbody>
+<tr valign="top">
+<td class="small">
+<blockquote><a href="#atf">ATF &#160;-&#160; Axon Text File</a><br />
+<a href="#gal">GAL &#160;-&#160; GenePix Array List</a><br />
+<blockquote><a href="#intro">Introduction</a><br />
+<a href="#example">Example GAL file</a><br />
+<a href="#header">Description of header records</a><br />
+<a href="#data">Description of data records</a><br />
+<a href="#minimal">A minimal GAL file header</a><br />
+<br />
+<a href="#excel"></a></blockquote>
+<a href="#gpr">GPR &#160;-&#160; GenePix Results</a><br />
+<a href="#gpl">GPL &#160;-&#160; GenePix Lab Book</a><br />
+<a href="#gps">GPS &#160;-&#160; GenePix Settings</a><br />
+<a href="#jpeg">JPEG &#160;-&#160; Joint Photographics Experts Group</a><br />
+<a href="#tiff">TIFF &#160;-&#160; Tagged Image File Format</a></blockquote>
+<p><br />
+&#160;</p>
+</td>
+</tr>
+<tr valign="top">
+<td class="small"><a id="atf" name="atf"></a>
+<h3><a id="atf" name="atf">ATF &#160;-&#160; Axon Text File format (*.atf)<br />
+<img height="1" alt="Image" src="/media2/dotstripe.gif" width="500" /></a></h3>
+<p>ATF is a tab-delimited text file format that can be read by typical spreadsheet programs such as Microsoft Excel. It is used for <a href="#gal">GenePix Array List (GAL)</a> files, and <a href="#gpr">GenePix Results (GPR)</a> files. <a id="fieldseparators" name="fieldseparators"></a></p>
+<p>An ATF text file consists of <b>records</b>. Each line in the text file is a record. Each record may consist of several <b>fields</b>, separated by a <b>field separator</b> (column delimiter). The tab and comma characters are field separators. Space characters around a tab or comma are ignored and considered part of the field separator. Text strings are enclosed in <b>quotation marks</b> to ensure that any embedded spaces, commas and tabs are not mistaken for field separators.</p>
+<p>The group of records at the beginning of the file is called the <b>file header</b>. The file header describes the file structure and includes column titles, units, and comments.</p>
+<p><b>ATF File Structure</b></p>
+<p></p>
+<table cellspacing="2" cellpadding="2" width="80%" border="0">
+<tbody>
+<tr>
+<td>&#160;First header record</td>
+<td>&#160;Format: <b>ATF</b> (all caps), Version number</td>
+</tr>
+<tr>
+<td>&#160;Second header record</td>
+<td>&#160;Number of optional header records <i>n</i>,</td>
+</tr>
+<tr>
+<td>&#160;</td>
+<td>&#160;Number of data columns (fields) <i>m</i></td>
+</tr>
+<tr>
+<td>&#160;1st optional record</td>
+<td>&#160;...</td>
+</tr>
+<tr>
+<td>&#160;2nd optional record</td>
+<td>&#160;...</td>
+</tr>
+<tr>
+<td>&#160;<em>n</em>th optional record</td>
+<td>&#160;</td>
+</tr>
+<tr>
+<td>&#160;(<i>n</i>+3)th record</td>
+<td>&#160;Required record containing <i>m</i> fields.</td>
+</tr>
+<tr>
+<td>&#160;</td>
+<td>&#160;Each field contains a column title</td>
+</tr>
+<tr>
+<td>&#160;DATA RECORDS</td>
+<td>&#160;Arranged in <i>m</i> columns (fields) of data</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<p></p>
+<p>See below under GenePix Array List format for an <a href="#example">example</a> of an ATF file.<br />
+&#160;</p>
+</td>
+</tr>
+<tr valign="top">
+<td class="small">
+<p><a id="gal" name="gal"></a></p>
+<h3><a id="gal" name="gal">GAL &#160;-&#160; GenePix Array List format (*.gal)<br />
+<img height="1" alt="Image" src="/media2/dotstripe.gif" width="500" /></a></h3>
+<p><a href="#intro">Introduction</a><br />
+<a href="#example">Example GAL file</a><br />
+<a href="#header">Description of header records</a><br />
+<a href="#data">Description of data records</a><br />
+<a href="#minimal">A minimal GAL file header</a><br />
+<a id="intro" name="intro"></a></p>
+<p></p>
+<h4>Introduction <span id="d337feaa-c7c8-42af-8547-6af42c9bf2d0"></span></h4>
+<p></p>
+<ul class="mdc_arrow">
+<li>Download a <a href="/euf/assets/content/Demo_gal.txt">sample GAL file</a>.&#160; <span style="COLOR: #ffff00">(</span></li>
+<li>Download the <b>Making GenePix Array List Files</b> application note (from the Literature link in the right menu).</li>
+<li><a href="http://mdc.custhelp.com/app/answers/detail/a_id/18885">GAL File Examples</a></rn:answer_xref>&#160;specifically for array <b>and arrayer manufacturers</b>.</li>
+</ul>
+<p>GenePix Array List files describe the size and position of blocks, the layout of feature-indicators in them, and the names and identifiers of the printed substances associated with each feature-indicator.</p>
+<p>GenePix Pro includes an integrated Array List Generator which generates GAL files from plain text files; see the GenePix Pro online Help for details.</p>
+<p>GAL files conform to the <a href="#atf">Axon Text File (ATF)</a> format described above. As such, they can be created in Microsoft Excel by saving an Excel spreadsheet as Text (Tab delimited).</p>
+<p>To create a GAL file that describes block and feature-indicator positions and geometry, but without substance IDs or names, save a settings file using the Save Settings As command in GenePix Pro (select *.gal as the output file type).</p>
+<p>GAL files consist of two sections: the header, and data records. The <a href="#header">header</a> contains all the structural and positional information about the blocks; the <a href="#data">data records</a> contain all the name and identifier information for each spot.</p>
+<p>GenePix Pro assigns block numbers such that the top leftmost block on the image is block #1, and the block numbers increase from left to right and then from top to bottom:</p>
+<table style="FONT-SIZE: 8pt" align="center">
+<tbody>
+<tr>
+<td style="BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; BORDER-BOTTOM: 1px solid" align="center" width="30">1</td>
+<td style="BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; BORDER-BOTTOM: 1px solid" align="center" width="30">2</td>
+<td style="BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; BORDER-BOTTOM: 1px solid" align="center" width="30">3</td>
+<td style="BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; BORDER-BOTTOM: 1px solid" align="center" width="30">4</td>
+</tr>
+<tr>
+<td style="BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; BORDER-BOTTOM: 1px solid" align="center">5</td>
+<td style="BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; BORDER-BOTTOM: 1px solid" align="center">6</td>
+<td style="BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; BORDER-BOTTOM: 1px solid" align="center">7</td>
+<td style="BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; BORDER-BOTTOM: 1px solid" align="center">8</td>
+</tr>
+<tr>
+<td style="BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; BORDER-BOTTOM: 1px solid" align="center">9</td>
+<td style="BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; BORDER-BOTTOM: 1px solid" align="center">10</td>
+<td style="BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; BORDER-BOTTOM: 1px solid" align="center">11</td>
+<td style="BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; BORDER-BOTTOM: 1px solid" align="center">12</td>
+</tr>
+<tr>
+<td style="BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; BORDER-BOTTOM: 1px solid" align="center">13</td>
+<td style="BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; BORDER-BOTTOM: 1px solid" align="center">14</td>
+<td style="BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; BORDER-BOTTOM: 1px solid" align="center">15</td>
+<td style="BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; BORDER-LEFT: 1px solid; BORDER-BOTTOM: 1px solid" align="center">16</td>
+</tr>
+</tbody>
+</table>
+The order in which a block was created does not matter; GenePix Pro automatically renumbers all blocks to follow this rule. <a id="example" name="example"></a>
+<p></p>
+<h4>Example GenePix Array List (GAL) file</h4>
+<p>The following very simple array list file describes four blocks ("BlockCount=4"), each with 24 columns and 5 rows. For simplicity, we have included the data record information (name, ID, etc) only for the first two features:</p>
+<p></p>
+<pre xml:space="preserve">
+<span class="courier">ATF       1.0
+8         5
+"Type=GenePix ArrayList V1.0"
+"BlockCount=4"
+"BlockType=0"
+<span class="arial">"URL=http://genome-www.stanford.edu/cgi-bin/dbrun/SacchDB?find+Locus+%22[ID]%22"</span>
+"Block1= 400, 400, 100, 24, 175, 5, 175"
+"Block2= 4896, 400, 100, 24, 175, 5, 175"
+"Block3= 400, 4896, 100, 24, 175, 5, 175"
+"Block4= 4896, 4896, 100, 24, 175, 5, 175"
+"Block"  "Column"  "Row"  "Name"  "ID"
+ 1        1         1      VPS8    YAL002W
+ 1        2         1      NTG1    YAL015C
+</span>
+</pre>
+<a id="header" name="header"></a>
+<p></p>
+<h4>Description of header records</h4>
+<p>The header section describes basic file information and all block properties apart from names and IDs (which are in the <a href="#data">data records</a> section). Each record is explained below:</p>
+</td>
+</tr>
+<tr valign="top">
+<td class="small">
+<table cellspacing="0" cellpadding="3" width="100%" border="0">
+<tbody>
+<tr valign="top">
+<td class="small"><a name="first record"><b>ATF &#160;&#160;&#160;&#160;&#160; 1.0</b></a></td>
+<td class="small" colspan="2"><b>(Required)</b> First line of an ATF file; the same in all GAL files:</td>
+</tr>
+<tr valign="top">
+<td class="small">&#160;</td>
+<td class="small" colspan="2">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; File format (ATF) and version (1.0).</td>
+</tr>
+<tr valign="top">
+<td class="small"><a name="second record"><b>8 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 5</b></a></td>
+<td class="small" colspan="2"><b>(Required)</b> Second line of an ATF file:</td>
+</tr>
+<tr valign="top">
+<td class="small">&#160;</td>
+<td class="small" colspan="2">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 8 (number of optional header records).<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 5 (number of data columns).</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"Type=GenePix Array List v1.0"</b></td>
+<td class="small" colspan="2"><b>(Required)</b>&#160; Type of file; the same in all GAL files.</td>
+</tr>
+<tr valign="top">
+<td class="small"><a name="block count"><b>"BlockCount=4"</b></a></td>
+<td class="small" colspan="2"><b>(Optional)</b>&#160; Number of blocks described in the file.</td>
+</tr>
+<tr valign="top">
+<td class="small"><a name="block type"><b>"BlockType=0"</b></a></td>
+<td class="small" colspan="2"><b>(Optional)</b>&#160; Type of block described:</td>
+</tr>
+<tr valign="top">
+<td class="small">&#160;</td>
+<td class="small" colspan="2">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 0 = rectangular.<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 1 = orange-packing #1.<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 2 = orange-packing #2.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"URL=..."</b></td>
+<td class="small" colspan="2"><b>(Optional)</b>&#160;The URL for the Go To Web command.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"Supplier=CompanyXYZ"</b></td>
+<td class="small" colspan="2"><b>(Optional)</b>&#160;The manufacturer that supplied the array or arrayer.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"ArrayerSoftwareName=Printer Robot User Interface"</b></td>
+<td class="small" colspan="2"><b>(Optional)</b>&#160;The name of the arrayer software.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"ArrayerSoftwareVersion=1.1"</b></td>
+<td class="small" colspan="2"><b>(Optional)</b>&#160;The version number of the arrayer software.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"ArrayName=MouseApoptosisProteins 4000"</b></td>
+<td class="small" colspan="2"><b>(Optional)</b>&#160;The name of an array as supplied by an array manufacturer.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"ArrayRevision=2.7"</b></td>
+<td class="small" colspan="2"><b>(Optional)</b>&#160;The version of an array as supplied by an array manufacturer.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"SlideBarcode=abc0011, abc0012, abc0013"</b></td>
+<td class="small" colspan="2"><b>(Optional)</b>&#160;Barcodes supported by the GAL file, used for barcode-driven automation.</td>
+</tr>
+<tr valign="top">
+<td class="small"><a name="block descriptions"><b>"Block<i>n</i>="</b></a></td>
+<td class="small" colspan="2"><b>(Optional)</b>&#160; The position and dimensions of each block. There is one record for each block, and each record contains 7 fields. Each field is separated by a comma followed by a space.</td>
+</tr>
+<tr valign="top">
+<td class="small">&#160;</td>
+<td class="small"><i>xOrigin</i></td>
+<td class="small">X position of center of top leftmost feature of current block (in µm).</td>
+</tr>
+<tr valign="top">
+<td class="small">&#160;</td>
+<td class="small"><i>yOrigin</i></td>
+<td class="small">Y position of center of top leftmost feature of current block (in µm).</td>
+</tr>
+<tr valign="top">
+<td class="small">&#160;</td>
+<td class="small"><i>FeatureDiameter</i></td>
+<td class="small">Diameter of features within the current block (in µm).</td>
+</tr>
+<tr valign="top">
+<td class="small">&#160;</td>
+<td class="small"><i>xFeatures</i></td>
+<td class="small">Number of columns of features in current block.</td>
+</tr>
+<tr valign="top">
+<td class="small">&#160;</td>
+<td class="small"><i>xSpacing</i></td>
+<td class="small">Column spacing of current block (in µm).</td>
+</tr>
+<tr valign="top">
+<td class="small">&#160;</td>
+<td class="small"><i>yFeatures</i></td>
+<td class="small">Number of rows of features in current block.</td>
+</tr>
+<tr valign="top">
+<td class="small">&#160;</td>
+<td class="small"><i>ySpacing</i></td>
+<td class="small">Row spacing of current block (in µm).</td>
+</tr>
+<tr valign="top">
+<td class="small">&#160;</td>
+<td class="small" colspan="2"><b>Note:</b>&#160; Positions on arrays are measured in microns with respect to the origin, which is the top left corner of the array.</td>
+</tr>
+<tr valign="top">
+<td class="small"><a name="User Defined"><b><i>"User Defined"</i></b></a></td>
+<td class="small" colspan="2"><b>(Optional)</b>&#160; You may include any number of correctly formatted extra lines in the header. When the GAL file is read as input by GenePix Pro 4.1, these will be passed to the output Results (GPR) file.</td>
+</tr>
+<tr valign="top">
+<td class="small"><a name="column titles"><b>"Block" "Column" "Row" "Name" "ID"</b></a></td>
+<td class="small" colspan="2"><b>(Required)</b>&#160; Last line of the header, containing column titles for the data records. The quotation marks are advised, but not necessary.</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr valign="top">
+<td class="small"><a id="data" name="data"></a>
+<p></p>
+<h4>Description of data records</h4>
+<p>The Data Record section contains records which describe each feature in detail. It includes the block, column, and row numbers for features, as well as descriptive name and identifier information. The GAL Data Record may also optionally contain user-defined fields (column titles) for extra annotation information that you may wish to include.</p>
+<p>In GenePix Pro 4.1, any user-defined GAL file data columns are read and output to the Results (GPR) file; in earlier versions they are ignored. Also new in GenePix Pro 4.1 is that there is no longer a 40-character limit on the <i>Name</i> and <i>ID</i> fields; entries longer than 40 characters are truncated when read by earlier versions.</p>
+<p>There is one record for each feature, containing a field for each of the descriptive columns:</p>
+<p></p>
+<table cellspacing="0" cellpadding="3" width="500" border="0">
+<tbody>
+<tr valign="top">
+<td class="small"><i>Block</i></td>
+<td class="small"><b>(Required)</b>&#160; The block number for the feature (required).</td>
+</tr>
+<tr valign="top">
+<td class="small"><i>Column</i>&#160;&#160;&#160;&#160;&#160;</td>
+<td class="small"><b>(Required)</b>&#160; The column location within the block (required).</td>
+</tr>
+<tr valign="top">
+<td class="small"><i>Row</i></td>
+<td class="small"><b>(Required)</b>&#160; The row location within the block (required).</td>
+</tr>
+<tr valign="top">
+<td class="small"><i>Name</i></td>
+<td class="small"><b>(Optional)</b>&#160; Name to be displayed for the given feature (optional; limited to 40 characters in GenePix Pro 4.0 and earlier, no limit in 4.1).</td>
+</tr>
+<tr valign="top">
+<td class="small"><i>ID</i></td>
+<td class="small"><b>(Required)</b>&#160; Identifier for each feature (required; limited to 40 characters in GenePix Pro 4.0 and earlier, no limit in 4.1).</td>
+</tr>
+<tr valign="top">
+<td class="small"><i>"User Defined"</i></td>
+<td class="small"><b>(Optional)</b>&#160; Annotation information (optional).</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+</td>
+</tr>
+<tr valign="top">
+<td class="small">&#160;<br />
+Block, Column, Row and ID are required fields. The column titles can be in any order.
+<p><b>Note:</b>&#160; If you have empty features, use 'empty' as the feature ID, and the feature is flagged <i>absent</i> when the GAL file is opened by GenePix.</p>
+</td>
+</tr>
+<tr valign="top">
+<td class="small"><a id="minimal" name="minimal"></a>
+<p><br /></p>
+<h4>A minimal GAL file header</h4>
+<p>Because most of the GAL file header records are optional, it is relatively simple to construct a GAL file with a very minimal header. The following example also leaves out the Name column, which is also optional:</p>
+<pre xml:space="preserve">
+<span class="courier">ATF       1.0
+1         4
+"Type=GenePix ArrayList V1.0"
+"Block"  "Column"  "Row"  "ID"
+ 1        1         1      YAL002W
+ 1        2         1      YAL015C
+</span>
+</pre></td>
+</tr>
+<tr valign="top">
+<td class="small">When you open this GAL file in GenePix, you will be prompted with the New Blocks dialog box to enter block properties. You may find this method of configuring blocks via the New Blocks dialog box more convenient than working out block arrangements by hand.
+<p></p>
+</td>
+</tr>
+<tr valign="top">
+<td class="small"><a id="gpr" name="gpr"></a>
+<h3><a id="gpr" name="gpr">GPR &#160;-&#160; GenePix Results format (*.gpr)<br />
+<img height="1" alt="Image" src="/media2/dotstripe.gif" width="500" /></a></h3>
+<p>GenePix Results data are saved as GPR files, which are in&#160; <a href="#atf">Axon Text File (ATF)</a> format. A Results file contains general information about image acquisition and analysis, as well as the data extracted from each individual feature. Any user-defined feature data contained in a GAL file read by GenePix Pro 4.1 will be included in the output GPR file. As of GenePix Pro version 4.0.1.4, the GPR version number is 3.0.</p>
+<p>Read a&#160;<a href="http://mdc.custhelp.com/app/answers/detail/a_id/18886">history of the changes to the GPR file format</a></rn:answer_xref> since GenePix Pro 3, including example GPR files in all the various formats.</p>
+<p></p>
+<h4>GPR Header</h4>
+<p>A sample GPR file header and a description of each entry are shown below:</p>
+<p></p>
+<table cellspacing="0" cellpadding="3" width="100%" border="0">
+<tbody>
+<tr valign="top">
+<td><b>Entry</b></td>
+<td><b>Description</b></td>
+</tr>
+<tr valign="top">
+<td class="small" colspan="2"><img height="1" alt="Image" src="/media2/dotblack.gif" width="480" /></td>
+</tr>
+<tr valign="top">
+<td class="small"><b>ATF &#160;&#160;&#160; 1.0</b></td>
+<td class="small">File type and version number.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>29 &#160;&#160;&#160;&#160;&#160; 48</b></td>
+<td class="small">Number of optional header records and<br />
+number of data fields (columns).</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"Type=GenePix Results 3"</b></td>
+<td class="small">Type of ATF file.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"DateTime=2002/02/09 17:15:48"</b></td>
+<td class="small">Date and time when the image was acquired.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"Settings=C:\Genepix\Genepix.gps"</b></td>
+<td class="small">The name of the settings file that was used for analysis.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"GalFile=C:\Genepix\Demo.gal"</b></td>
+<td class="small">The GenePix Array List file used to associate Names and IDs to each entry.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"PixelSize=10"</b></td>
+<td class="small">Resolution of each pixel in µm.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"Wavelengths=635 &#160;&#160;&#160; 532"</b></td>
+<td class="small">Installed laser excitation sources in nm.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"ImageFiles=C:\Genepix\demo.tif 0</b><br />
+<b>C:\Genepix\Genepix.tif 1"</b></td>
+<td class="small">The name and path of the associated TIF file(s).</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"NormalizationMethod=None"</b></td>
+<td class="small">The type of normalization method used, if applicable.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"NormalizationFactors=1 &#160;&#160; 1"</b></td>
+<td class="small">The normalization factor applied to each channel.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"JpegImage=C:\Genepix\demo.jpg"</b></td>
+<td class="small">The name and path of the associated Jpeg image files.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"StdDev=Type 1"</b></td>
+<td class="small">The type of standard deviation calculation selected in the Options settings.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"RatioFormulation=W1/W2 (635/532)"</b></td>
+<td class="small">The ratio formulation of the ratio image, showing which image is numerator and which is denominator.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"Barcode=00331"</b></td>
+<td class="small">The barcode symbols read from the image.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"BackgroundSubtraction=LocalFeature"</b></td>
+<td class="small">The background subtraction method selected in the Options settings.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"ImageOrigin=0, 0"</b></td>
+<td class="small">The origin of the image relative to the scan area.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"JpegOrigin=390, 4320"</b></td>
+<td class="small">The origin of the Results JPEG image (the bounding box of the analysis Blocks) relative to the scan area origin.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"Creator=GenePix 4.1.1.4"</b></td>
+<td class="small">The version of the GenePix Pro software used to create the Results file.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"Scanner=GenePix 4000B [<i>serial number</i>]"</b></td>
+<td class="small">Type and serial number of scanner used to acquire the image.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"FocusPosition=0"</b></td>
+<td class="small">The focus position setting used to acquire the image, in microns.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"Temperature=19.6127"</b></td>
+<td class="small">The temperature of the scanner, in degrees C.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"LinesAveraged=1"</b></td>
+<td class="small">The line average setting used to acquire the image.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"Comment=hyb 2673"</b></td>
+<td class="small">User-entered file comment.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"PMTGain=500 &#160;&#160;&#160; 600"</b></td>
+<td class="small">The PMT settings during acquisition.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"ScanPower=100 &#160;&#160; 100"</b></td>
+<td class="small">The amount of laser transmission during acquisition.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"LaserPower=1 &#160;&#160; 1"</b></td>
+<td class="small">The power of each laser, in volts.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"LaserOnTime=5 &#160;&#160; 5"</b></td>
+<td class="small">The laser on-time for each laser, in minutes.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"Filters=&lt;Empty&gt; &#160;&#160; &lt;Empty&gt;"</b></td>
+<td class="small">Emission filters used during acquisition (GenePix 4100 and 4200 only.)</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"ScanRegion=100,100,2000,2000"</b></td>
+<td class="small">The coordinate values of the scan region used during acquisition, in pixels.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"Supplier="</b></td>
+<td class="small">Header field supplied in GAL file.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b><i>Data record column headings</i></b></td>
+<td class="small">Column titles for each measurement (see below).</td>
+</tr>
+<tr valign="top">
+<td class="small"><b><i>Data Records</i></b></td>
+<td class="small">Extracted data.</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+</td>
+</tr>
+<tr valign="top">
+<td class="small">
+<p><br />
+&#160;</p>
+<h4>GPR Data</h4>
+<p>The list below describes each column of data in the Results file.</p>
+<p></p>
+<table cellspacing="0" cellpadding="3" width="100%">
+<tbody>
+<tr valign="top">
+<td width="20%"><b>Column Title</b></td>
+<td width="80%"><b>Description</b></td>
+</tr>
+<tr valign="top">
+<td class="small" colspan="2"><img height="1" alt="Image" src="/media2/dotblack.gif" width="480" /></td>
+</tr>
+<tr valign="top">
+<td class="small"><b>Block</b></td>
+<td class="small">the block number of the feature.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>Column</b></td>
+<td class="small">the column number of the feature.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>Row</b></td>
+<td class="small">the row number of the feature.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>Name</b></td>
+<td class="small">the name of the feature derived from the Array List (up to 40 characters long, contained in quotation marks).</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>ID</b></td>
+<td class="small">the unique identifier of the feature derived from the Array List (up to 40 characters long, contained in quotation marks).</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>X</b></td>
+<td class="small">the X-coordinate in µm of the center of the feature-indicator associated with the feature, where (0,0) is the top left of the image.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>Y</b></td>
+<td class="small">the Y-coordinate in µm of the center of the feature-indicator associated with the feature, where (0,0) is the top left of the image.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>Dia.</b></td>
+<td class="small">the diameter in µm of the feature-indicator.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>F635 Median</b></td>
+<td class="small">median feature pixel intensity at wavelength #1 (635 nm).</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>F635 Mean</b></td>
+<td class="small">mean feature pixel intensity at wavelength #1 (635 nm).</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>F635 SD</b></td>
+<td class="small">the standard deviation of the feature pixel intensity at wavelength #1 (635 nm).</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>B635 Median</b></td>
+<td class="small">the median feature background intensity at wavelength #1 (635 nm).</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>B635 Mean</b></td>
+<td class="small">the mean feature background intensity at wavelength #1 (635 nm).</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>B635 SD</b></td>
+<td class="small">the standard deviation of the feature background intensity at wavelength #1 (635 nm).</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>% &gt; B635 + 1 SD</b></td>
+<td class="small">the percentage of feature pixels with intensities more than one standard deviation above the background pixel intensity, at wavelength #1 (635 nm).</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>% &gt; B635 + 2 SD</b></td>
+<td class="small">the percentage of feature pixels with intensities more than two standard deviations above the background pixel intensity, at wavelength #1 (635 nm).</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>F635 % Sat.</b></td>
+<td class="small">the percentage of feature pixels at wavelength #1 that are saturated.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>F532 Median</b></td>
+<td class="small">median feature pixel intensity at wavelength #2 (532 nm).</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>F532 Mean</b></td>
+<td class="small">mean feature pixel intensity at wavelength #2 (532 nm).</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>F532 SD</b></td>
+<td class="small">the standard deviation of the feature intensity at wavelength #2 (532 nm).</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>B532 Median</b></td>
+<td class="small">the median feature background intensity at wavelength #2 (532 nm).</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>B532 Mean</b></td>
+<td class="small">the mean feature background intensity at wavelength #2 (532 nm).</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>B532 SD</b></td>
+<td class="small">the standard deviation of the feature background intensity at wavelength #2 (532 nm).</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>% &gt; B532 + 1 SD</b></td>
+<td class="small">the percentage of feature pixels with intensities more than one standard deviation above the background pixel intensity, at wavelength #2 (532 nm).</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>% &gt; B532 + 2 SD</b></td>
+<td class="small">the percentage of feature pixels with intensities more than two standard deviations above the background pixel intensity, at wavelength #2 (532 nm).</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>F532 % Sat.</b></td>
+<td class="small">the percentage of feature pixels at wavelength #2 that are saturated.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>Ratio of Medians</b></td>
+<td class="small">the ratio of the median intensities of each feature for each wavelength, with the median background subtracted.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>Ratio of Means</b></td>
+<td class="small">the ratio of the arithmetic mean intensities of each feature for each wavelength, with the median background subtracted.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>Median of Ratios</b></td>
+<td class="small">the median of pixel-by-pixel ratios of pixel intensities, with the median background subtracted.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>Mean of Ratios</b></td>
+<td class="small">the geometric mean of the pixel-by-pixel ratios of pixel intensities, with the median background subtracted.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>Ratios SD</b></td>
+<td class="small">the geometric standard deviation of the pixel intensity ratios.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>Rgn Ratio</b></td>
+<td class="small">the regression ratio of every pixel in a 2-feature-diameter circle around the center of the feature.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>Rgn R²</b></td>
+<td class="small">the coefficient of determination for the current regression value.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>F Pixels</b></td>
+<td class="small">the total number of feature pixels.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>B Pixels</b></td>
+<td class="small">the total number of background pixels.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>Sum of Medians</b></td>
+<td class="small">the sum of the median intensities for each wavelength, with the median background subtracted.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>Sum of Means</b></td>
+<td class="small">the sum of the arithmetic mean intensities for each wavelength, with the median background subtracted.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>Log Ratio</b></td>
+<td class="small">log (base 2) transform of the ratio of the medians.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>Flags</b></td>
+<td class="small">the type of flag associated with a feature.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>Normalize</b></td>
+<td class="small">the normalization status of the feature (included/not included).</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>F1 Median - B1</b></td>
+<td class="small">the median feature pixel intensity at wavelength #1 with the median background subtracted.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>F2 Median - B2</b></td>
+<td class="small">the median feature pixel intensity at wavelength #2 with the median background subtracted.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>F1 Mean - B1</b></td>
+<td class="small">the mean feature pixel intensity at wavelength #1 with the median background subtracted.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>F2 Mean - B2</b></td>
+<td class="small">the mean feature pixel intensity at wavelength #2 with the median background subtracted.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>SNR 1</b></td>
+<td class="small">the signal-to-noise ratio at wavelength #1, defined by (Mean Foreground 1- Mean Background 1) / (Standard deviation of Background 1)</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>F1 Total Intensity</b></td>
+<td class="small">the sum of feature pixel intensities at wavelength #1</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>Index</b></td>
+<td class="small">the number of the feature as it occurs on the array.</td>
+</tr>
+<tr valign="top">
+<td class="small"><b>"User Defined"</b></td>
+<td class="small">user-defined feature data read from the GAL file (GenePix Pro 4.1).</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+</td>
+</tr>
+<tr valign="top">
+<td class="small"><a id="gpl" name="gpl"></a>
+<h3><a id="gpl" name="gpl">GPL &#160;-&#160; GenePix Lab Book format (*.gpl)<br />
+<img height="1" alt="Image" src="/media2/dotstripe.gif" width="500" /></a></h3>
+<p>The GenePix Lab Book is a binary file that contains a fixed-size structure for each line in the Lab Book.</p>
+<p><a id="gps" name="gps"></a></p>
+<h3><a id="gps" name="gps">GPS &#160;-&#160; GenePix Settings format (*.gps)<br />
+<img height="1" alt="Image" src="/media2/dotstripe.gif" width="500" /></a></h3>
+<p>GenePix acquisition, analysis and display settings are saved as binary GenePix Settings Files. Settings are organized into a number of different categories (acquisition, analysis and display) all of which are saved together in the GPS file. However, when opening a settings file you can choose which subset of the settings you wish to open.</p>
+<p>Acquisition settings include which laser was enabled during the acquisition, the PMT voltages, the lines averaged, and the scan area. Analysis settings include the location and identification of blocks and feature-indicators that were defined on the image. Display settings include brightness and contrast settings, and the color mapping.</p>
+<p><a id="jpeg" name="jpeg"></a></p>
+<h3><a id="jpeg" name="jpeg">JPEG &#160;-&#160; Joint Photographic Experts Group (*.jpg)<br />
+<img height="1" alt="Image" src="/media2/dotstripe.gif" width="500" /></a></h3>
+<p>Images can be saved in the JPEG format, which is a lossy compressed image file format. GenePix implements minimal JPEG compression, which is enough to reduce image file size significantly, but which removes only a small amount of data from the image. However, we recommend that you do not use the JPEG format to archive images that are to be analyzed later. Rather, use the JPEG format to store images that are to be used in presentations.</p>
+<p><a id="tiff" name="tiff"></a></p>
+<h3><a id="tiff" name="tiff">TIFF &#160;-&#160; Tagged Image File Format (*.tif)<br />
+<img height="1" alt="Image" src="/media2/dotstripe.gif" width="500" /></a></h3>
+<p>Images acquired in GenePix are by default saved as 16-bit unsigned TIFF images. This is a standard, uncompressed graphic file format that can be read by many graphics and imaging programs. The primary data acquired by GenePix are the single-wavelength images, and by default these are saved as 16-bit grayscale TIFFs in a single multi-image TIFF file. Not all graphics applications can read multi-image TIFF files. You may wish to try opening a multi-image file with your preferred graphics application to see if they are supported. If not, save the single-wavelength images as separate single-image files.</p>
+<p>GenePix exports its preview and pseudocolor ratio images as 24-bit color TIFFs, but it does not read them, as data are not extracted from them.</p>
+<p></p>
+<table class="white1" cellspacing="0" cellpadding="4" width="100%" border="1">
+<tbody>
+<tr>
+<td colspan="2">GenePix Pro sets the following standard TIFF fields using the function call TIFFSetField():
+<p>Note: Any text in ALL CAPS is a constant defined in 3rd party file tiff.h (from Silicon Graphics).</p>
+<p></p>
+</td>
+</tr>
+<tr>
+<td>TIFFTAG_IMAGEWIDTH</td>
+<td>Image Width (pixels)</td>
+</tr>
+<tr>
+<td>TIFFTAG_IMAGELENGTH</td>
+<td>Image Height (pixels)</td>
+</tr>
+<tr>
+<td>TIFFTAG_SUBFILETYPE</td>
+<td>0</td>
+</tr>
+<tr>
+<td>TIFFTAG_BITSPERSAMPLE</td>
+<td>Bits Per Sample</td>
+</tr>
+<tr>
+<td>TIFFTAG_SAMPLESPERPIXEL</td>
+<td>Samples Per Pixel</td>
+</tr>
+<tr>
+<td>TIFFTAG_ROWSPERSTRIP</td>
+<td>Rows per strip (32)</td>
+</tr>
+<tr>
+<td>TIFFTAG_PHOTOMETRIC</td>
+<td>photometric interpretation</td>
+</tr>
+<tr>
+<td>TIFFTAG_ORIENTATION</td>
+<td>ORIENTATION_TOPLEFT (top left)</td>
+</tr>
+<tr>
+<td>TIFFTAG_PLANARCONFIG</td>
+<td>PLANARCONFIG_CONTIG (single image plane)</td>
+</tr>
+<tr>
+<td>TIFFTAG_RESOLUTIONUNIT</td>
+<td>RESUNIT_CENTIMETER (metric)</td>
+</tr>
+<tr>
+<td>TIFFTAG_XRESOLUTION</td>
+<td>X Resolution</td>
+</tr>
+<tr>
+<td>TIFFTAG_YRESOLUTION</td>
+<td>Y Resolution</td>
+</tr>
+<tr>
+<td>TIFFTAG_XPOSITION</td>
+<td>X Origin (resolution units)</td>
+</tr>
+<tr>
+<td>TIFFTAG_YPOSITION</td>
+<td>Y Origin (resolution units)</td>
+</tr>
+<tr>
+<td>TIFFTAG_MINSAMPLEVALUE</td>
+<td>Min Sample Value</td>
+</tr>
+<tr>
+<td>TIFFTAG_MAXSAMPLEVALUE</td>
+<td>Max Sample Value</td>
+</tr>
+<tr>
+<td>TIFFTAG_SAMPLEFORMAT</td>
+<td>SAMPLEFORMAT_UINT (1);</td>
+</tr>
+<tr>
+<td>TIFFTAG_IMAGEDESCRIPTION</td>
+<td>User comment</td>
+</tr>
+<tr>
+<td>TIFFTAG_COMPRESSION</td>
+<td>COMPRESSION_NONE or COMPRESSION_LZW or COMPRESSION_JPEG</td>
+</tr>
+<tr>
+<td>TIFFTAG_JPEGQUALITY</td>
+<td>Compression Factor (Only if TIFFTAG_COMPRESSION = COMPRESSION_JPEG)</td>
+</tr>
+<tr>
+<td>TIFFTAG_AXON_IMAGEPARAMS</td>
+<td>Text string giving GPP specific values, <i>e.g.</i>, "AxImageIO: FullSize=550,1787; Compression=1,100; PMT=500; Averaging=1; LaserPower=3.51; LaserOnTime=39546; ScanPower=100; NormalizationFactor=1.000; Filter=&lt;Empty&gt;".</td>
+</tr>
+</tbody>
+</table>
+<p><br />
+&#160;</p>
+</td>
+</tr>
+</tbody>
+</table>       
+
+    </div>
+        
+    <div id="rn_FileAttach">
+    
+        
+        
+    </div>
+   
+    <br/>
+    
+     <div  id="rn_ProductCategoryDisplay_12" class="rn_ProductCategoryDisplay">
+            <span class="rn_DataLabel">Applies to: </span>
+        <div class="rn_DataValue">
+        <ul >
+                    <li>
+                                        Microarray Scanners                        </li>
+                    <li>
+            &nbsp;&nbsp;                            Acuity                        </li>
+                    <li>
+            &nbsp;&nbsp;                            GenePix Pro                        </li>
+                    <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;                            Version 3                        </li>
+                    <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;                            Version 4                        </li>
+                    <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;                            Version 5                        </li>
+                    <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;                            Version 6                        </li>
+                    <li>
+            &nbsp;&nbsp;&nbsp;&nbsp;                            Version 7                        </li>
+                    <li>
+            &nbsp;&nbsp;                            GenePix 4000A                        </li>
+                    <li>
+            &nbsp;&nbsp;                            GenePix 4000B                        </li>
+                    <li>
+            &nbsp;&nbsp;                            GenePix 4100A                        </li>
+                    <li>
+            &nbsp;&nbsp;                            GenePix 4200A                        </li>
+                    <li>
+            &nbsp;&nbsp;                            GenePix 4200AL                        </li>
+                    <li>
+            &nbsp;&nbsp;                            GenePix 4300A                        </li>
+                    <li>
+            &nbsp;&nbsp;                            GenePix 4300SL                        </li>
+                    <li>
+            &nbsp;&nbsp;                            GenePix 4400A                        </li>
+                    <li>
+            &nbsp;&nbsp;                            GenePix 4400SL                        </li>
+                </ul>
+    </div>
+</div>
+ 
+     <!--<rn:widget path="output/ProductCategoryDisplay" name="answers.categories" />-->
+     
+     <br />
+      <div id="rn_AnswerFeedback2_13" class="rn_AnswerFeedback2">
+        <div id="rn_AnswerFeedback2_13_AnswerFeedback2Control" class="rn_AnswerFeedback2Control">
+                    <div class="rn_Title">Was this answer helpful?</div>
+                        <div id="rn_AnswerFeedback2_13_RatingButtons">
+            <button id="rn_AnswerFeedback2_13_RatingYesButton">Yes</button>
+            <button id="rn_AnswerFeedback2_13_RatingNoButton">No</button>
+            <span id="rn_AnswerFeedback2_13_ThanksLabel" class="rn_ThanksLabel">&nbsp;</span>
+        </div>
+            </div>
+        <div id="rn_AnswerFeedback2_13_AnswerFeedback2Form" class="rn_AnswerFeedback2Form rn_Hidden">
+        <div id="rn_AnswerFeedback2_13_DialogDescription" class="rn_DialogSubtitle">Please tell us how we can make this answer more useful.</div>
+        <div id="rn_AnswerFeedback2_13_ErrorMessage"></div>
+        <form>
+                    <label for="rn_AnswerFeedback2_13_EmailInput">Email<span class="rn_Required" > *</span><span class="rn_ScreenReaderOnly">Required</span></label>
+            <input id="rn_AnswerFeedback2_13_EmailInput"  class="rn_EmailField" type="text"  value=""/>
+                <label for="rn_AnswerFeedback2_13_FeedbackTextarea">Your Feedback<span class="rn_Required" > *</span><span class="rn_ScreenReaderOnly">Required</span></label>
+        <textarea id="rn_AnswerFeedback2_13_FeedbackTextarea" class="rn_Textarea" rows="4" cols="60" ></textarea>
+        </form>
+    </div>
+    </div>
+          
+      <br />
+    <div id="rn_RelatedAnswers2_14" class="rn_RelatedAnswers2">
+    <h2>Answers others found helpful</h2>
+    <ul>
+            <li><a href="/app/answers/detail/a_id/18885/kw/18883/related/1" target="_self" > GenePix®: Examples Array List file</a></li>
+            <li><a href="/app/answers/detail/a_id/17120/kw/18883/related/1" target="_self" > GenePix: GPR file</a></li>
+            <li><a href="/app/answers/detail/a_id/18886/kw/18883/related/1" target="_self" > GenePix® Pro Results File Format History</a></li>
+            <li><a href="/app/answers/detail/a_id/17141/kw/18883/related/1" target="_self" > Troubleshooting GAL file errors</a></li>
+            <li><a href="/app/answers/detail/a_id/17180/kw/18883/related/1" target="_self" > GenePix: Adding custom columns to a GenePix Array List (GAL) file.</a></li>
+        </ul>
+</div>
+    <div id="rn_PreviousAnswers2_15" class="rn_PreviousAnswers2">
+    <h2>Previously viewed answers</h2>
+    <ul>
+            <li><a href="/app/answers/detail/a_id/17120/kw/18883" target="_self" >GenePix: GPR file</a></li>
+        </ul>
+</div>
+        
+        <div id="rn_DetailTools">
+            <span id="rn_PrintPageLink_16" class="rn_PrintPageLink">
+    <a onclick="window.print(); return false;" href="javascript:void(0);" title="Print this page" >
+                    <img src="images/Print.png" alt=""/>
+                <span>Print</span>
+    </a>
+</span>
+            <div id="rn_EmailAnswerLink_17" class="rn_EmailAnswerLink">
+    <a id="rn_EmailAnswerLink_17_Link" href="javascript:void(0);" title="Email a link to this answer" >
+                    <img src="images/Email.png" alt=""/>
+                <span>Email this page</span>
+    </a>
+        <div id="rn_EmailAnswerLink_17_EmailAnswerLinkForm" class="rn_EmailAnswerLinkForm rn_Hidden">
+        <form onsubmit="return false;">
+        <div id="rn_EmailAnswerLink_17_ErrorMessage"></div>
+        <label id="rn_EmailAnswerLink_17_LabelRecipientEmail" for="rn_EmailAnswerLink_17_InputRecipientEmail">
+            Recipient Email            <span class="rn_Required"> *</span><span class="rn_ScreenReaderOnly">Required</span>
+        </label>
+        <input id="rn_EmailAnswerLink_17_InputRecipientEmail" type="text"  value="" />
+            <label id="rn_EmailAnswerLink_17_LabelSenderEmail" for="rn_EmailAnswerLink_17_InputSenderEmail">
+            Your Email            <span class="rn_Required"> *</span><span class="rn_ScreenReaderOnly">Required</span>
+        </label>
+        <input id="rn_EmailAnswerLink_17_InputSenderEmail" type="text"  value="" />
+                <label id="rn_EmailAnswerLink_17_LabelSenderName" for="rn_EmailAnswerLink_17_InputSenderName">
+             Your Name             <span class="rn_Required"> *</span><span class="rn_ScreenReaderOnly">Required</span>
+        </label>
+        <input id="rn_EmailAnswerLink_17_InputSenderName" type="text" maxlength="70"  value='' />
+            </form>
+    </div>
+</div>
+            <div id="rn_AnswerNotificationIcon3_18" class="rn_AnswerNotificationIcon3">
+    <a href="javascript:void(0);" id="rn_AnswerNotificationIcon3_18_Trigger" title="Notify me by email if this answer is updated" >
+            <img src="images/Notification.png" alt=""/>
+               <span>Notify Me</span>
+        </a>
+            <div id="rn_LoginDialog2_19" class="rn_LoginDialog2 rn_Hidden ">
+        <div id="rn_LoginDialog2_19_Content" class="rn_LoginDialogContent">
+        <div id="rn_LoginDialog2_19_ErrorMessage"></div>
+        <form  id="rn_LoginDialog2_19_Form">
+            <label for="rn_LoginDialog2_19_Username">Username</label>
+            <input id="rn_LoginDialog2_19_Username" type="text" maxlength="80" name="rn_LoginDialog2_19_Username" value="" />
+                    <label for="rn_LoginDialog2_19_Password">Password</label>
+            <input id="rn_LoginDialog2_19_Password" type="password" value="" name="rn_LoginDialog2_19_Password" />
+                </form>
+        <span><a href="/app/utils/account_assistance" >Forgot your username or password?</a></span>
+    </div>
+</div>
+    </div>
+        </div>
+    </div>
+
+        </div>
+       
+
+<!-- the following controles the window on the side bar -->
+<!-- added login and create account for user on this -->
+
+ 	            <div id="rn_SideBar">
+                <div class="rn_Padding">
+                                        <div class="rn_Module">
+                        <h2>Find Answers</h2>
+                        <div id="rn_SimpleSearch_20" class="rn_SimpleSearch">
+    <form id="rn_SimpleSearch_20_SearchForm" onsubmit="return false;">
+        <input type="text" id="rn_SimpleSearch_20_SearchField" name="rn_SimpleSearch_20_SearchField" class="rn_SearchField" maxlength="255" value="Search" title="Search" />
+                        <input type="image" id="rn_SimpleSearch_20_Submit" class="rn_SearchImage" src="images/icons/search.png" alt="Search"/>
+    </form>
+</div>
+				<a href="/app/utils/help_search">Search tips</a>
+                    </div>
+ 
+                
+                   
+                    
+<!-- end Find answers box -->
+
+
+<!-- start of the login box -->
+
+
+<div class="rn_Module">
+                        <h2>Login/logout</h2>
+        <div class="rn_Padding">
+	    <div class="rn_Login">
+            <div class="rn_LoginStatus">
+                			<!-- refered here to -->
+			<a href="http://mdc.custhelp.com/app/utils/login_form/" id="rn_LoginLink">Log In</a>&nbsp;
+
+                    	<span> <style="background:none; padding:0; margin:0; font-weight:normal; font-size:12px;"></a></span>
+			<!-- this creates the create account option -->
+                     |  &nbsp;<a href="/app/utils/create_account">Create Account</a>
+			<span> <style="background:none; padding:0; margin:0; font-weight:normal; font-size:12px;">
+</a></span> 
+                                            <div id="rn_LoginDialog2_21" class="rn_LoginDialog2 rn_Hidden ">
+        <div id="rn_LoginDialog2_21_Content" class="rn_LoginDialogContent">
+        <div id="rn_LoginDialog2_21_ErrorMessage"></div>
+        <form  id="rn_LoginDialog2_21_Form">
+            <label for="rn_LoginDialog2_21_Username">Username</label>
+            <input id="rn_LoginDialog2_21_Username" type="text" maxlength="80" name="rn_LoginDialog2_21_Username" value="" />
+                    <label for="rn_LoginDialog2_21_Password">Password</label>
+            <input id="rn_LoginDialog2_21_Password" type="password" value="" name="rn_LoginDialog2_21_Password" />
+                </form>
+        <span><a href="/app/utils/account_assistance" >Forgot your username or password?</a></span>
+    </div>
+</div>
+                                                                    </div> </div> </div>
+         </div>
+
+                        
+   <!-- end of the login box -->  
+   <!-- padding is extra space, rn_module is a new box, make sure to end this with </div> -->                           
+ <div class="rn_Padding">
+
+
+		        <div class="rn_Module">
+                        <h2>Contact Us</h2>
+
+
+                        <div class="rn_HelpResources">
+                            <div class="rn_Questions">
+                                <a href="/app/ask">Request Support</a>
+                                <span>Submit a request to our Support Team</span>
+                            </div>
+
+
+
+                           <div class="rn_Contact">
+                                <a href="http://www.moleculardevices.com/Company/Who-We-Are/Contact-Us.html">Contact Us</a>
+                                <span>+1 800-635-5577 (Toll free in US)<br/>+1 408-747-1700<br /><br />+44 (0)118-944-8000 (Europe)<br /><br /><a href="http://www.moleculardevices.com/Company/Who-We-Are/Contact-Us.html" style="background:none; padding:0; margin:0; font-weight:normal; font-size:12px;">Contact other Offices or Distributors</a></span>
+                            </div>
+<!-- new info-->
+				<div class="rn_Feedback">
+                                <div id="rn_SiteFeedback2_22" class="rn_SiteFeedback2">
+        <a id="rn_SiteFeedback2_22_FeedbackLink" href="javascript:void(0);" >Feedback on support team</a>
+        <div class="rn_Hidden">
+        <div id="rn_SiteFeedback2_22_SiteFeedback2Form" class="rn_SiteFeedback2Form">
+            <div id="rn_SiteFeedback2_22_ErrorMessage"></div>
+            <form>
+                            <label for="rn_SiteFeedback2_22_EmailInput">Email<span class="rn_Required" > *</span><span class="rn_ScreenReaderOnly">Required</span></label>
+                <input id="rn_SiteFeedback2_22_EmailInput"  class="rn_EmailField" type="text"  value=""/>
+                        <label for="rn_SiteFeedback2_22_FeedbackTextarea">Your Feedback<span class="rn_Required" > *</span><span class="rn_ScreenReaderOnly">Required</span></label>
+            <textarea id="rn_SiteFeedback2_22_FeedbackTextarea" name="rn_SiteFeedback2_22_FeedbackTextarea" class="rn_Textarea" rows="4" cols="60" ></textarea>
+            </form>
+        </div>
+            </div>
+</div>
+                                <span>What was your customer service experience?</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div> </div>
+    
+</div>
+<script type="text/javascript" src="/euf/rightnow/js/11.8.0.1.3.130/min/RightNow.js"></script>
+<script type="text/javascript" src="/euf/rightnow/optimized/1328738617/templates/standard.js"></script>
+<script type="text/javascript" src="/euf/rightnow/optimized/1328738617/pages/answers/detail.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+RightNow.Url.setParameterSegment(5);
+RightNow.Interface.Constants = 
+{"ACTION_ADD":1,"ANY_FILTER_VALUE":"~any~","EUF_DT_CHECK":12,"EUF_DT_DATE":1,"EUF_DT_DATETIME":2,"EUF_DT_FATTACH":11,"EUF_DT_HIERMENU":9,"EUF_DT_INT":5,"EUF_DT_MEMO":6,"EUF_DT_PASSWORD":7,"EUF_DT_RADIO":3,"EUF_DT_SELECT":4,"EUF_DT_THREAD":10,"EUF_DT_VARCHAR":8,"INT_NULL":-2147483647,"CAN_USE_ARIA":false};
+RightNow.Interface.setMessagebase(function(){return {"WARNING_LBL":"Warning","INFORMATION_LBL":"Information","HELP_LBL":"Help","ERROR_REQUEST_ACTION_COMPLETED_MSG":"There was an error with the request and the action could not be completed.","OK_LBL":"OK","DIALOG_LBL":"dialog","DIALOG_PLEASE_READ_TEXT_DIALOG_MSG_MSG":"dialog, please read above text for dialog message","BEG_DIALOG_PLS_DISMISS_DIALOG_BEF_MSG":"Beginning of dialog, please dismiss dialog before continuing","END_DIALOG_PLS_DISMISS_DIALOG_BEF_MSG":"End of dialog, please dismiss dialog before continuing","ERR_SUBMITTING_FORM_DUE_INV_INPUT_LBL":"There was an error submitting the form due to invalid input","ERR_SUBMITTING_SEARCH_MSG":"There was a problem with your request.  Please change your search terms and try again.","CLOSE_CMD":"Close","BACK_LBL":"Back","TOP_CONTENT_CONTENT_ADDED_MSG":"Top of new content. New content has been added below.","NEW_CONTENT_ADDED_BELOW_MSG":"New content added below.","RESPONSE_PLACEHOLDER_LBL":"<Response Placeholder>","NO_ANSWERS_FOUND_MSG":"No Answers found.","AGT_TEXT_LBL":"Agent text:","ADD_TO_CHAT_CMD":"Add to Chat","NOTIFY_REQUEST_FAILED_HDG":"Notification Request Submission Failed","NOTIFY_SUBMIT_FAILED_MSG":"An internal error prevented your request from being submitted successfully.","NOTIFY_REQUEST_SUCCESS_HDG":"Notification Request Submitted Successfully","NOTIFY_SUBMIT_SUCCESS_MSG":"Your request has been successfully submitted.","NOTIFY_REQUEST_RENEWAL_HDG":"Notification Request Renewal Succeeded","NOTIFY_RENEWAL_SUCCESS_MSG":"Your existing notification request has been successfully renewed.","YOUR_ANSWER_NOTIFICATION_LBL":"Your answer notification","YOU_ARE_ALREADY_NOTIFIED_ANSWER_MSG":"You are already notified about this answer.","ANSWERFEEDBACK2_DIALOG_MISSING_REQD_MSG":"AnswerFeedback2 dialog is missing required element %s.","PCT_D_OF_PCT_D_SELECTED_LBL":"%d of %d selected","PCT_S_IS_REQUIRED_MSG":"%s is required","FIELD_IS_NOT_A_VALID_EMAIL_ADDRESS_MSG":"field is not a valid email address.","THANKS_FOR_YOUR_FEEDBACK_MSG":"Thanks for your feedback.","PCT_S_CONTAIN_THAN_MSG":"%s must not contain either '<' or '>'","PCT_S_MUST_NOT_CONTAIN_QUOTES_MSG":"%s must not contain quotes","PCT_S_MUST_NOT_CONTAIN_MSG":"%s must not contain '&'","PLEASE_ENTER_SINGLE_EMAIL_ADDRESS_MSG":"Please enter a single email address.","PCT_S_IS_INVALID_MSG":"%s is invalid","PCT_S_IS_TOO_LONG_MSG":"%s is too long","PCT_S_MUST_NOT_CONTAIN_SPACES_MSG":"%s must not contain spaces.","USERNAME_LBL":"Username","PCT_S_CONTAIN_DOUBLE_QUOTES_MSG":"%s must not contain double quotes.","PCT_S_CNT_THAN_MSG":"%s must not contain either '<' or '>'","SITEFEEDBACK2_DIALOG_MISSING_REQD_MSG":"SiteFeedback2 dialog is missing required element %s."};});
+RightNow.Interface.setConfigbase(function(){return {"DE_VALID_EMAIL_PATTERN":"^(([-!#$%&'*+\/=?^~`{|}\\w]+(\\.[-!#$%&'*+\/=?^~`{|}\\w]+)*)|(\"[^\"]+\"))@[0-9A-Za-z]+(-[0-9A-Za-z]+)*(\\.[0-9A-Za-z]+(-[0-9A-Za-z]+)*)+$","CP_HOME_URL":"home","CP_FILE_UPLOAD_MAX_TIME":300,"OE_WEB_SERVER":"mdc.custhelp.com"};});
+YAHOO.util.Event.onDOMReady(function(){this.Dialog.setRenderDiv(); this.prepareVirtualBufferUpdateTrigger(); this.ariaHideFrames();}, null, RightNow.UI);
+YAHOO.util.Event.onDOMReady(function(){
+var W = RightNow.Widget,
+c = 'createWidgetInstance';
+W[c]({"i":{"c":"LoginDialog2","n":"LoginDialog2_1","w":1},"a":{"trigger_element":"rn_LoginLink","label_username":"Username","label_password":"Password","label_login_button":"Log In","label_cancel_button":"Cancel","label_dialog_title":"Please log in to continue","label_assistance":"Forgot your username or password?","disable_password":false,"append_to_url":"","redirect_url":"","assistance_url":"\/app\/utils\/account_assistance","open_login_url":"","label_open_login_link":"Log in using a third-party account"},"j":[]},'LoginDialog2_1','standard/login/LoginDialog2','LoginDialog2','1');
+W[c]({"i":{"c":"NavigationTab2","n":"NavigationTab2_2","w":2},"a":{"label_tab":"Support Home","link":"\/app\/home","pages":["home",""],"subpages":"","css_class":"rn_SelectedTab","target":"_self","external":false,"searches_done":0},"j":[]},'NavigationTab2_2','standard/navigation/NavigationTab2','NavigationTab2','2');
+W[c]({"i":{"c":"NavigationTab2","n":"NavigationTab2_3","w":3},"a":{"label_tab":"Resource Center","link":"\/app\/answers\/list","pages":["answers\/list","answers\/detail"],"subpages":"","css_class":"rn_SelectedTab","target":"_self","external":false,"searches_done":0},"j":[]},'NavigationTab2_3','standard/navigation/NavigationTab2','NavigationTab2','3');
+W[c]({"i":{"c":"NavigationTab2","n":"NavigationTab2_4","w":4},"a":{"label_tab":"Request Support","link":"\/app\/ask","pages":["ask","ask_confirm"],"subpages":"","css_class":"rn_SelectedTab","target":"_self","external":false,"searches_done":0},"j":[]},'NavigationTab2_4','standard/navigation/NavigationTab2','NavigationTab2','4');
+W[c]({"i":{"c":"NavigationTab2","n":"NavigationTab2_5","w":5},"a":{"label_tab":"Your Account","link":"\/app\/account\/overview","pages":["utils\/account_assistance","account\/overview","account\/profile","account\/notif","account\/change_password","account\/questions\/list","account\/questions\/detail","account\/notif\/list","utils\/login_form","utils\/create_account","utils\/submit\/password_changed","utils\/submit\/profile_updated"],"subpages":"","css_class":"rn_SelectedTab","target":"_self","external":false,"searches_done":0},"j":[]},'NavigationTab2_5','standard/navigation/NavigationTab2','NavigationTab2','5');
+W[c]({"i":{"c":"AnswerNotificationIcon3","n":"AnswerNotificationIcon3_7","w":7},"a":{"label_link":"Notify me of updates","label_tooltip":"Notify me by email if this answer is updated","icon_path":"images\/Notification.png","label_icon_alt":"","label_notification_link":"You may also request notification of new and updated answers by product and category here","notifications_url":"\/app\/account\/notif\/list"},"j":{"answerID":"18883","statusNewNotification":-3,"statusAlreadyRegistered":0,"statusCreateSucceeded":1,"statusRenewalSucceded":2,"statusNoRenewal":3,"loggedIn":false,"autoOpen":null}},'AnswerNotificationIcon3_7','standard/notifications/AnswerNotificationIcon3','AnswerNotificationIcon3','7');
+W[c]({"i":{"c":"LoginDialog2","n":"LoginDialog2_8","w":8},"a":{"trigger_element":"rn_AnswerNotificationIcon3_7_Trigger","label_username":"Username","label_password":"Password","label_login_button":"Log In","label_cancel_button":"Cancel","label_dialog_title":"Please log in to continue","label_assistance":"Forgot your username or password?","disable_password":false,"append_to_url":"\/notif\/1","redirect_url":"","assistance_url":"\/app\/utils\/account_assistance","open_login_url":"","label_open_login_link":"Log in using a third-party account","label_window_title":"Please log in to get a notification","label_link":"Notify me of updates"},"j":[]},'LoginDialog2_8','standard/login/LoginDialog2','LoginDialog2','8');
+W[c]({"i":{"c":"AnswerFeedback2","n":"AnswerFeedback2_13","w":13},"a":{"label_title":"Was this answer helpful?","label_accessible_option_description":"Rate answer %d of %d","label_dialog_title":"Rating submitted","label_dialog_description":"Please tell us how we can make this answer more useful.","dialog_width":"auto","options_count":2,"options_descending":false,"label_yes_button":"Yes","label_no_button":"No","feedback_page_url":"","dialog_threshold":1,"label_feedback_submit":"Thanks for your feedback.","label_email_address":"Email","label_comment_box":"Your Feedback","label_send_button":"Submit","label_cancel_button":"Cancel","use_rank_labels":false},"j":{"buttonView":true,"summary":"GenePix\u00ae File Formats","answerID":"18883","isProfile":false,"email":""}},'AnswerFeedback2_13','standard/feedback/AnswerFeedback2','AnswerFeedback2','13');
+W[c]({"i":{"c":"EmailAnswerLink","n":"EmailAnswerLink_17","w":17},"a":{"label_link":"Email this page","label_dialog_title":"Email Answer","label_tooltip":"Email a link to this answer","icon_path":"images\/Email.png","label_icon_alt":"","label_to":"Recipient Email","label_sender_name":"Your Name","label_sender_email":"Your Email","label_send_button":"Send Email","label_cancel_button":"Cancel","label_email_sent":"Email has been sent."},"j":{"answerID":"18883","emailAnswerToken":"ap3_k2iZaJl0mXSZdJl4mUiZSJlImVyZUAfsB~w3XgefBw!!","isProfile":false,"senderEmail":""}},'EmailAnswerLink_17','standard/utils/EmailAnswerLink','EmailAnswerLink','17');
+W[c]({"i":{"c":"AnswerNotificationIcon3","n":"AnswerNotificationIcon3_18","w":18},"a":{"label_link":"Notify Me","label_tooltip":"Notify me by email if this answer is updated","icon_path":"images\/Notification.png","label_icon_alt":"","label_notification_link":"You may also request notification of new and updated answers by product and category here","notifications_url":"\/app\/account\/notif\/list"},"j":{"answerID":"18883","statusNewNotification":-3,"statusAlreadyRegistered":0,"statusCreateSucceeded":1,"statusRenewalSucceded":2,"statusNoRenewal":3,"loggedIn":false,"autoOpen":null}},'AnswerNotificationIcon3_18','standard/notifications/AnswerNotificationIcon3','AnswerNotificationIcon3','18');
+W[c]({"i":{"c":"LoginDialog2","n":"LoginDialog2_19","w":19},"a":{"trigger_element":"rn_AnswerNotificationIcon3_18_Trigger","label_username":"Username","label_password":"Password","label_login_button":"Log In","label_cancel_button":"Cancel","label_dialog_title":"Please log in to continue","label_assistance":"Forgot your username or password?","disable_password":false,"append_to_url":"\/notif\/1","redirect_url":"","assistance_url":"\/app\/utils\/account_assistance","open_login_url":"","label_open_login_link":"Log in using a third-party account","label_window_title":"Please log in to get a notification"},"j":[]},'LoginDialog2_19','standard/login/LoginDialog2','LoginDialog2','19');
+W[c]({"i":{"c":"SimpleSearch","n":"SimpleSearch_20","w":20},"a":{"initial_focus":false,"report_page_url":"\/app\/answers\/list","icon_path":"images\/icons\/search.png","alt_text":"Search","label_hint":"Search"},"j":[]},'SimpleSearch_20','standard/search/SimpleSearch','SimpleSearch','20');
+W[c]({"i":{"c":"LoginDialog2","n":"LoginDialog2_21","w":21},"a":{"trigger_element":"rn_LoginLink","label_username":"Username","label_password":"Password","label_login_button":"Log In","label_cancel_button":"Cancel","label_dialog_title":"Please log in to continue","label_assistance":"Forgot your username or password?","disable_password":false,"append_to_url":"","redirect_url":"","assistance_url":"\/app\/utils\/account_assistance","open_login_url":"","label_open_login_link":"Log in using a third-party account"},"j":[]},'LoginDialog2_21','standard/login/LoginDialog2','LoginDialog2','21');
+W[c]({"i":{"c":"SiteFeedback2","n":"SiteFeedback2_22","w":22},"a":{"label_dialog_title":"Provide Feedback","feedback_page_url":"","label_link":"Feedback on support team","label_email_address":"Email","label_comment_box":"Your Feedback","label_send_button":"Submit","label_cancel_button":"Cancel","label_feedback_confirmation":"Thanks for your feedback."},"j":{"isProfile":false,"email":""}},'SiteFeedback2_22','standard/feedback/SiteFeedback2','SiteFeedback2','22');
+RightNow.Url.transformLinks();});
+/* ]]> */
+</script>
+</body>
+
+</html>
