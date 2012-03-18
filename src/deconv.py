@@ -98,6 +98,69 @@ def get_channel():
     (channel_fg, channel_bg) = [ 'F635 Median', 'B635 Median' ]
     return(channel_fg, channel_bg)
 
+def get_naive(fg, bg, mask):
+    """
+    calculate ratio as fg / bg
+    calculate mean and stdev of ratio, masking where mask == True
+    calculate z-score as (ratio - mean)/stdev, including z-score for masked rows
+    return ratio and zscore
+    """
+    ratio = np.array(fg, dtype=float) / np.array(bg, dtype=float)
+    ratio_masked = np.ma.masked_array(ratio, mask=mask)
+    mean = ratio_masked.mean()
+    stdev = ratio_masked.std(ddof = 1) # subtract 1 ddof for mean to be consistent with excel stdev
+
+    zscore = (ratio - mean)/stdev
+    return(ratio, zscore)
+    
+def get_mean_by_group(group_list, data_list):
+    """
+    group_list provides the group for each row in data_list
+    for each group, calculate the mean of the corresponding rows
+    return:
+    the means for each key (len = number of distinct keys)
+    the corresponding mean for each row
+    """
+    group_to_sum = dict()
+    group_to_cnt = dict()
+    for (i, grp) in group_list.iteritems():
+        group_to_sum[grp] = group_to_sum.get(grp, 0) + data_list[i]
+        group_to_cnt[grp] = group_to_
+        for i in range(len(zscore_naive)):
+            if not mask[i]:
+                this_id = id[i]
+                id_to_sum[this_id] = id_to_sum.get(this_id, 0) + zscore_naive[i]
+                id_to_cnt[this_id] = id_to_cnt.get(this_id, 0) + zscore_naive[i]
+        id_to_mean = dict()
+        for this_id in id_to_sum.keys():
+            id_to_mean[this_id] = float(id_to_sum[this_id]) / float(id_to_cnt[this_id])
+    
+        zscore_mean = [ id_to_mean.get(this_id, np.nan) for this_id in id ]
+
+def extract_by_group(row_group, row_data):
+    """
+    return a dict indexed by unique values in row_group
+    dict value = list of values in row_data belonging to this group
+    """
+    data_by_group = dict()
+    for (g, d) in zip(row_group, row_data):
+        if g not in data_by_group:
+            data_by_group[g] = [ ]
+        data_by_group[g] = data_by_group.get(g, [ ]) + [ d ]
+    return(data_by_group)
+        
+def apply_by_group(fn, row_group, row_data):
+    """
+    apply function fn to groups defined by row_group with data row_data
+    fn reduces list to a scalar
+    """
+    data_by_group = extract_by_group(row_group, row_data)
+    fn_by_group = dict()
+    for (grp, data_list) in data_by_group.items():
+        fn_by_group[grp] = fn(data_list)
+    fn_by_row = [ fn_by_group[x] for x in row_group ]
+    return(fn_by_group, fn_by_row)
+
 def process_gpr_file(input_file, output_file, channel_fg, channel_bg):
     """
     open input_file as a gpr
@@ -114,42 +177,32 @@ def process_gpr_file(input_file, output_file, channel_fg, channel_bg):
     logger.info('%s => %s', input_file, output_file)
     gpr = GPR(input_file)
     gpr.print_summary()
-    (name, id, fg, bg, flags) = gpr.get_columns(['Name', 'ID', channel_fg, channel_bg, 'Flags'])
+    important_columns = [ 'Name', 'ID', channel_fg, channel_bg, 'Flags' ]
+    (name, id, fg, bg, flags) = gpr.get_columns(important_columns)
+    n_row = len(name)
     assert(sum(bg == 0) == 0), 'bg has %d zero values' % sum(bg==0)
-    ratio = np.array(1.0 * fg) / np.array(1.0 * bg)
 
     # mask flagged data when computing mean and stdev
     # numpy masked arrays exclude values where mask is True
     mask = flags <= FLAG_BAD
     logger.info('masking %d rows with flag <= %d', sum(mask), FLAG_BAD)
-    ratio_masked = np.ma.masked_array(ratio, mask=mask)
-    mean = ratio_masked.mean()
-    stdev = ratio_masked.std(ddof = 1) # subtract 1 ddof for mean to be consistent with excel stdev
+    # group rows by id and mask
+    id_mask = zip(id, mask)
+    
+    (ratio_naive, zscore_naive) = get_naive(fg, bg, mask)    
+    (id_to_mean_naive, row_to_mean_naive) = apply_by_group(np.mean, id_mask, zscore_naive)
 
-    zscore = (ratio - mean)/stdev
-    # gpr.add_column('ratio', ratio)
-    # gpr.add_column('zscore', zscore)
+    gpr.add_columns(('orig_row_number', range(1, n_row + 1)),
+        ('ratio_naive', ratio_naive),
+        ('zscore_naive', zscore_naive),
+        ('zscore_mean_naive', row_to_mean_naive))
+    new_columns = [ 'orig_row_number', 'ratio_naive', 'zscore_naive', 'zscore_mean_naive' ]
     
-    # calculate the mean z-score by id, excluding masked z-scores
-    id_to_sum = dict()
-    id_to_cnt = dict()
-    for i in range(len(zscore)):
-        if not mask[i]:
-            this_id = id[i]
-            id_to_sum[this_id] = id_to_sum.get(this_id, 0) + zscore[i]
-            id_to_cnt[this_id] = id_to_cnt.get(this_id, 0) + zscore[i]
-    id_to_mean = dict()
-    for this_id in id_to_sum.keys():
-        id_to_mean[this_id] = float(id_to_sum[this_id]) / float(id_to_cnt[this_id])
+    # collect rows where flag is good and either zscore is above a threshold
+    # ids = get_good_ids(id, mask, zscore_naive)
     
-    zscore_mean = [ id_to_mean.get(this_id, np.nan) for this_id in id ]
-    gpr.add_columns(['ratio', 'zscore', 'zscore_mean'], ratio, zscore, zscore_mean)
-    
-    
-    
-    
-    
-    
+    gpr.write(output_file, columns=important_columns + new_columns)
+
 
 def process_gpr_dir(data_dir, results_dir, channel_fg, channel_bg):
     """ process each gpr file in the data_dir, writing results to results_dir """

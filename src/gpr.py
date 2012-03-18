@@ -18,6 +18,18 @@ class GPR:
     Utilities for GenePix Results (GPR) files
     """
     def __init__(self, filename):
+        """
+        components:
+        file_type 'ATF'
+        version_number '1.0'
+        header_list
+        header_dict
+        n_column
+        column_list
+        column_type
+        n_row
+        data
+        """
         logger.info('reading from %s', filename)
         fp = open(filename, 'r')
         
@@ -116,6 +128,28 @@ class GPR:
             ret.append(self.data[c])
         return(ret)
         
+    def add_columns(self, *args):
+        """
+        each argument is a tuple (column name, column data)
+        error if a column name already exists
+        error if number of data elements is not n_row
+        modify
+        n_column
+        column_list
+        column_type
+        data
+        """
+        for (this_name, this_data) in args:
+            assert(this_name not in self.column_list), 'column name %s already exists' % this_name
+            assert(len(this_data) == self.n_row), 'expected %d rows but found %d' % (self.n_row, len(this_data))
+            self.n_column += 1
+            self.column_list.append(this_name)
+            self.column_type[this_name] = type(this_data[0])
+            self.data[this_name] = np.array(this_data)
+        n_new = len(args)
+        logger.info('added %d columns: %s', n_new, ' '.join(self.column_list[-n_new:]))
+            
+        
     def print_summary(self):
         # count how many ids for each name, how many rows for each name and id
         
@@ -183,16 +217,18 @@ class GPR:
                 name = id_to_name[id]
                 print 'id %s named %s has %d masks' % (id, name, nkey)
                 
-                
     
-    def write(self, filename):
+    def write(self, filename, columns=None):
+        if columns is None:
+            columns = self.column_list
         fp = open(filename, 'w')
-        logger.info('writing %d by %d data matrix to %s', self.n_row, self.n_column, filename)
-        fp.write('\t'.join(self.column_list) + '\n')
+        n_col = len(columns)
+        logger.info('writing %d by %d data matrix to %s', self.n_row, n_col, filename)
+        fp.write('\t'.join(columns) + '\n')
         for i in range(self.n_row):
             if (i + 1) % 10000 == 0:
                 logger.info('... %d', i+1)
-            toks = [ str(self.data[c][i]) for c in self.column_list ]
+            toks = [ str(self.data[c][i]) for c in columns ]
             fp.write('\t'.join(toks) + '\n')
         fp.close()
         
