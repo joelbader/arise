@@ -47,7 +47,7 @@ class GPR:
             (k, v) = toks
             self.header_list.append(k)
             self.header_dict[k] = v
-            logger.info('header line %d %s = %s', cnt + 1, k, v)
+            logger.debug('header line %d %s = %s', cnt + 1, k, v)
             
         column_line = fp.readline()
         toks = column_line.strip().split('\t')
@@ -56,16 +56,18 @@ class GPR:
         self.column_list = [ x.strip('"') for x in toks ]
         
         self.column_type = dict()
+        str_columns = ['Name', 'ID']
+        int_columns = ['Block', 'Column', 'Row', 'X', 'Y', 'Dia.', 'F Pixels', 'B Pixels', 'Circularity', 'Flags', 'Normalize', 'Autoflag']
         for c in self.column_list:
-            c_type = np.int
-            if (c == 'Name') or (c == 'ID'):
+            c_type = np.float
+            if c in str_columns:
                 c_type = type('')
-            elif (c == 'SNR 525') or (c == 'Log Ratio (1/525)'):
-                c_type = np.float
+            elif c in int_columns:
+                c_type = np.int
             self.column_type[c] = c_type
         
         for (i, c) in enumerate(self.column_list):
-            logger.info('%d\t%s\t%s', i+1, c, str(self.column_type[c]))
+            logger.debug('%d\t%s\t%s', i+1, c, str(self.column_type[c]))
         
         # store each column as a separate object in a dict
         # most objects will be numpy int arrays, a few will be numpy float arrays
@@ -98,7 +100,7 @@ class GPR:
                 if c_type == type(''):
                     value = tok.strip('"')
                 elif c_type == np.int:
-                    value = 0 if tok == '0.000' else c_type(tok)
+                    value = c_type(tok)
                 elif c_type == np.float:
                     value = np.nan if tok == 'Error' else c_type(tok)
                 else:
@@ -106,7 +108,83 @@ class GPR:
                 self.data[c][i] = value
                 
         return None
+    
+    def get_columns(self, request_list):
+        ret = [ ]
+        for c in request_list:
+            assert c in self.data, 'requested column %s missing' % c
+            ret.append(self.data[c])
+        return(ret)
         
+    def print_summary(self):
+        # count how many ids for each name, how many rows for each name and id
+        
+        def create_hist(value_list):
+            cnt = dict()
+            for v in value_list:
+                cnt[v] = cnt.get(v, 0) + 1
+            return cnt
+        
+        def print_hist(hist, key_str, value_str):
+            print '%s\t%s' % (key_str, value_str)
+            for k in sorted(hist.keys()):
+                v = hist[k]
+                print '%d\t%d' % (k, v)
+
+        id_to_mask = dict()
+        id_to_name = dict()
+
+        for masked in (False, True):       
+            name_cnt = dict()
+            id_cnt = dict()
+            name_to_id = dict()
+            for i in range(self.n_row):
+                (name, id, flag) = (self.data['Name'][i], self.data['ID'][i], self.data['Flags'][i])
+                mymask = flag <= -100
+                if (mymask == masked):
+                    if id not in id_to_mask:
+                        id_to_mask[id] = dict()
+                    id_to_mask[id][masked] = True
+                    id_to_name[id] = name
+                    name_cnt[name] = name_cnt.get(name, 0) + 1
+                    id_cnt[id] = id_cnt.get(id, 0) + 1
+                    if name not in name_to_id:
+                        name_to_id[name] = dict()
+                    name_to_id[name][id] = True
+            name_to_idcnt = dict()
+            for name in name_to_id.keys():
+                name_to_idcnt[name] = len(name_to_id[name].keys())
+            nameid_hist = create_hist(name_to_idcnt.values())
+            name_hist = create_hist(name_cnt.values())
+            id_hist = create_hist(id_cnt.values())
+            print '\nhistogram for mask = ' + str(masked)
+            print_hist(nameid_hist, 'ids_per_name', 'number_of_names')
+            print_hist(name_hist, 'rows_per_name', 'number_of_names')
+            print_hist(id_hist, 'rows_per_id', 'number_of_ids')
+            
+            print '\nnames with many ids for mask = ' + str(masked)
+            for name in sorted(name_to_idcnt.keys()):
+                cnt = name_to_idcnt[name]
+                if (cnt < 6):
+                    continue
+                print '%s\t%d' % (name, cnt)
+            
+            print '\nids with many rows for mask = ' + str(masked)
+            for id in sorted(id_cnt.keys()):
+                cnt = id_cnt[id]
+                if (cnt < 6):
+                    continue
+                print '%s\t%s\t%d' % (id_to_name[id], id, cnt)
+        
+        print 'checking for ids with multiple mask values'
+        for id in sorted(id_to_mask.keys()):
+            nkey = len(id_to_mask[id].keys())
+            if (nkey != 1):
+                name = id_to_name[id]
+                print 'id %s named %s has %d masks' % (id, name, nkey)
+                
+                
+    
     def write(self, filename):
         fp = open(filename, 'w')
         logger.info('writing %d by %d data matrix to %s', self.n_row, self.n_column, filename)
@@ -117,8 +195,6 @@ class GPR:
             toks = [ str(self.data[c][i]) for c in self.column_list ]
             fp.write('\t'.join(toks) + '\n')
         fp.close()
-                
-                
         
 
 def main():
