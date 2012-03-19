@@ -1,4 +1,4 @@
-Name	ID	F635 Median	B635 Median	Flags	orig_row_number	ratio_naive	zscore_naive	zscore_mean_naive
+Name	ID	F635 Median	B635 Median	Flags	row_number_orig	ratio_naive	zscore_naive	zscore_mean_naive
 C3orf49	IOH11027	91.0	77.0	0	43	1.18181818182	2.63284655823	1.53333499018
 SPG21	IOH4511	98.0	80.0	0	101	1.225	3.3602912653	2.74455608853
 ND	IOH3438	94.0	77.0	0	112	1.22077922078	3.28918764732	1.45220707442

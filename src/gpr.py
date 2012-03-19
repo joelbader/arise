@@ -134,6 +134,16 @@ class GPR:
                 
         return None
     
+    def delete_rows(self, mask):
+        """ delete rows where mask is true """
+        assert(len(mask) == self.n_row), 'expected mask with %d rows but found %d' % (self.n_row, len(mask))
+        row_subset = [ i for i in range(self.n_row) if not mask[i] ]
+        for c in self.column_list:
+            self.data[c] = np.array([ self.data[c][r] for r in row_subset ], dtype=self.column_type[c])
+        self.n_row = len(row_subset)
+        logger.info('%d rows deleted, new length is %d', sum(mask), self.n_row)        
+        
+    
     def get_columns(self, request_list):
         ret = [ ]
         for c in request_list:
@@ -162,11 +172,9 @@ class GPR:
         n_new = len(args)
         logger.info('added %d columns: %s', n_new, ' '.join(self.column_list[-n_new:]))
     
-    def get_id_to_name(self, mask):
+    def get_id_to_name(self):
         id_to_name = dict()
-        for (i, n, m) in zip(self.data['ID'], self.data['Name'], mask):
-            if m:
-                continue
+        for (i, n) in zip(self.data['ID'], self.data['Name']):
             if i not in id_to_name:
                 id_to_name[i] = [ ]
             if n not in id_to_name[i]:
