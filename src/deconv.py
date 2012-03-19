@@ -243,6 +243,22 @@ def validate_pools(pool_to_file):
         logger.info('pool %s file %s validated', p, f)
     return True
 
+def write_pool_hit(pool_to_file, pool_hit):
+    pool_list = [ ]
+    file_list = [ ]
+    id_list = [ ]
+    zscore_list = [ ]
+    ratio_list = [ ]
+    for (p, f) in zip(pool_to_file.data['pool'], pool_to_file.data['file']):
+        for h in pool_hit[p]:
+            pool_list.append(p)
+            file_list.append(f)
+            id_list.append(h)
+            zscore_list.append(pool_hit[p][h]['zscore'])
+            ratio_list.append(pool_hit[p][h]['ratio'])
+    df = DataFrame( data=[('pool', pool_list), ('file', file_list), ('id', id_list), ('zscore', zscore_list), ('ratio', ratio_list)] )
+    df.write('pool_hit.txt')
+
 def get_pool_hit(pool_to_file):
     pool_hit = dict()
     for (p, f) in zip(pool_to_file.data['pool'], pool_to_file.data['full_path']):
@@ -256,9 +272,68 @@ def get_pool_hit(pool_to_file):
             pool_hit[p][idname]['ratio'] = ratio
     return pool_hit
 
+def get_intersection_hit(pool_hit, horizontal_pools, vertical_pools):
+    intersection_hit = dict()
+    pair_order = [ ]
+    THRESHOLD = 2.5
+    for h in horizontal_pools:
+        if h not in pool_hit:
+            continue
+        
+        for v in vertical_pools:
+            if v not in pool_hit:
+                continue
+            pair = h + ' x ' + v
+            for id in pool_hit[h].keys():
+                if id not in pool_hit[v].keys():
+                    continue
+                (zscoreh, zscorev) = [pool_hit[x][id]['zscore'] for x in [h, v]]
+                (ratioh, ratiov) = [ pool_hit[x][id]['ratio'] for x in [h, v]]
+                if (zscoreh < THRESHOLD) or (zscorev < THRESHOLD):
+                    continue
+                logger.info('%s %s %f %f', pair, id, zscoreh, zscorev)
+                if pair not in pair_order:
+                    pair_order.append(pair)
+                if pair not in intersection_hit:
+                    intersection_hit[pair] = dict()
+                intersection_hit[pair][id] = dict()
+                ptr = intersection_hit[pair][id]
+                ptr['zscore_H'] = zscoreh
+                ptr['zscore_V'] = zscorev
+                ptr['ratio_H'] = ratioh
+                ptr['ratio_V'] = ratiov
+                        
+    # convert to a data frame
+    pair_list = [ ]
+    id_list = [ ]
+    zscoreh_list = [ ]
+    zscorev_list = [ ]
+    ratioh_list = [ ]
+    ratiov_list = [ ]
+    for pair in pair_order:
+        for id in sorted(intersection_hit[pair].keys()):
+            ptr = intersection_hit[pair][id]
+            (zscoreh, zscorev, ratioh, ratiov) = (ptr['zscore_H'],
+                                                  ptr['zscore_V'],
+                                                  ptr['ratio_H'],
+                                                  ptr['ratio_V'])
+            pair_list.append(pair)
+            id_list.append(id)
+            zscoreh_list.append(zscoreh)
+            zscorev_list.append(zscorev)
+            ratioh_list.append(ratioh)
+            ratiov_list.append(ratiov)
+    intersection_hit_df = DataFrame(data = [ ('pair', pair_list), ('id', id_list),
+        ('zscore_h', zscoreh_list), ('zscore_v', zscorev_list),
+        ('ratio_h', ratioh_list), ('ratio_v', ratiov_list) ])
+    
+    return(intersection_hit, intersection_hit_df)
+                        
+                    
+                    
 def deconv_pools(results_dir, pool_to_file):
     # create full path to file
-    full_path = [ os.path.join(results_dir, f + '-summary.txt') for f in pool_to_file.data['file'] ]
+    full_path = [ os.path.join(results_dir, str(f) + '-summary.txt') for f in pool_to_file.data['file'] ]
     pool_to_file.add_columns( ('full_path', full_path) )
     
     # check that pool names are correct and that summary files exist
@@ -266,6 +341,12 @@ def deconv_pools(results_dir, pool_to_file):
     
     # for each pool, get the hits' zscore and ratio
     pool_hit = get_pool_hit(pool_to_file)
+    write_pool_hit(pool_to_file, pool_hit)
+    
+    HORIZONTAL = [ 'H' + str(i) for i in range(1, 13) ]
+    VERTICAL = ['V' + str(i) for i in range(1, 13) ]
+    (intersection_hit_dict, intersection_hit_df) = get_intersection_hit(pool_hit, HORIZONTAL, VERTICAL)
+    intersection_hit_df.write('intersection_hit.txt')
 
 def main():
     

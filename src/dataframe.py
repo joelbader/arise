@@ -26,6 +26,22 @@ class DataFrame:
         if from data, data is a list of tuples (header_name, data_list)
         if from a file, extract the headers as the first line unless headers is not null
         """
+        
+        def is_type(str_val, typecast):
+            try:
+                typecast(str_val)
+                return True
+            except ValueError:
+                return False
+            
+        def try_to_convert(str_val):
+            new_val = str_val
+            if is_type(str_val, int):
+                new_val = int(str_val)
+            elif is_type(str_val, float):
+                new_val = float(str_val)
+            return(new_val)
+        
         n_err = 0
         if (data is None) and (filename is None):
             logger.error('data and filename both none')
@@ -65,7 +81,8 @@ class DataFrame:
                 toks = data_line.strip().split(sep)
                 assert(len(toks) == n_column), 'expected %d columns found %d: %s' % (n_column, len(toks), data_line)
                 for (j, h) in enumerate(headers):
-                    data_tmp[h].append(toks[j])
+                    new_val = try_to_convert(toks[j])
+                    data_tmp[h].append(new_val)
             data = [ ]
             for h in headers:
                 data.append( (h, data_tmp[h]))
