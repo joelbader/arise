@@ -7,7 +7,7 @@ joel.bader@jhu.edu
 import logging
 import os
 from gpr import GPR
-from gpr import DataFrame
+from dataframe import DataFrame
 import numpy as np
 import numpy.ma
 
@@ -279,6 +279,59 @@ def process_gpr_dir(data_dir, results_dir, channel_fg, channel_bg):
             summary_file = os.path.join(results_dir, base + '-summary.txt')
             process_gpr_file(input_file, output_file, summary_file, channel_fg, channel_bg)
 
+POOL_DIRECTIONS = ['H', 'V']
+POOL_RANGE = range(1, 13)
+
+def parse_pool_name(p):
+    direction = p[0]
+    number = int(p[1:])
+    return(direction, number)
+
+def is_valid_pool_name(p):
+    (direction, number) = parse_pool_name(p)
+    ret = True
+    if direction not in ['H', 'V']:
+        ret = False
+    if number not in POOL_RANGE:
+        ret = False
+    return(ret)
+    
+def is_available(f):
+    ret = os.path.isfile(f)
+    return(ret)
+
+def validate_pools(pool_to_file):
+    """ check that pool names are valid and that all the summary files exist """
+    for (p, f) in zip(pool_to_file.data['pool'], pool_to_file.data['full_path']):
+        assert(is_valid_pool_name(p)), 'bad pool name: %s' % p
+        assert(is_available(f)), 'results unavailable: %s' % f
+        logger.info('pool %s file %s validated', p, f)
+    return True
+
+def get_pool_hit(pool_to_file):
+    pool_hit = dict()
+    for (p, f) in zip(pool_to_file.data['pool'], pool_to_file.data['full_path']):
+        pool_data = DataFrame(filename=f)
+        for (idname, zscore, ratio) in zip(pool_data.data['IDName'], pool_data.data['zscore'], pool_data.data['ratio']):
+            if p not in pool_hit:
+                pool_hit[p] = dict()
+            assert(idname not in pool_hit[p]), 'pool %s file %f duplicated id %s' % (p, f, idname)
+            pool_hit[p][idname] = dict()
+            pool_hit[p][idname]['zscore'] = zscore
+            pool_hit[p][idname]['ratio'] = ratio
+    return pool_hit
+
+def deconv_pools(results_dir, pool_to_file):
+    # create full path to file
+    full_path = [ os.path.join(results_dir, f + '-summary.txt') for f in pool_to_file.data['file'] ]
+    pool_to_file.add_columns( ('full_path', full_path) )
+    
+    # check that pool names are correct and that summary files exist
+    validate_pools(pool_to_file)
+    
+    # for each pool, get the hits' zscore and ratio
+    pool_hit = get_pool_hit(pool_to_file)
+
 def main():
     
     # for each gpr file in the data directory,
@@ -290,8 +343,7 @@ def main():
     # process_gpr_dir(data_dir, results_dir, channel_fg, channel_bg)
     pool_filename = get_pool_filename()
     pool_to_file = DataFrame(filename=pool_filename)
-    pool_to_file.write('junk.txt')
-    # analyze_pools(expected_pools, pool_to_file, data_dir)
+    deconv_pools(results_dir, pool_to_file)
 
 if __name__ == '__main__':
     main()
