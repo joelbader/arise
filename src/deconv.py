@@ -221,15 +221,18 @@ def process_gpr_file(input_file, output_file, channel_fg, channel_bg):
     # create a new index, idname, combining id with name
     # this avoids having one id map to multiple names, which could reflect a difference in probes, etc.
     idname = [ '_'.join([i,n]) for (i, n) in zip(id, name) ]
+    idname_to_id = dict()
+    idname_to_name = dict()
+    for (idn, i, n) in zip(idname, id, name):
+        idname_to_id[idn] = i
+        idname_to_name[idn] = n
+    
     gpr.add_columns( ('idname', idname))
     columns_added += ['idname']
     
-    # group rows by id
-    id_to_name = gpr.get_id_to_name()
-    
     (ratio_naive, zscore_naive) = get_naive(fg, bg)    
-    (id_to_mean_naive, row_to_mean_naive, id_to_zscores) = apply_by_group(np.mean, id, zscore_naive)
-    (id_to_mean_ratio, row_to_mean_ratio, id_to_ratios) = apply_by_group(np.mean, id, ratio_naive)
+    (id_to_mean_naive, row_to_mean_naive, id_to_zscores) = apply_by_group(np.mean, idname, zscore_naive)
+    (id_to_mean_ratio, row_to_mean_ratio, id_to_ratios) = apply_by_group(np.mean, idname, ratio_naive)
 
     gpr.add_columns(('ratio_naive', ratio_naive),
         ('zscore_naive', zscore_naive),
@@ -237,19 +240,21 @@ def process_gpr_file(input_file, output_file, channel_fg, channel_bg):
     columns_added += ['ratio_naive', 'zscore_naive', 'zscore_mean_naive' ]
     
     # collect rows where flag is good and either zscore is above a threshold
-    (id_subset, row_subset) = get_good_ids_rows(id, zscore_naive)
+    (id_subset, row_subset) = get_good_ids_rows(idname, zscore_naive)
     
     columns_display = columns_extracted + columns_added
     gpr.write(output_file, rows=row_subset, columns=columns_display)
     
     # gather data for each good id:
     # id, name, zscore_mean, zscores
-    name_list = [ id_to_name[i] for i in id_subset ]
+    id_list = [ idname_to_id[i] for i in id_subset ]
+    name_list = [ idname_to_name[i] for i in id_subset ]
     zscore_list = [ id_to_mean_naive[i] for i in id_subset ]
     ratio_list = [ id_to_mean_ratio[i] for i in id_subset ]
     zscores_list = [ ';'.join([ str(x) for x in id_to_zscores[i] ]) for i in id_subset]
     ratios_list = [ ';'.join([ str(x) for x in id_to_ratios[i] ]) for i in id_subset]
-    id_data = DataFrame( data=[('ID', id_subset), ('Name', name_list),
+    id_data = DataFrame( data=[('IDName', id_subset),
+        ('ID', id_list), ('Name', name_list),
         ('zscore', zscore_list), ('ratio', ratio_list),
         ('zscores', zscores_list), ('ratios', ratios_list)] )
         
