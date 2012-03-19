@@ -218,6 +218,12 @@ def process_gpr_file(input_file, output_file, channel_fg, channel_bg):
     n_row = len(name)
     assert(sum(bg == 0) == 0), 'bg has %d zero values' % sum(bg==0)
     
+    # create a new index, idname, combining id with name
+    # this avoids having one id map to multiple names, which could reflect a difference in probes, etc.
+    idname = [ '_'.join([i,n]) for (i, n) in zip(id, name) ]
+    gpr.add_columns( ('idname', idname))
+    columns_added += ['idname']
+    
     # group rows by id
     id_to_name = gpr.get_id_to_name()
     
