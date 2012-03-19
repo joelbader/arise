@@ -7,6 +7,7 @@ joel.bader@jhu.edu
 import logging
 import os
 from gpr import GPR
+from gpr import DataFrame
 import numpy as np
 import numpy.ma
 
@@ -146,7 +147,8 @@ def extract_by_group(row_group, row_data):
     for (g, d) in zip(row_group, row_data):
         if g not in data_by_group:
             data_by_group[g] = [ ]
-        data_by_group[g] = data_by_group.get(g, [ ]) + [ d ]
+        # data_by_group[g] = data_by_group.get(g, [ ]) + [ d ]
+        data_by_group[g].append(d)
     return(data_by_group)
         
 def apply_by_group(fn, row_group, row_data):
@@ -159,7 +161,26 @@ def apply_by_group(fn, row_group, row_data):
     for (grp, data_list) in data_by_group.items():
         fn_by_group[grp] = fn(data_list)
     fn_by_row = [ fn_by_group[x] for x in row_group ]
-    return(fn_by_group, fn_by_row)
+    return(fn_by_group, fn_by_row, data_by_group)
+
+def get_good_ids_rows(id_list, mask_list, zscore_list, z_threshold = 2.5):
+    """
+    ad hoc definition: retain rows where mask is good and zscore is above a threshold of 2.5
+    then retain the ids corresponding to these rows
+    """
+    n_row = len(id_list)
+    row_num = range(1, n_row + 1)
+    id_subset = [ ]
+    row_subset = [ ]
+    for (r, i, m, z) in zip(row_num, id_list, mask_list, zscore_list):
+        if m == True:
+            continue
+        if z < z_threshold:
+            continue
+        row_subset.append(r)
+        id_subset.append(i)
+    return(id_subset, row_subset)
+        
 
 def process_gpr_file(input_file, output_file, channel_fg, channel_bg):
     """
@@ -188,20 +209,35 @@ def process_gpr_file(input_file, output_file, channel_fg, channel_bg):
     logger.info('masking %d rows with flag <= %d', sum(mask), FLAG_BAD)
     # group rows by id and mask
     id_mask = zip(id, mask)
+    id_to_name = gpr.get_id_to_name(mask)
     
     (ratio_naive, zscore_naive) = get_naive(fg, bg, mask)    
-    (id_to_mean_naive, row_to_mean_naive) = apply_by_group(np.mean, id_mask, zscore_naive)
+    (id_to_mean_naive, row_to_mean_naive, id_to_zscores) = apply_by_group(np.mean, id_mask, zscore_naive)
+    (id_to_mean_ratio, row_to_mean_ratio, id_to_ratios) = apply_by_group(np.mean, id_mask, ratio_naive)
 
     gpr.add_columns(('orig_row_number', range(1, n_row + 1)),
         ('ratio_naive', ratio_naive),
         ('zscore_naive', zscore_naive),
         ('zscore_mean_naive', row_to_mean_naive))
     new_columns = [ 'orig_row_number', 'ratio_naive', 'zscore_naive', 'zscore_mean_naive' ]
+    column_subset = important_columns + new_columns
     
     # collect rows where flag is good and either zscore is above a threshold
-    # ids = get_good_ids(id, mask, zscore_naive)
+    (id_subset, row_subset) = get_good_ids_rows(id, mask, zscore_naive)
     
-    gpr.write(output_file, columns=important_columns + new_columns)
+    gpr.write(output_file, rows=row_subset, columns=column_subset)
+    
+    # gather data for each good id:
+    # id, name, zscore_mean, zscores
+    name_list = [ id_to_name[i] for i in id_subset ]
+    zscore_list = [ id_to_mean_naive[(i,False)] for i in id_subset ]
+    ratio_list = [ id_to_mean_ratio[(i,False)] for i in id_subset ]
+    zscores_list = [ ';'.join([ str(x) for x in id_to_zscores[(i,False)] ]) for i in id_subset]
+    ratios_list = [ ';'.join([ str(x) for x in id_to_ratios[(i,False)] ]) for i in id_subset]
+    id_data = DataFrame( data=[('ID', id_subset), ('Name', name_list),
+        ('zscore', zscore_list), ('ratio', ratio_list),
+        ('zscores', zscores_list), ('ratios', ratios_list)] )
+        
 
 
 def process_gpr_dir(data_dir, results_dir, channel_fg, channel_bg):
