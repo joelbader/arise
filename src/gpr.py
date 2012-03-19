@@ -47,9 +47,10 @@ class DataFrame:
             if headers is None:
                 header_line = fp.readline()
                 headers = header_line.strip().split(sep)
+            n_column = len(headers)
         
             # check that headers are unique
-            header_dict = ()
+            header_dict = dict()
             for h in headers:
                 assert(h not in header_dict), 'reused header %s' % h
                 header_dict[h] = True
@@ -62,8 +63,8 @@ class DataFrame:
                 data_tmp[h] = [ ]
             for data_line in data_lines:
                 toks = data_line.strip().split(sep)
-                assert(len(toks) == self.n_column), 'expected %d columns found %d: %s' % (self.n_column, len(toks), data_line)
-                for (j, h) in enumerate(self.headers):
+                assert(len(toks) == n_column), 'expected %d columns found %d: %s' % (n_column, len(toks), data_line)
+                for (j, h) in enumerate(headers):
                     data_tmp[h].append(toks[j])
             data = [ ]
             for h in headers:

@@ -98,6 +98,11 @@ def get_channel():
     """ foreground and background channel """
     (channel_fg, channel_bg) = [ 'F635 Median', 'B635 Median' ]
     return(channel_fg, channel_bg)
+    
+def get_pool_filename():
+    """ file with pool-file map """
+    pool_filename = '../data/pool_to_file.txt'
+    return(pool_filename)
 
 def get_naive(fg, bg):
     """
@@ -281,9 +286,11 @@ def main():
     data_dir = get_data_dir()
     results_dir = get_results_dir()
     (channel_fg, channel_bg) = get_channel()
-    process_gpr_dir(data_dir, results_dir, channel_fg, channel_bg)
     
-    # pool_to_file = get_pool_to_file(data_dir, expected_pools)
+    # process_gpr_dir(data_dir, results_dir, channel_fg, channel_bg)
+    pool_filename = get_pool_filename()
+    pool_to_file = DataFrame(filename=pool_filename)
+    pool_to_file.write('junk.txt')
     # analyze_pools(expected_pools, pool_to_file, data_dir)
 
 if __name__ == '__main__':
