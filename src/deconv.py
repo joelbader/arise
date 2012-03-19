@@ -174,10 +174,11 @@ def get_good_ids_rows(id_list, zscore_list, z_threshold = 2.5):
         if z < z_threshold:
             continue
         row_subset.append(r)
-        id_subset.append(i)
+        if i not in id_subset:
+            id_subset.append(i)
     return(id_subset, row_subset)
 
-def process_gpr_file(input_file, output_file, channel_fg, channel_bg):
+def process_gpr_file(input_file, output_file, summary_file, channel_fg, channel_bg):
     """
     open input_file as a gpr
     extract columns corresponding to F635 Median and B635 Median (fore- and back-ground)
@@ -257,6 +258,7 @@ def process_gpr_file(input_file, output_file, channel_fg, channel_bg):
         ('ID', id_list), ('Name', name_list),
         ('zscore', zscore_list), ('ratio', ratio_list),
         ('zscores', zscores_list), ('ratios', ratios_list)] )
+    id_data.write(summary_file)
         
 
 
@@ -269,7 +271,8 @@ def process_gpr_dir(data_dir, results_dir, channel_fg, channel_bg):
             logger.info('dir %s file %s base %s ext %s', data_dir, file_name, base, ext)
             input_file = os.path.join(data_dir, file_name)
             output_file = os.path.join(results_dir, base + '-top.txt')
-            process_gpr_file(input_file, output_file, channel_fg, channel_bg)
+            summary_file = os.path.join(results_dir, base + '-summary.txt')
+            process_gpr_file(input_file, output_file, summary_file, channel_fg, channel_bg)
 
 def main():
     
