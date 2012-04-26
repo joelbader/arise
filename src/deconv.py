@@ -21,7 +21,7 @@ def get_data_dir():
     # data_dir = '/Users/joel/Dropbox/Pooled data and individual retests_12511/Pools'
     data_dir = '../data'
     data_dir = '/Users/joel/Dropbox/GPR files'
-    data_dir = '/Users/joel/Dropbox/GPR files/2012-03-05'
+    data_dir = '/Users/joel/Dropbox/GPR files/2012-04-25-IgM'
     logger.info('data_dir %s', data_dir)
     return(data_dir)
     
@@ -39,10 +39,11 @@ def get_channel():
     (channel_fg, channel_bg) = [ 'F635 Median', 'B635 Median' ]
     return(channel_fg, channel_bg)
     
-def get_pool_filename():
+def get_pool_filename(results_dir=None):
     """ file with pool-file map """
     pool_filename = '../data/pool_to_file.txt'
-    
+    if results_dir is not None:
+        pool_filename = os.path.join(results_dir, 'pool_to_file.txt')
     return(pool_filename)
     
 def get_control_filename():
@@ -65,14 +66,19 @@ def get_control_from_file(filename):
     id_to_name = dict()
     control_dict = dict()
     for (i, n, c, e) in zip(id, name, control, exptl):
-        nd = n in [ 'ND', 'nd', 'N.D.' ]
+        isND = n in [ 'ND', 'nd', 'N.D.' ]
+        isControl = (i == 'CONTROL')
+        isIgg = (n == 'IgG')
+        if ((c >= e) or isND or isControl or isIgg):
+            control_dict[(i, n)] = True
+            
+    # insert some special cases
+    control_dict[('CONTROL', 'IgG')] = True
+
+    for (i, n) in zip(id, name):
         if i not in id_to_name:
             id_to_name[i] = dict()
         id_to_name[i][n] = True
-        if i in control_dict:
-            print('repeated id: %s' % i)
-        if ((c >= e) or nd):
-            control_dict[(i, n)] = True
     
     id_to_names = dict()
     for i in id_to_name:
@@ -213,14 +219,17 @@ def process_gpr_file(input_file, output_file, summary_file, channel_fg, channel_
 
     # identify rows with bad flags and delete them
     # follow the semantics of a numpy masked array: delete where mask is True
-    mask = None
+    mask1 = None
     if (control_dict is None):
-        mask = flags <= FLAG_BAD
+        mask1 = flags <= FLAG_BAD
     else:
-        mask = [ x in control_dict for x in zip(ids, names) ]
-    logger.info('deleting %d rows with flag <= %d', sum(mask), FLAG_BAD)
-
+        mask1 = [ x in control_dict for x in zip(ids, names) ]
+    # also get rid of anything with id == CONTROL
+    mask2 = [ id == 'CONTROL' for id in ids ]
+    mask = [ x[0] or x[1] for x in zip(mask1, mask2) ]
+    logger.info('deleting %d control rows', sum(mask))
     gpr.delete_rows(mask)
+
 
     # identify rows with background <= 0 and delete them
     (fg, bg) = gpr.get_columns([channel_fg, channel_bg])
@@ -422,7 +431,8 @@ def deconv_pools(results_dir, pool_to_file):
     HORIZONTAL = [ 'H' + str(i) for i in range(1, 13) ]
     VERTICAL = ['V' + str(i) for i in range(1, 13) ]
     (intersection_hit_dict, intersection_hit_df) = get_intersection_hit(pool_hit, HORIZONTAL, VERTICAL)
-    intersection_hit_df.write('intersection_hit.txt')
+    filename = os.path.join(results_dir, 'intersection_hit.txt')
+    intersection_hit_df.write(filename=filename)
 
 def main():
     
@@ -439,9 +449,7 @@ def main():
     
     process_gpr_dir(data_dir, results_dir, channel_fg, channel_bg, control_dict)
 
-    return
-
-    pool_filename = get_pool_filename()
+    pool_filename = get_pool_filename(results_dir)
     pool_to_file = DataFrame(filename=pool_filename)
     deconv_pools(results_dir, pool_to_file)
 

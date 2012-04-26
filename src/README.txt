@@ -19,9 +19,11 @@ file.gpr => file-hits.txt
 -- using ratio
 ** using log(ratio)
 - print gpr augmented with z-score up to threshold
+** create a results directory if it doesn't exist
 - print top hits, one row per IOH
 
 pool-hits.txt => clone-hits.txt
+** autogenerate a pool-to-file map from the filenames
 - read file-to-pool map
 - read top hits
 - find hits shared by row and column

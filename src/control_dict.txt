@@ -3,6 +3,7 @@ AF555/488
 BSA	
 BSA-biotin	
 CKII-50uM	
+CONTROL	IgG
 EB-R-50uM	
 EBNA1	
 Empty	
