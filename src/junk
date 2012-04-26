@@ -1,0 +1,343 @@
+deconv.get_data_dir: data_dir /Users/joel/Dropbox/GPR files/2012-03-05
+deconv.get_results_dir: results_dir /Users/joel/Dropbox/GPR files/2012-03-05/results
+deconv.get_control_from_file: reading controls from control.txt
+dataframe.__init__: reading from control.txt
+dataframe.write: writing 17066 by 3 data frame to id_to_names.txt
+dataframe.write: ... 10001
+dataframe.write: writing 2027 by 2 data frame to control_dict.txt
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files/2012-03-05 file 2000138306_2012-03-22_V10.gpr base 2000138306_2012-03-22_V10 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2012-03-05/2000138306_2012-03-22_V10.gpr output /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138306_2012-03-22_V10-top.txt summary /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138306_2012-03-22_V10-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2012-03-05/2000138306_2012-03-22_V10.gpr => /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138306_2012-03-22_V10-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2012-03-05/2000138306_2012-03-22_V10.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 4612 rows with flag <= -100
+gpr.delete_rows: 4612 rows deleted, new length is 33788
+deconv.process_gpr_file: deleting 0 rows with fg or bg <= 0
+gpr.delete_rows: 0 rows deleted, new length is 33788
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files/2012-03-05 file 2000138307_2012-03-22-V4_2_0635.gpr base 2000138307_2012-03-22-V4_2_0635 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2012-03-05/2000138307_2012-03-22-V4_2_0635.gpr output /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138307_2012-03-22-V4_2_0635-top.txt summary /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138307_2012-03-22-V4_2_0635-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2012-03-05/2000138307_2012-03-22-V4_2_0635.gpr => /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138307_2012-03-22-V4_2_0635-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2012-03-05/2000138307_2012-03-22-V4_2_0635.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 4612 rows with flag <= -100
+gpr.delete_rows: 4612 rows deleted, new length is 33788
+deconv.process_gpr_file: deleting 0 rows with fg or bg <= 0
+gpr.delete_rows: 0 rows deleted, new length is 33788
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files/2012-03-05 file 2000138311_2012-03-23_H1_DONE.gpr base 2000138311_2012-03-23_H1_DONE ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2012-03-05/2000138311_2012-03-23_H1_DONE.gpr output /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138311_2012-03-23_H1_DONE-top.txt summary /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138311_2012-03-23_H1_DONE-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2012-03-05/2000138311_2012-03-23_H1_DONE.gpr => /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138311_2012-03-23_H1_DONE-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2012-03-05/2000138311_2012-03-23_H1_DONE.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 4612 rows with flag <= -100
+gpr.delete_rows: 4612 rows deleted, new length is 33788
+deconv.process_gpr_file: deleting 0 rows with fg or bg <= 0
+gpr.delete_rows: 0 rows deleted, new length is 33788
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files/2012-03-05 file 2000138316_2012-03-05_V12.gpr base 2000138316_2012-03-05_V12 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2012-03-05/2000138316_2012-03-05_V12.gpr output /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138316_2012-03-05_V12-top.txt summary /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138316_2012-03-05_V12-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2012-03-05/2000138316_2012-03-05_V12.gpr => /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138316_2012-03-05_V12-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2012-03-05/2000138316_2012-03-05_V12.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 4612 rows with flag <= -100
+gpr.delete_rows: 4612 rows deleted, new length is 33788
+deconv.process_gpr_file: deleting 0 rows with fg or bg <= 0
+gpr.delete_rows: 0 rows deleted, new length is 33788
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files/2012-03-05 file 2000138317_2012-03-05_V11.gpr base 2000138317_2012-03-05_V11 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2012-03-05/2000138317_2012-03-05_V11.gpr output /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138317_2012-03-05_V11-top.txt summary /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138317_2012-03-05_V11-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2012-03-05/2000138317_2012-03-05_V11.gpr => /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138317_2012-03-05_V11-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2012-03-05/2000138317_2012-03-05_V11.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 4612 rows with flag <= -100
+gpr.delete_rows: 4612 rows deleted, new length is 33788
+deconv.process_gpr_file: deleting 0 rows with fg or bg <= 0
+gpr.delete_rows: 0 rows deleted, new length is 33788
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files/2012-03-05 file 2000138319_2012-03-05_V9.gpr base 2000138319_2012-03-05_V9 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2012-03-05/2000138319_2012-03-05_V9.gpr output /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138319_2012-03-05_V9-top.txt summary /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138319_2012-03-05_V9-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2012-03-05/2000138319_2012-03-05_V9.gpr => /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138319_2012-03-05_V9-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2012-03-05/2000138319_2012-03-05_V9.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 4612 rows with flag <= -100
+gpr.delete_rows: 4612 rows deleted, new length is 33788
+deconv.process_gpr_file: deleting 0 rows with fg or bg <= 0
+gpr.delete_rows: 0 rows deleted, new length is 33788
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files/2012-03-05 file 2000138320_2012-03-05__V8.gpr base 2000138320_2012-03-05__V8 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2012-03-05/2000138320_2012-03-05__V8.gpr output /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138320_2012-03-05__V8-top.txt summary /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138320_2012-03-05__V8-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2012-03-05/2000138320_2012-03-05__V8.gpr => /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138320_2012-03-05__V8-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2012-03-05/2000138320_2012-03-05__V8.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 4612 rows with flag <= -100
+gpr.delete_rows: 4612 rows deleted, new length is 33788
+deconv.process_gpr_file: deleting 0 rows with fg or bg <= 0
+gpr.delete_rows: 0 rows deleted, new length is 33788
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files/2012-03-05 file 2000138321_2012-03-05_V7.gpr base 2000138321_2012-03-05_V7 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2012-03-05/2000138321_2012-03-05_V7.gpr output /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138321_2012-03-05_V7-top.txt summary /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138321_2012-03-05_V7-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2012-03-05/2000138321_2012-03-05_V7.gpr => /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138321_2012-03-05_V7-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2012-03-05/2000138321_2012-03-05_V7.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 4612 rows with flag <= -100
+gpr.delete_rows: 4612 rows deleted, new length is 33788
+deconv.process_gpr_file: deleting 0 rows with fg or bg <= 0
+gpr.delete_rows: 0 rows deleted, new length is 33788
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files/2012-03-05 file 2000138322_2012-03-05_V6.gpr base 2000138322_2012-03-05_V6 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2012-03-05/2000138322_2012-03-05_V6.gpr output /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138322_2012-03-05_V6-top.txt summary /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138322_2012-03-05_V6-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2012-03-05/2000138322_2012-03-05_V6.gpr => /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138322_2012-03-05_V6-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2012-03-05/2000138322_2012-03-05_V6.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 4612 rows with flag <= -100
+gpr.delete_rows: 4612 rows deleted, new length is 33788
+deconv.process_gpr_file: deleting 0 rows with fg or bg <= 0
+gpr.delete_rows: 0 rows deleted, new length is 33788
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files/2012-03-05 file 2000138323_2012-03-05_V5.gpr base 2000138323_2012-03-05_V5 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2012-03-05/2000138323_2012-03-05_V5.gpr output /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138323_2012-03-05_V5-top.txt summary /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138323_2012-03-05_V5-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2012-03-05/2000138323_2012-03-05_V5.gpr => /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138323_2012-03-05_V5-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2012-03-05/2000138323_2012-03-05_V5.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 4612 rows with flag <= -100
+gpr.delete_rows: 4612 rows deleted, new length is 33788
+deconv.process_gpr_file: deleting 0 rows with fg or bg <= 0
+gpr.delete_rows: 0 rows deleted, new length is 33788
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files/2012-03-05 file 2000138325_2012-03-02_V3.gpr base 2000138325_2012-03-02_V3 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2012-03-05/2000138325_2012-03-02_V3.gpr output /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138325_2012-03-02_V3-top.txt summary /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138325_2012-03-02_V3-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2012-03-05/2000138325_2012-03-02_V3.gpr => /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138325_2012-03-02_V3-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2012-03-05/2000138325_2012-03-02_V3.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 4612 rows with flag <= -100
+gpr.delete_rows: 4612 rows deleted, new length is 33788
+deconv.process_gpr_file: deleting 0 rows with fg or bg <= 0
+gpr.delete_rows: 0 rows deleted, new length is 33788
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files/2012-03-05 file 2000138326_2012-03-02_V2.gpr base 2000138326_2012-03-02_V2 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2012-03-05/2000138326_2012-03-02_V2.gpr output /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138326_2012-03-02_V2-top.txt summary /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138326_2012-03-02_V2-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2012-03-05/2000138326_2012-03-02_V2.gpr => /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138326_2012-03-02_V2-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2012-03-05/2000138326_2012-03-02_V2.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 4612 rows with flag <= -100
+gpr.delete_rows: 4612 rows deleted, new length is 33788
+deconv.process_gpr_file: deleting 0 rows with fg or bg <= 0
+gpr.delete_rows: 0 rows deleted, new length is 33788
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files/2012-03-05 file 2000138327_2012-03-02_V1.gpr base 2000138327_2012-03-02_V1 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2012-03-05/2000138327_2012-03-02_V1.gpr output /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138327_2012-03-02_V1-top.txt summary /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138327_2012-03-02_V1-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2012-03-05/2000138327_2012-03-02_V1.gpr => /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138327_2012-03-02_V1-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2012-03-05/2000138327_2012-03-02_V1.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 4612 rows with flag <= -100
+gpr.delete_rows: 4612 rows deleted, new length is 33788
+deconv.process_gpr_file: deleting 0 rows with fg or bg <= 0
+gpr.delete_rows: 0 rows deleted, new length is 33788
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files/2012-03-05 file 2000138328_2012-03-02_H12.gpr base 2000138328_2012-03-02_H12 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2012-03-05/2000138328_2012-03-02_H12.gpr output /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138328_2012-03-02_H12-top.txt summary /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138328_2012-03-02_H12-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2012-03-05/2000138328_2012-03-02_H12.gpr => /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138328_2012-03-02_H12-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2012-03-05/2000138328_2012-03-02_H12.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 4612 rows with flag <= -100
+gpr.delete_rows: 4612 rows deleted, new length is 33788
+deconv.process_gpr_file: deleting 0 rows with fg or bg <= 0
+gpr.delete_rows: 0 rows deleted, new length is 33788
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files/2012-03-05 file 2000138329_2012-03-02_H11.gpr base 2000138329_2012-03-02_H11 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2012-03-05/2000138329_2012-03-02_H11.gpr output /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138329_2012-03-02_H11-top.txt summary /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138329_2012-03-02_H11-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2012-03-05/2000138329_2012-03-02_H11.gpr => /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138329_2012-03-02_H11-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2012-03-05/2000138329_2012-03-02_H11.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 4612 rows with flag <= -100
+gpr.delete_rows: 4612 rows deleted, new length is 33788
+deconv.process_gpr_file: deleting 0 rows with fg or bg <= 0
+gpr.delete_rows: 0 rows deleted, new length is 33788
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files/2012-03-05 file 2000138330_2012-03-02_H10.gpr base 2000138330_2012-03-02_H10 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2012-03-05/2000138330_2012-03-02_H10.gpr output /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138330_2012-03-02_H10-top.txt summary /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138330_2012-03-02_H10-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2012-03-05/2000138330_2012-03-02_H10.gpr => /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138330_2012-03-02_H10-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2012-03-05/2000138330_2012-03-02_H10.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 4612 rows with flag <= -100
+gpr.delete_rows: 4612 rows deleted, new length is 33788
+deconv.process_gpr_file: deleting 0 rows with fg or bg <= 0
+gpr.delete_rows: 0 rows deleted, new length is 33788
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files/2012-03-05 file 2000138331_2012-03-02_H9.gpr base 2000138331_2012-03-02_H9 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2012-03-05/2000138331_2012-03-02_H9.gpr output /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138331_2012-03-02_H9-top.txt summary /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138331_2012-03-02_H9-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2012-03-05/2000138331_2012-03-02_H9.gpr => /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138331_2012-03-02_H9-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2012-03-05/2000138331_2012-03-02_H9.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 4612 rows with flag <= -100
+gpr.delete_rows: 4612 rows deleted, new length is 33788
+deconv.process_gpr_file: deleting 10 rows with fg or bg <= 0
+gpr.delete_rows: 10 rows deleted, new length is 33778
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files/2012-03-05 file 2000138332_2012-03-02_H8.gpr base 2000138332_2012-03-02_H8 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2012-03-05/2000138332_2012-03-02_H8.gpr output /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138332_2012-03-02_H8-top.txt summary /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138332_2012-03-02_H8-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2012-03-05/2000138332_2012-03-02_H8.gpr => /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138332_2012-03-02_H8-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2012-03-05/2000138332_2012-03-02_H8.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 4612 rows with flag <= -100
+gpr.delete_rows: 4612 rows deleted, new length is 33788
+deconv.process_gpr_file: deleting 0 rows with fg or bg <= 0
+gpr.delete_rows: 0 rows deleted, new length is 33788
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files/2012-03-05 file 2000138333_2012-03-02_H7.gpr base 2000138333_2012-03-02_H7 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2012-03-05/2000138333_2012-03-02_H7.gpr output /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138333_2012-03-02_H7-top.txt summary /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138333_2012-03-02_H7-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2012-03-05/2000138333_2012-03-02_H7.gpr => /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138333_2012-03-02_H7-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2012-03-05/2000138333_2012-03-02_H7.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 4612 rows with flag <= -100
+gpr.delete_rows: 4612 rows deleted, new length is 33788
+deconv.process_gpr_file: deleting 0 rows with fg or bg <= 0
+gpr.delete_rows: 0 rows deleted, new length is 33788
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files/2012-03-05 file 2000138334_2012-03-02_H6.gpr base 2000138334_2012-03-02_H6 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2012-03-05/2000138334_2012-03-02_H6.gpr output /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138334_2012-03-02_H6-top.txt summary /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138334_2012-03-02_H6-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2012-03-05/2000138334_2012-03-02_H6.gpr => /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138334_2012-03-02_H6-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2012-03-05/2000138334_2012-03-02_H6.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 4612 rows with flag <= -100
+gpr.delete_rows: 4612 rows deleted, new length is 33788
+deconv.process_gpr_file: deleting 0 rows with fg or bg <= 0
+gpr.delete_rows: 0 rows deleted, new length is 33788
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files/2012-03-05 file 2000138335_2012-03-02_H5.gpr base 2000138335_2012-03-02_H5 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2012-03-05/2000138335_2012-03-02_H5.gpr output /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138335_2012-03-02_H5-top.txt summary /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138335_2012-03-02_H5-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2012-03-05/2000138335_2012-03-02_H5.gpr => /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138335_2012-03-02_H5-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2012-03-05/2000138335_2012-03-02_H5.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 4612 rows with flag <= -100
+gpr.delete_rows: 4612 rows deleted, new length is 33788
+deconv.process_gpr_file: deleting 0 rows with fg or bg <= 0
+gpr.delete_rows: 0 rows deleted, new length is 33788
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files/2012-03-05 file 2000138336_2012-03-02_H4.gpr base 2000138336_2012-03-02_H4 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2012-03-05/2000138336_2012-03-02_H4.gpr output /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138336_2012-03-02_H4-top.txt summary /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138336_2012-03-02_H4-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2012-03-05/2000138336_2012-03-02_H4.gpr => /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138336_2012-03-02_H4-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2012-03-05/2000138336_2012-03-02_H4.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 4612 rows with flag <= -100
+gpr.delete_rows: 4612 rows deleted, new length is 33788
+deconv.process_gpr_file: deleting 0 rows with fg or bg <= 0
+gpr.delete_rows: 0 rows deleted, new length is 33788
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files/2012-03-05 file 2000138337_2012_H3.gpr base 2000138337_2012_H3 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2012-03-05/2000138337_2012_H3.gpr output /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138337_2012_H3-top.txt summary /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138337_2012_H3-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2012-03-05/2000138337_2012_H3.gpr => /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138337_2012_H3-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2012-03-05/2000138337_2012_H3.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 4612 rows with flag <= -100
+gpr.delete_rows: 4612 rows deleted, new length is 33788
+deconv.process_gpr_file: deleting 0 rows with fg or bg <= 0
+gpr.delete_rows: 0 rows deleted, new length is 33788
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files/2012-03-05 file 2000138338_2012-03-01_H2.gpr base 2000138338_2012-03-01_H2 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2012-03-05/2000138338_2012-03-01_H2.gpr output /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138338_2012-03-01_H2-top.txt summary /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138338_2012-03-01_H2-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2012-03-05/2000138338_2012-03-01_H2.gpr => /Users/joel/Dropbox/GPR files/2012-03-05/results/2000138338_2012-03-01_H2-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2012-03-05/2000138338_2012-03-01_H2.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 4612 rows with flag <= -100
+gpr.delete_rows: 4612 rows deleted, new length is 33788
+deconv.process_gpr_file: deleting 0 rows with fg or bg <= 0
+gpr.delete_rows: 0 rows deleted, new length is 33788

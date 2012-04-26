@@ -100,6 +100,19 @@ class DataFrame:
                 assert(self.n_row == len(data_list)), 'column %s expected %d rows found %d' % (h, self.n_row, len(data_list))
             self.data[h] = np.array(data_list)
         self.n_column = len(self.headers)
+
+    def get_columns(self, *args):
+        """
+        each argument is the name of a column
+        return a list-of-lists, one list for each column requested
+        error if the requested column does not exist
+        """
+        ret = [ ]
+        for arg in args:
+            assert(arg in self.headers), 'column name %s does not exist' % arg
+            ret = ret + [ self.data[arg] ]
+        return(ret)
+        
         
     def add_columns(self, *args):
         """
@@ -118,8 +131,8 @@ class DataFrame:
             self.headers.append(hdr)
             self.data[hdr] = np.array(data_list)
         n_new = len(args)
-        logger.info('added %d columns: %s', n_new, ' '.join(self.headers[-n_new:]))    
-                
+        logger.info('added %d columns: %s', n_new, ' '.join(self.headers[-n_new:]))
+        
     def write(self, filename, rows=None, columns=None, sep='\t'):
         """
         rows is a list of row numbers, with the first list element being row 1 (not row 0)

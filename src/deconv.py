@@ -21,13 +21,16 @@ def get_data_dir():
     # data_dir = '/Users/joel/Dropbox/Pooled data and individual retests_12511/Pools'
     data_dir = '../data'
     data_dir = '/Users/joel/Dropbox/GPR files'
+    data_dir = '/Users/joel/Dropbox/GPR files/2012-03-05'
     logger.info('data_dir %s', data_dir)
     return(data_dir)
     
-def get_results_dir():
+def get_results_dir(data_dir=None):
     """ directory to write the results """
     results_dir = '../results'
     results_dir = '/Users/joel/Dropbox/GPR files/results'
+    if (data_dir is not None):
+        results_dir = os.path.join(data_dir, 'results')
     logger.info('results_dir %s', results_dir)
     return(results_dir)
 
@@ -41,6 +44,58 @@ def get_pool_filename():
     pool_filename = '../data/pool_to_file.txt'
     
     return(pool_filename)
+    
+def get_control_filename():
+    """
+    file with four columns: id, name, control, expt
+    counts how many times this (id, name) pair is marked as a control
+    """
+    filename = 'control.txt'
+    return(filename)
+
+def get_control_from_file(filename):
+    """
+    read the file as a data frame
+    for each id, check how many times it occurs as control or experimental
+    make a dict with (id, name) as key where pair is often as controls, or name is nd
+    """
+    logger.info('reading controls from %s', filename)
+    control = DataFrame(filename=filename)
+    (id, name, control, exptl) = control.get_columns('id', 'name', 'control', 'exptl')
+    id_to_name = dict()
+    control_dict = dict()
+    for (i, n, c, e) in zip(id, name, control, exptl):
+        nd = n in [ 'ND', 'nd', 'N.D.' ]
+        if i not in id_to_name:
+            id_to_name[i] = dict()
+        id_to_name[i][n] = True
+        if i in control_dict:
+            print('repeated id: %s' % i)
+        if ((c >= e) or nd):
+            control_dict[(i, n)] = True
+    
+    id_to_names = dict()
+    for i in id_to_name:
+        names = sorted(id_to_name[i].keys())
+        cnt = len(names)
+        name_str = ','.join(names)
+        id_to_names[i] = dict()
+        id_to_names[i]['cnt'] = cnt
+        id_to_names[i]['names'] = name_str
+    ids = sorted(id_to_names.keys())
+    cnts = [ id_to_names[x]['cnt'] for x in ids ]
+    names = [ id_to_names[x]['names'] for x in ids ]
+    df = DataFrame(data=[ ('id', ids), ('cnt', cnts), ('names', names)])
+    df.write('id_to_names.txt')
+    return(control_dict)
+
+def print_control_dict(control_dict):
+    keys = sorted(control_dict.keys())
+    ids = [ x[0] for x in keys ]
+    names = [ x[1] for x in keys ]
+    df = DataFrame(data=[('id', ids), ('name', names)])
+    df.write(filename='control_dict.txt')
+    
 
 def get_naive(fg, bg):
     """
@@ -121,13 +176,18 @@ def get_good_ids_rows(id_list, zscore_list, z_threshold = 2.5):
             id_subset.append(i)
     return(id_subset, row_subset)
 
-def process_gpr_file(input_file, output_file, summary_file, channel_fg, channel_bg):
+def process_gpr_file(input_file, output_file, summary_file, channel_fg, channel_bg, control_dict=None):
     """
     open input_file as a gpr
     extract columns corresponding to F635 Median and B635 Median (fore- and back-ground)
     add new column fg/bg ratio
     extract Flags column as a mask
-    mask out values with Flags == -100
+    
+    if control_dict is None:
+        mask out values with Flags == -100
+    else:
+        mask out values based on control_dict
+    
     calculate mean and standard deviation of the ratio
     calculate z-score for each row
     calculate stouffer's z-score ?or mean z-score? for probes with same ID
@@ -136,13 +196,14 @@ def process_gpr_file(input_file, output_file, summary_file, channel_fg, channel_
     FLAG_BAD = -100
     logger.info('%s => %s', input_file, output_file)
     gpr = GPR(input_file)
-    gpr.print_summary()
+    # print debug information for a gpr file
+    # gpr.print_summary()
 
     # keep track of which columns we've added
     columns_added = [ ]
 
     # start by extracting the flags and adding an index for the original row number
-    (flags,) = gpr.get_columns(['Flags'])
+    (flags, ids, names) = gpr.get_columns(['Flags', 'ID', 'Name'])
     n_row_orig = len(flags)
     logger.info('n_row_orig %d', n_row_orig)
     row_number_orig = np.array(range(1, n_row_orig + 1))
@@ -152,10 +213,21 @@ def process_gpr_file(input_file, output_file, summary_file, channel_fg, channel_
 
     # identify rows with bad flags and delete them
     # follow the semantics of a numpy masked array: delete where mask is True
-    mask = flags <= FLAG_BAD
+    mask = None
+    if (control_dict is None):
+        mask = flags <= FLAG_BAD
+    else:
+        mask = [ x in control_dict for x in zip(ids, names) ]
     logger.info('deleting %d rows with flag <= %d', sum(mask), FLAG_BAD)
+
     gpr.delete_rows(mask)
-    
+
+    # identify rows with background <= 0 and delete them
+    (fg, bg) = gpr.get_columns([channel_fg, channel_bg])
+    mask = [ (x[0] <= 0) or (x[1] <= 0) for x in zip(fg, bg) ]
+    logger.info('deleting %d rows with fg or bg <= 0', sum(mask))
+    gpr.delete_rows(mask)
+
     # re-extract just the good columns
     columns_extracted = [ 'Name', 'ID', channel_fg, channel_bg, 'Flags' ]
     (name, id, fg, bg, flags) = gpr.get_columns(columns_extracted)
@@ -205,7 +277,7 @@ def process_gpr_file(input_file, output_file, summary_file, channel_fg, channel_
         
 
 
-def process_gpr_dir(data_dir, results_dir, channel_fg, channel_bg):
+def process_gpr_dir(data_dir, results_dir, channel_fg, channel_bg, control_dict):
     """ process each gpr file in the data_dir, writing results to results_dir """
     file_list = sorted(os.listdir(data_dir))
     for file_name in file_list:
@@ -216,7 +288,7 @@ def process_gpr_dir(data_dir, results_dir, channel_fg, channel_bg):
             output_file = os.path.join(results_dir, base + '-top.txt')
             summary_file = os.path.join(results_dir, base + '-summary.txt')
             logger.info('input %s output %s summary %s', input_file, output_file, summary_file)
-            process_gpr_file(input_file, output_file, summary_file, channel_fg, channel_bg)
+            process_gpr_file(input_file, output_file, summary_file, channel_fg, channel_bg, control_dict)
 
 POOL_DIRECTIONS = ['H', 'V']
 POOL_RANGE = range(1, 13)
@@ -357,10 +429,18 @@ def main():
     # for each gpr file in the data directory,
     #   analyze the file and generate results for that file
     data_dir = get_data_dir()
-    results_dir = get_results_dir()
+    results_dir = get_results_dir(data_dir)
     (channel_fg, channel_bg) = get_channel()
     
-    process_gpr_dir(data_dir, results_dir, channel_fg, channel_bg)
+    # get a dictionary of controls
+    control_file = get_control_filename()
+    control_dict = get_control_from_file(control_file)
+    print_control_dict(control_dict)
+    
+    process_gpr_dir(data_dir, results_dir, channel_fg, channel_bg, control_dict)
+
+    return
+
     pool_filename = get_pool_filename()
     pool_to_file = DataFrame(filename=pool_filename)
     deconv_pools(results_dir, pool_to_file)
