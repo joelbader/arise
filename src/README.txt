@@ -1,3 +1,9 @@
+control wells
+- read a gpr file that has seth's flag = -100 indicating a control well
+- generate a table with these ids
+? we need separate tables for IgG vs. IgM controls
+? not sure which our reference
+
 file.gpr => file-hits.txt
 - read gpr file
 -- delete rows with flag = -100
