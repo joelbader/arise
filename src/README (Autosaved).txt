@@ -1,14 +1,18 @@
+control wells
+- read a gpr file that has seth's flag = -100 indicating a control well
+- generate a table with these ids
+
 file.gpr => file-hits.txt
 - read gpr file
-** delete rows with flag = -100
-** create a new index (id, name)
+-- delete rows with flag = -100
+-- create a new index (id, name)
 - calculate ratio
 -- using bg
 ** using regression fit, bg ~ fg + sqrt(fg) + ln(fg)
 ** explore a little bit in R
 - calculate mean and std (masked)
 - calculate z-score
-** using ratio
+-- using ratio
 ** using log(ratio)
 - print gpr augmented with z-score up to threshold
 - print top hits, one row per IOH

@@ -20,12 +20,14 @@ def get_data_dir():
     """ directory holding the pooled experiment results """
     # data_dir = '/Users/joel/Dropbox/Pooled data and individual retests_12511/Pools'
     data_dir = '../data'
+    data_dir = '/Users/joel/Dropbox/GPR files'
     logger.info('data_dir %s', data_dir)
     return(data_dir)
     
 def get_results_dir():
     """ directory to write the results """
     results_dir = '../results'
+    results_dir = '/Users/joel/Dropbox/GPR files/results'
     logger.info('results_dir %s', results_dir)
     return(results_dir)
 
@@ -37,6 +39,7 @@ def get_channel():
 def get_pool_filename():
     """ file with pool-file map """
     pool_filename = '../data/pool_to_file.txt'
+    
     return(pool_filename)
 
 def get_naive(fg, bg):
@@ -212,6 +215,7 @@ def process_gpr_dir(data_dir, results_dir, channel_fg, channel_bg):
             input_file = os.path.join(data_dir, file_name)
             output_file = os.path.join(results_dir, base + '-top.txt')
             summary_file = os.path.join(results_dir, base + '-summary.txt')
+            logger.info('input %s output %s summary %s', input_file, output_file, summary_file)
             process_gpr_file(input_file, output_file, summary_file, channel_fg, channel_bg)
 
 POOL_DIRECTIONS = ['H', 'V']
@@ -356,7 +360,7 @@ def main():
     results_dir = get_results_dir()
     (channel_fg, channel_bg) = get_channel()
     
-    # process_gpr_dir(data_dir, results_dir, channel_fg, channel_bg)
+    process_gpr_dir(data_dir, results_dir, channel_fg, channel_bg)
     pool_filename = get_pool_filename()
     pool_to_file = DataFrame(filename=pool_filename)
     deconv_pools(results_dir, pool_to_file)

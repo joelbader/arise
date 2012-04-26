@@ -1,0 +1,2426 @@
+deconv.get_data_dir: data_dir /Users/joel/Dropbox/GPR files
+deconv.get_results_dir: results_dir /Users/joel/Dropbox/GPR files/results
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files file 2000138306_2012-03-22_V10.gpr base 2000138306_2012-03-22_V10 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2000138306_2012-03-22_V10.gpr output /Users/joel/Dropbox/GPR files/results/2000138306_2012-03-22_V10-top.txt summary /Users/joel/Dropbox/GPR files/results/2000138306_2012-03-22_V10-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2000138306_2012-03-22_V10.gpr => /Users/joel/Dropbox/GPR files/results/2000138306_2012-03-22_V10-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2000138306_2012-03-22_V10.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 0 rows with flag <= -100
+gpr.delete_rows: 0 rows deleted, new length is 38400
+gpr.add_columns: added 1 columns: idname
+gpr.add_columns: added 3 columns: ratio_naive zscore_naive zscore_mean_naive
+gpr.write: writing 210 by 10 data matrix to /Users/joel/Dropbox/GPR files/results/2000138306_2012-03-22_V10-top.txt
+gpr.write: ... 20001
+dataframe.write: writing 184 by 7 data frame to /Users/joel/Dropbox/GPR files/results/2000138306_2012-03-22_V10-summary.txt
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files file 2000138307_2012-03-22-V4_2_0635.gpr base 2000138307_2012-03-22-V4_2_0635 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2000138307_2012-03-22-V4_2_0635.gpr output /Users/joel/Dropbox/GPR files/results/2000138307_2012-03-22-V4_2_0635-top.txt summary /Users/joel/Dropbox/GPR files/results/2000138307_2012-03-22-V4_2_0635-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2000138307_2012-03-22-V4_2_0635.gpr => /Users/joel/Dropbox/GPR files/results/2000138307_2012-03-22-V4_2_0635-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2000138307_2012-03-22-V4_2_0635.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 0 rows with flag <= -100
+gpr.delete_rows: 0 rows deleted, new length is 38400
+gpr.add_columns: added 1 columns: idname
+gpr.add_columns: added 3 columns: ratio_naive zscore_naive zscore_mean_naive
+gpr.write: writing 406 by 10 data matrix to /Users/joel/Dropbox/GPR files/results/2000138307_2012-03-22-V4_2_0635-top.txt
+dataframe.write: writing 363 by 7 data frame to /Users/joel/Dropbox/GPR files/results/2000138307_2012-03-22-V4_2_0635-summary.txt
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files file 2000138311_2012-03-23_H1_DONE.gpr base 2000138311_2012-03-23_H1_DONE ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2000138311_2012-03-23_H1_DONE.gpr output /Users/joel/Dropbox/GPR files/results/2000138311_2012-03-23_H1_DONE-top.txt summary /Users/joel/Dropbox/GPR files/results/2000138311_2012-03-23_H1_DONE-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2000138311_2012-03-23_H1_DONE.gpr => /Users/joel/Dropbox/GPR files/results/2000138311_2012-03-23_H1_DONE-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2000138311_2012-03-23_H1_DONE.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+
+histogram for mask = False
+ids_per_name	number_of_names
+1	9486
+2	2175
+3	390
+4	55
+5	8
+6	3
+8	1
+9	1
+10	1
+13	1
+14	1
+20	1
+25	1
+87	1
+884	1
+1149	1
+rows_per_name	number_of_names
+2	9092
+4	2366
+6	526
+8	84
+10	21
+12	5
+14	1
+18	2
+22	6
+24	2
+26	2
+28	1
+40	1
+52	1
+78	1
+96	11
+100	1
+176	1
+536	1
+1960	1
+2346	1
+rows_per_id	number_of_ids
+2	15298
+4	1361
+6	45
+8	2
+22	1
+516	1
+1536	1
+
+names with many ids for mask = False
+	884
+CMTM1	8
+CREM	14
+IGHA1	6
+IGHG1	25
+IGHM	10
+IGKC	20
+IGL@	13
+MAX	6
+N.D.	87
+ND	1149
+RPL14	6
+TRA@	9
+
+ids with many rows for mask = False
+IgG/ AF647 555	CONTROL	1536
+ENOX1	IOH11193	6
+ND	IOH12114	6
+CLCN7	IOH13032	6
+C6orf115	IOH13372	6
+MAP2K1IP1	IOH14346	6
+GNAI3	IOH14567	6
+MSH2	IOH14676	6
+CIZ1	IOH22942	6
+ND	IOH22998	6
+CSHL1	IOH23169	6
+APBA2BP	IOH26656	6
+SLC40A1	IOH26826	6
+C13orf24	IOH27047	8
+ND	IOH27200	6
+FLJ22655	IOH27356	6
+ND	IOH28170	6
+ND	IOH28317	6
+ND	IOH29373	6
+ND	IOH3215	6
+PLA2R1	IOH34764	6
+ND	IOH35161	6
+ASB11	IOH35526	8
+GBP6	IOH36042	6
+VENTX	IOH36691	6
+N.D.	IOH38444	6
+DNAJB12	IOH39966	6
+ND	IOH40055	6
+ND	IOH4012	6
+GRHL1	IOH40153	6
+HIST1H2BA	IOH40168	6
+RAD51L3	IOH40582	6
+SLC25A24	IOH40595	6
+PHYHIPL	IOH40856	6
+C9orf86	IOH40918	6
+FKBP1B	IOH4141	6
+	IOH41508	6
+LOH11CR2A	IOH41880	6
+MDGA2	IOH43907	6
+ND	IOH44125	6
+MGC71993	IOH45613	6
+ND	IOH4726	6
+ZHX1	IOH55729	6
+PEX16	IOH56721	6
+ND	IOH57152	6
+PIGL	IOH57310	6
+ND	IOH61782	6
+CNNM3	IOH6547	6
+empty	empty	516
+nd	nd	22
+
+histogram for mask = True
+ids_per_name	number_of_names
+rows_per_name	number_of_names
+rows_per_id	number_of_ids
+
+names with many ids for mask = True
+
+ids with many rows for mask = True
+checking for ids with multiple mask values
+
+histogram for mask = False
+ids_per_name	number_of_names
+1	9486
+2	2175
+3	390
+4	55
+5	8
+6	3
+8	1
+9	1
+10	1
+13	1
+14	1
+20	1
+25	1
+87	1
+884	1
+1149	1
+rows_per_name	number_of_names
+2	9092
+4	2366
+6	526
+8	84
+10	21
+12	5
+14	1
+18	2
+22	6
+24	2
+26	2
+28	1
+40	1
+52	1
+78	1
+96	11
+100	1
+176	1
+536	1
+1960	1
+2346	1
+rows_per_id	number_of_ids
+2	15298
+4	1361
+6	45
+8	2
+22	1
+516	1
+1536	1
+
+names with many ids for mask = False
+	884
+CMTM1	8
+CREM	14
+IGHA1	6
+IGHG1	25
+IGHM	10
+IGKC	20
+IGL@	13
+MAX	6
+N.D.	87
+ND	1149
+RPL14	6
+TRA@	9
+
+ids with many rows for mask = False
+IgG/ AF647 555	CONTROL	1536
+ENOX1	IOH11193	6
+ND	IOH12114	6
+CLCN7	IOH13032	6
+C6orf115	IOH13372	6
+MAP2K1IP1	IOH14346	6
+GNAI3	IOH14567	6
+MSH2	IOH14676	6
+CIZ1	IOH22942	6
+ND	IOH22998	6
+CSHL1	IOH23169	6
+APBA2BP	IOH26656	6
+SLC40A1	IOH26826	6
+C13orf24	IOH27047	8
+ND	IOH27200	6
+FLJ22655	IOH27356	6
+ND	IOH28170	6
+ND	IOH28317	6
+ND	IOH29373	6
+ND	IOH3215	6
+PLA2R1	IOH34764	6
+ND	IOH35161	6
+ASB11	IOH35526	8
+GBP6	IOH36042	6
+VENTX	IOH36691	6
+N.D.	IOH38444	6
+DNAJB12	IOH39966	6
+ND	IOH40055	6
+ND	IOH4012	6
+GRHL1	IOH40153	6
+HIST1H2BA	IOH40168	6
+RAD51L3	IOH40582	6
+SLC25A24	IOH40595	6
+PHYHIPL	IOH40856	6
+C9orf86	IOH40918	6
+FKBP1B	IOH4141	6
+	IOH41508	6
+LOH11CR2A	IOH41880	6
+MDGA2	IOH43907	6
+ND	IOH44125	6
+MGC71993	IOH45613	6
+ND	IOH4726	6
+ZHX1	IOH55729	6
+PEX16	IOH56721	6
+ND	IOH57152	6
+PIGL	IOH57310	6
+ND	IOH61782	6
+CNNM3	IOH6547	6
+empty	empty	516
+nd	nd	22
+
+histogram for mask = True
+ids_per_name	number_of_names
+rows_per_name	number_of_names
+rows_per_id	number_of_ids
+
+names with many ids for mask = True
+
+ids with many rows for mask = True
+checking for ids with multiple mask values
+
+histogram for mask = False
+ids_per_name	number_of_names
+1	9486
+2	2175
+3	390
+4	55
+5	8
+6	3
+8	1
+9	1
+10	1
+13	1
+14	1
+20	1
+25	1
+87	1
+884	1
+1149	1
+rows_per_name	number_of_names
+2	9092
+4	2366
+6	526
+8	84
+10	21
+12	5
+14	1
+18	2
+22	6
+24	2
+26	2
+28	1
+40	1
+52	1
+78	1
+96	11
+100	1
+176	1
+536	1
+1960	1
+2346	1
+rows_per_id	number_of_ids
+2	15298
+4	1361
+6	45
+8	2
+22	1
+516	1
+1536	1
+
+names with many ids for mask = False
+	884
+CMTM1	8
+CREM	14
+IGHA1	6
+IGHG1	25
+IGHM	10
+IGKC	20
+IGL@	13
+MAX	6
+N.D.	87
+ND	1149
+RPL14	6
+TRA@	9
+
+ids with many rows for mask = False
+IgG/ AF647 555	CONTROL	1536
+ENOX1	IOH11193	6
+ND	IOH12114	6
+CLCN7	IOH13032	6
+C6orf115	IOH13372	6
+MAP2K1IP1	IOH14346	6
+GNAI3	IOH14567	6
+MSH2	IOH14676	6
+CIZ1	IOH22942	6
+ND	IOH22998	6
+CSHL1	IOH23169	6
+APBA2BP	IOH26656	6
+SLC40A1	IOH26826	6
+C13orf24	IOH27047	8
+ND	IOH27200	6
+FLJ22655	IOH27356	6
+ND	IOH28170	6
+ND	IOH28317	6
+ND	IOH29373	6
+ND	IOH3215	6
+PLA2R1	IOH34764	6
+ND	IOH35161	deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 0 rows with flag <= -100
+gpr.delete_rows: 0 rows deleted, new length is 38400
+gpr.add_columns: added 1 columns: idname
+gpr.add_columns: added 3 columns: ratio_naive zscore_naive zscore_mean_naive
+gpr.write: writing 428 by 10 data matrix to /Users/joel/Dropbox/GPR files/results/2000138311_2012-03-23_H1_DONE-top.txt
+dataframe.write: writing 382 by 7 data frame to /Users/joel/Dropbox/GPR files/results/2000138311_2012-03-23_H1_DONE-summary.txt
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files file 2000138316_2012-03-05_V12.gpr base 2000138316_2012-03-05_V12 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2000138316_2012-03-05_V12.gpr output /Users/joel/Dropbox/GPR files/results/2000138316_2012-03-05_V12-top.txt summary /Users/joel/Dropbox/GPR files/results/2000138316_2012-03-05_V12-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2000138316_2012-03-05_V12.gpr => /Users/joel/Dropbox/GPR files/results/2000138316_2012-03-05_V12-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2000138316_2012-03-05_V12.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 0 rows with flag <= -100
+gpr.delete_rows: 0 rows deleted, new length is 38400
+gpr.add_columns: added 1 columns: idname
+gpr.add_columns: added 3 columns: ratio_naive zscore_naive zscore_mean_naive
+gpr.write: writing 69 by 10 data matrix to /Users/joel/Dropbox/GPR files/results/2000138316_2012-03-05_V12-top.txt
+dataframe.write: writing 22 by 7 data frame to /Users/joel/Dropbox/GPR files/results/2000138316_2012-03-05_V12-summary.txt
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files file 2000138317_2012-03-05_V11.gpr base 2000138317_2012-03-05_V11 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2000138317_2012-03-05_V11.gpr output /Users/joel/Dropbox/GPR files/results/2000138317_2012-03-05_V11-top.txt summary /Users/joel/Dropbox/GPR files/results/2000138317_2012-03-05_V11-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2000138317_2012-03-05_V11.gpr => /Users/joel/Dropbox/GPR files/results/2000138317_2012-03-05_V11-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2000138317_2012-03-05_V11.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 0 rows with flag <= -100
+gpr.delete_rows: 0 rows deleted, new length is 38400
+gpr.add_columns: added 1 columns: idname
+gpr.add_columns: added 3 columns: ratio_naive zscore_naive zscore_mean_naive
+gpr.write: writing 97 by 10 data matrix to /Users/joel/Dropbox/GPR files/results/2000138317_2012-03-05_V11-top.txt
+gpr.write: ... 20001
+dataframe.write: writing 43 by 7 data frame to /Users/joel/Dropbox/GPR files/results/2000138317_2012-03-05_V11-summary.txt
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files file 2000138319_2012-03-05_V9.gpr base 2000138319_2012-03-05_V9 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2000138319_2012-03-05_V9.gpr output /Users/joel/Dropbox/GPR files/results/2000138319_2012-03-05_V9-top.txt summary /Users/joel/Dropbox/GPR files/results/2000138319_2012-03-05_V9-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2000138319_2012-03-05_V9.gpr => /Users/joel/Dropbox/GPR files/results/2000138319_2012-03-05_V9-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2000138319_2012-03-05_V9.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+6
+ASB11	IOH35526	8
+GBP6	IOH36042	6
+VENTX	IOH36691	6
+N.D.	IOH38444	6
+DNAJB12	IOH39966	6
+ND	IOH40055	6
+ND	IOH4012	6
+GRHL1	IOH40153	6
+HIST1H2BA	IOH40168	6
+RAD51L3	IOH40582	6
+SLC25A24	IOH40595	6
+PHYHIPL	IOH40856	6
+C9orf86	IOH40918	6
+FKBP1B	IOH4141	6
+	IOH41508	6
+LOH11CR2A	IOH41880	6
+MDGA2	IOH43907	6
+ND	IOH44125	6
+MGC71993	IOH45613	6
+ND	IOH4726	6
+ZHX1	IOH55729	6
+PEX16	IOH56721	6
+ND	IOH57152	6
+PIGL	IOH57310	6
+ND	IOH61782	6
+CNNM3	IOH6547	6
+empty	empty	516
+nd	nd	22
+
+histogram for mask = True
+ids_per_name	number_of_names
+rows_per_name	number_of_names
+rows_per_id	number_of_ids
+
+names with many ids for mask = True
+
+ids with many rows for mask = True
+checking for ids with multiple mask values
+
+histogram for mask = False
+ids_per_name	number_of_names
+1	9486
+2	2175
+3	390
+4	55
+5	8
+6	3
+8	1
+9	1
+10	1
+13	1
+14	1
+20	1
+25	1
+87	1
+884	1
+1149	1
+rows_per_name	number_of_names
+2	9092
+4	2366
+6	526
+8	84
+10	21
+12	5
+14	1
+18	2
+22	6
+24	2
+26	2
+28	1
+40	1
+52	1
+78	1
+96	11
+100	1
+176	1
+536	1
+1960	1
+2346	1
+rows_per_id	number_of_ids
+2	15298
+4	1361
+6	45
+8	2
+22	1
+516	1
+1536	1
+
+names with many ids for mask = False
+	884
+CMTM1	8
+CREM	14
+IGHA1	6
+IGHG1	25
+IGHM	10
+IGKC	20
+IGL@	13
+MAX	6
+N.D.	87
+ND	1149
+RPL14	6
+TRA@	9
+
+ids with many rows for mask = False
+IgG/ AF647 555	CONTROL	1536
+ENOX1	IOH11193	6
+ND	IOH12114	6
+CLCN7	IOH13032	6
+C6orf115	IOH13372	6
+MAP2K1IP1	IOH14346	6
+GNAI3	IOH14567	6
+MSH2	IOH14676	6
+CIZ1	IOH22942	6
+ND	IOH22998	6
+CSHL1	IOH23169	6
+APBA2BP	IOH26656	6
+SLC40A1	IOH26826	6
+C13orf24	IOH27047	8
+ND	IOH27200	6
+FLJ22655	IOH27356	6
+ND	IOH28170	6
+ND	IOH28317	6
+ND	IOH29373	6
+ND	IOH3215	6
+PLA2R1	IOH34764	6
+ND	IOH35161	6
+ASB11	IOH35526	8
+GBP6	IOH36042	6
+VENTX	IOH36691	6
+N.D.	IOH38444	6
+DNAJB12	IOH39966	6
+ND	IOH40055	6
+ND	IOH4012	6
+GRHL1	IOH40153	6
+HIST1H2BA	IOH40168	6
+RAD51L3	IOH40582	6
+SLC25A24	IOH40595	6
+PHYHIPL	IOH40856	6
+C9orf86	IOH40918	6
+FKBP1B	IOH4141	6
+	IOH41508	6
+LOH11CR2A	IOH41880	6
+MDGA2	IOH43907	6
+ND	IOH44125	6
+MGC71993	IOH45613	6
+ND	IOH4726	6
+ZHX1	IOH55729	6
+PEX16	IOH56721	6
+ND	IOH57152	6
+PIGL	IOH57310	6
+ND	IOH61782	6
+CNNM3	IOH6547	6
+empty	empty	516
+nd	nd	22
+
+histogram for mask = True
+ids_per_name	number_of_names
+rows_per_name	number_of_names
+rows_per_id	number_of_ids
+
+names with many ids for mask = True
+
+ids with many rows for mask = True
+checking for ids with multiple mask values
+
+histogram for mask = False
+ids_per_name	number_of_names
+1	9486
+2	2175
+3	390
+4	55
+5	8
+6	3
+8	1
+9	1
+10	1
+13	1
+14	1
+20	1
+25	1
+87	1
+884	1
+1149	1
+rows_per_name	number_of_names
+2	9092
+4	2366
+6	526
+8	84
+10	21
+12	5
+14	1
+18	2
+22	6
+24	2
+26	2
+28	1
+40	1
+52	1
+78	1
+96	11
+100	1
+176	1
+536	1
+1960	1
+2346	1
+rows_per_id	number_of_ids
+2	15298
+4	1361
+6	45
+8	2
+22	1
+516	1
+1536	1
+
+names with many ids for mask = False
+	884
+CMTM1	8
+CREM	14
+IGHA1	6
+IGHG1	25
+IGHM	10
+IGKC	20
+IGL@	13
+MAX	6
+N.D.	87
+ND	1149
+RPL14	6
+TRA@	9
+
+ids with many rows for mask = False
+IgG/ AF647 555	CONTROL	1536
+ENOX1	IOH11193	6
+ND	IOH12114	6
+CLCN7	IOH13032	6
+C6orf115	IOH13372	6
+MAP2K1IP1	IOH14346	6
+GNAI3	IOH14567	6
+MSH2	IOH14676	6
+CIZ1	IOH22942	6
+ND	IOH22998	6
+CSHL1	IOH23169	6
+APBA2BP	IOH26656	6
+SLC40A1	IOH26826	6
+C13orf24	IOH27047	8
+ND	IOH27200	6
+FLJ22655	IOH27356	6
+ND	IOH28170	6
+ND	IOH28317	6
+ND	IOH29373	6
+ND	IOH3215	6
+PLA2R1	IOH34764	6
+ND	IOH35161	6
+ASB11	IOH35526	8
+GBP6	IOH36042	6
+VENTX	IOH36691	6
+N.D.	IOH38444	6
+DNAJB12	IOH39966	6
+ND	IOH40055	6
+ND	IOH4012	6
+GRHL1	IOH40153	6
+HIST1H2BA	IOH40168	6
+RAD51L3	IOH40582	6
+SLC25A24	IOH40595	6
+PHYHIPL	IOH40856	6
+C9orf86	IOH40918	6
+FKBP1B	IOH4141	6
+	IOH41508	6
+LOH11CR2A	IOH41880	6
+MDGA2	IOH43907	6
+ND	IOH44125	6
+MGC71993	IOH45613	6
+ND	IOH4726	6
+ZHX1	IOH55729	6
+PEX16	IOH56721	6
+ND	IOH57152	6
+PIGL	IOH57310	6
+ND	IOH61782	6
+CNNM3	IOH6547	6
+empty	empty	516
+nd	nd	22
+
+histogram for mask = True
+ids_per_name	number_of_names
+rows_per_name	number_of_names
+rows_per_id	number_of_ids
+
+names with many ids for mask = True
+
+ids with many rows for mask = True
+checking for ids with multiple mask values
+
+histogram for mask = False
+ids_per_name	number_of_names
+1	9486
+2	2175
+3	390
+4	55
+5	8
+6	3
+8	1
+9	1
+10	1
+13	1
+14	1
+20	1
+25	1
+87	1
+884	1
+1149	1
+rows_per_name	number_of_names
+2	9092
+4	2366
+6	526
+8	84
+10	21
+12	5
+14	1
+18	2
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 0 rows with flag <= -100
+gpr.delete_rows: 0 rows deleted, new length is 38400
+gpr.add_columns: added 1 columns: idname
+gpr.add_columns: added 3 columns: ratio_naive zscore_naive zscore_mean_naive
+gpr.write: writing 132 by 10 data matrix to /Users/joel/Dropbox/GPR files/results/2000138319_2012-03-05_V9-top.txt
+dataframe.write: writing 80 by 7 data frame to /Users/joel/Dropbox/GPR files/results/2000138319_2012-03-05_V9-summary.txt
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files file 2000138320_2012-03-05__V8.gpr base 2000138320_2012-03-05__V8 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2000138320_2012-03-05__V8.gpr output /Users/joel/Dropbox/GPR files/results/2000138320_2012-03-05__V8-top.txt summary /Users/joel/Dropbox/GPR files/results/2000138320_2012-03-05__V8-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2000138320_2012-03-05__V8.gpr => /Users/joel/Dropbox/GPR files/results/2000138320_2012-03-05__V8-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2000138320_2012-03-05__V8.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 0 rows with flag <= -100
+gpr.delete_rows: 0 rows deleted, new length is 38400
+gpr.add_columns: added 1 columns: idname
+gpr.add_columns: added 3 columns: ratio_naive zscore_naive zscore_mean_naive
+gpr.write: writing 60 by 10 data matrix to /Users/joel/Dropbox/GPR files/results/2000138320_2012-03-05__V8-top.txt
+dataframe.write: writing 34 by 7 data frame to /Users/joel/Dropbox/GPR files/results/2000138320_2012-03-05__V8-summary.txt
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files file 2000138321_2012-03-05_V7.gpr base 2000138321_2012-03-05_V7 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2000138321_2012-03-05_V7.gpr output /Users/joel/Dropbox/GPR files/results/2000138321_2012-03-05_V7-top.txt summary /Users/joel/Dropbox/GPR files/results/2000138321_2012-03-05_V7-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2000138321_2012-03-05_V7.gpr => /Users/joel/Dropbox/GPR files/results/2000138321_2012-03-05_V7-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2000138321_2012-03-05_V7.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+22	6
+24	2
+26	2
+28	1
+40	1
+52	1
+78	1
+96	11
+100	1
+176	1
+536	1
+1960	1
+2346	1
+rows_per_id	number_of_ids
+2	15298
+4	1361
+6	45
+8	2
+22	1
+516	1
+1536	1
+
+names with many ids for mask = False
+	884
+CMTM1	8
+CREM	14
+IGHA1	6
+IGHG1	25
+IGHM	10
+IGKC	20
+IGL@	13
+MAX	6
+N.D.	87
+ND	1149
+RPL14	6
+TRA@	9
+
+ids with many rows for mask = False
+IgG/ AF647 555	CONTROL	1536
+ENOX1	IOH11193	6
+ND	IOH12114	6
+CLCN7	IOH13032	6
+C6orf115	IOH13372	6
+MAP2K1IP1	IOH14346	6
+GNAI3	IOH14567	6
+MSH2	IOH14676	6
+CIZ1	IOH22942	6
+ND	IOH22998	6
+CSHL1	IOH23169	6
+APBA2BP	IOH26656	6
+SLC40A1	IOH26826	6
+C13orf24	IOH27047	8
+ND	IOH27200	6
+FLJ22655	IOH27356	6
+ND	IOH28170	6
+ND	IOH28317	6
+ND	IOH29373	6
+ND	IOH3215	6
+PLA2R1	IOH34764	6
+ND	IOH35161	6
+ASB11	IOH35526	8
+GBP6	IOH36042	6
+VENTX	IOH36691	6
+N.D.	IOH38444	6
+DNAJB12	IOH39966	6
+ND	IOH40055	6
+ND	IOH4012	6
+GRHL1	IOH40153	6
+HIST1H2BA	IOH40168	6
+RAD51L3	IOH40582	6
+SLC25A24	IOH40595	6
+PHYHIPL	IOH40856	6
+C9orf86	IOH40918	6
+FKBP1B	IOH4141	6
+	IOH41508	6
+LOH11CR2A	IOH41880	6
+MDGA2	IOH43907	6
+ND	IOH44125	6
+MGC71993	IOH45613	6
+ND	IOH4726	6
+ZHX1	IOH55729	6
+PEX16	IOH56721	6
+ND	IOH57152	6
+PIGL	IOH57310	6
+ND	IOH61782	6
+CNNM3	IOH6547	6
+empty	empty	516
+nd	nd	22
+
+histogram for mask = True
+ids_per_name	number_of_names
+rows_per_name	number_of_names
+rows_per_id	number_of_ids
+
+names with many ids for mask = True
+
+ids with many rows for mask = True
+checking for ids with multiple mask values
+
+histogram for mask = False
+ids_per_name	number_of_names
+1	9486
+2	2175
+3	390
+4	55
+5	8
+6	3
+8	1
+9	1
+10	1
+13	1
+14	1
+20	1
+25	1
+87	1
+884	1
+1149	1
+rows_per_name	number_of_names
+2	9092
+4	2366
+6	526
+8	84
+10	21
+12	5
+14	1
+18	2
+22	6
+24	2
+26	2
+28	1
+40	1
+52	1
+78	1
+96	11
+100	1
+176	1
+536	1
+1960	1
+2346	1
+rows_per_id	number_of_ids
+2	15298
+4	1361
+6	45
+8	2
+22	1
+516	1
+1536	1
+
+names with many ids for mask = False
+	884
+CMTM1	8
+CREM	14
+IGHA1	6
+IGHG1	25
+IGHM	10
+IGKC	20
+IGL@	13
+MAX	6
+N.D.	87
+ND	1149
+RPL14	6
+TRA@	9
+
+ids with many rows for mask = False
+IgG/ AF647 555	CONTROL	1536
+ENOX1	IOH11193	6
+ND	IOH12114	6
+CLCN7	IOH13032	6
+C6orf115	IOH13372	6
+MAP2K1IP1	IOH14346	6
+GNAI3	IOH14567	6
+MSH2	IOH14676	6
+CIZ1	IOH22942	6
+ND	IOH22998	6
+CSHL1	IOH23169	6
+APBA2BP	IOH26656	6
+SLC40A1	IOH26826	6
+C13orf24	IOH27047	8
+ND	IOH27200	6
+FLJ22655	IOH27356	6
+ND	IOH28170	6
+ND	IOH28317	6
+ND	IOH29373	6
+ND	IOH3215	6
+PLA2R1	IOH34764	6
+ND	IOH35161	6
+ASB11	IOH35526	8
+GBP6	IOH36042	6
+VENTX	IOH36691	6
+N.D.	IOH38444	6
+DNAJB12	IOH39966	6
+ND	IOH40055	6
+ND	IOH4012	6
+GRHL1	IOH40153	6
+HIST1H2BA	IOH40168	6
+RAD51L3	IOH40582	6
+SLC25A24	IOH40595	6
+PHYHIPL	IOH40856	6
+C9orf86	IOH40918	6
+FKBP1B	IOH4141	6
+	IOH41508	6
+LOH11CR2A	IOH41880	6
+MDGA2	IOH43907	6
+ND	IOH44125	6
+MGC71993	IOH45613	6
+ND	IOH4726	6
+ZHX1	IOH55729	6
+PEX16	IOH56721	6
+ND	IOH57152	6
+PIGL	IOH57310	6
+ND	IOH61782	6
+CNNM3	IOH6547	6
+empty	empty	516
+nd	nd	22
+
+histogram for mask = True
+ids_per_name	number_of_names
+rows_per_name	number_of_names
+rows_per_id	number_of_ids
+
+names with many ids for mask = True
+
+ids with many rows for mask = True
+checking for ids with multiple mask values
+
+histogram for mask = False
+ids_per_name	number_of_names
+1	9486
+2	2175
+3	390
+4	55
+5	8
+6	3
+8	1
+9	1
+10	1
+13	1
+14	1
+20	1
+25	1
+87	1
+884	1
+1149	1
+rows_per_name	number_of_names
+2	9092
+4	2366
+6	526
+8	84
+10	21
+12	5
+14	1
+18	2
+22	6
+24	2
+26	2
+28	1
+40	1
+52	1
+78	1
+96	11
+100	1
+176	1
+536	1
+1960	1
+2346	1
+rows_per_id	number_of_ids
+2	15298
+4	1361
+6	45
+8	2
+22	1
+516	1
+1536	1
+
+names with many ids for mask = False
+	884
+CMTM1	8
+CREM	14
+IGHA1	6
+IGHG1	25
+IGHM	10
+IGKC	20
+IGL@	13
+MAX	6
+N.D.	87
+ND	1149
+RPL14	6
+TRA@	9
+
+ids with many rows for mask = False
+IgG/ AF647 555	CONTROL	1536
+ENOX1	IOH11193	6
+ND	IOH12114	6
+CLCN7	IOH13032	6
+C6orf115	IOH13372	6
+MAP2K1IP1	IOH14346	6
+GNAI3	IOH14567	6
+MSH2	IOH14676	6
+CIZ1	IOH22942	6
+ND	IOH22998	6
+CSHL1	IOH23169	6
+APBA2BP	IOH26656	6
+SLC40A1	IOH26826	6
+C13orf24	IOH27047	8
+ND	IOH27200	6
+FLJ22655	IOH27356	6
+ND	IOH28170	6
+ND	IOH28317	6
+ND	IOH29373	6
+ND	IOH3215	6
+PLA2R1	IOH34764	6
+ND	IOH35161	6
+ASB11	IOH35526	8
+GBP6	IOH36042	6
+VENTX	IOH36691	6
+N.D.	IOH38444	6
+DNAJB12	IOH39966	6
+ND	IOH40055	6
+ND	IOH4012	6
+GRHL1	IOH40153	6
+HIST1H2BA	IOH40168	6
+RAD51L3	IOH40582	6
+SLC25A24	IOH40595	6
+PHYHIPL	IOH40856	6
+C9orf86deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 0 rows with flag <= -100
+gpr.delete_rows: 0 rows deleted, new length is 38400
+gpr.add_columns: added 1 columns: idname
+gpr.add_columns: added 3 columns: ratio_naive zscore_naive zscore_mean_naive
+gpr.write: writing 145 by 10 data matrix to /Users/joel/Dropbox/GPR files/results/2000138321_2012-03-05_V7-top.txt
+dataframe.write: writing 72 by 7 data frame to /Users/joel/Dropbox/GPR files/results/2000138321_2012-03-05_V7-summary.txt
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files file 2000138322_2012-03-05_V6.gpr base 2000138322_2012-03-05_V6 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2000138322_2012-03-05_V6.gpr output /Users/joel/Dropbox/GPR files/results/2000138322_2012-03-05_V6-top.txt summary /Users/joel/Dropbox/GPR files/results/2000138322_2012-03-05_V6-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2000138322_2012-03-05_V6.gpr => /Users/joel/Dropbox/GPR files/results/2000138322_2012-03-05_V6-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2000138322_2012-03-05_V6.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 0 rows with flag <= -100
+gpr.delete_rows: 0 rows deleted, new length is 38400
+gpr.add_columns: added 1 columns: idname
+gpr.add_columns: added 3 columns: ratio_naive zscore_naive zscore_mean_naive
+gpr.write: writing 193 by 10 data matrix to /Users/joel/Dropbox/GPR files/results/2000138322_2012-03-05_V6-top.txt
+dataframe.write: writing 134 by 7 data frame to /Users/joel/Dropbox/GPR files/results/2000138322_2012-03-05_V6-summary.txt
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files file 2000138323_2012-03-05_V5.gpr base 2000138323_2012-03-05_V5 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2000138323_2012-03-05_V5.gpr output /Users/joel/Dropbox/GPR files/results/2000138323_2012-03-05_V5-top.txt summary /Users/joel/Dropbox/GPR files/results/2000138323_2012-03-05_V5-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2000138323_2012-03-05_V5.gpr => /Users/joel/Dropbox/GPR files/results/2000138323_2012-03-05_V5-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2000138323_2012-03-05_V5.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 0 rows with flag <= -100
+gpr.delete_rows: 0 rows deleted, new length is 38400
+gpr.add_columns: added 1 columns: idname
+gpr.add_columns: added 3 columns: ratio_naive zscore_naive zscore_mean_naive
+gpr.write: writing 351 by 10 data matrix to /Users/joel/Dropbox/GPR files/results/2000138323_2012-03-05_V5-top.txt
+gpr.write: ... 20001
+dataframe.write: writing 266 by 7 data frame to /Users/joel/Dropbox/GPR files/results/2000138323_2012-03-05_V5-summary.txt
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files file 2000138325_2012-03-02_V3.gpr base 2000138325_2012-03-02_V3 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2000138325_2012-03-02_V3.gpr output /Users/joel/Dropbox/GPR files/results/2000138325_2012-03-02_V3-top.txt summary /Users/joel/Dropbox/GPR files/results/2000138325_2012-03-02_V3-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2000138325_2012-03-02_V3.gpr => /Users/joel/Dropbox/GPR files/results/2000138325_2012-03-02_V3-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2000138325_2012-03-02_V3.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+	IOH40918	6
+FKBP1B	IOH4141	6
+	IOH41508	6
+LOH11CR2A	IOH41880	6
+MDGA2	IOH43907	6
+ND	IOH44125	6
+MGC71993	IOH45613	6
+ND	IOH4726	6
+ZHX1	IOH55729	6
+PEX16	IOH56721	6
+ND	IOH57152	6
+PIGL	IOH57310	6
+ND	IOH61782	6
+CNNM3	IOH6547	6
+empty	empty	516
+nd	nd	22
+
+histogram for mask = True
+ids_per_name	number_of_names
+rows_per_name	number_of_names
+rows_per_id	number_of_ids
+
+names with many ids for mask = True
+
+ids with many rows for mask = True
+checking for ids with multiple mask values
+
+histogram for mask = False
+ids_per_name	number_of_names
+1	9486
+2	2175
+3	390
+4	55
+5	8
+6	3
+8	1
+9	1
+10	1
+13	1
+14	1
+20	1
+25	1
+87	1
+884	1
+1149	1
+rows_per_name	number_of_names
+2	9092
+4	2366
+6	526
+8	84
+10	21
+12	5
+14	1
+18	2
+22	6
+24	2
+26	2
+28	1
+40	1
+52	1
+78	1
+96	11
+100	1
+176	1
+536	1
+1960	1
+2346	1
+rows_per_id	number_of_ids
+2	15298
+4	1361
+6	45
+8	2
+22	1
+516	1
+1536	1
+
+names with many ids for mask = False
+	884
+CMTM1	8
+CREM	14
+IGHA1	6
+IGHG1	25
+IGHM	10
+IGKC	20
+IGL@	13
+MAX	6
+N.D.	87
+ND	1149
+RPL14	6
+TRA@	9
+
+ids with many rows for mask = False
+IgG/ AF647 555	CONTROL	1536
+ENOX1	IOH11193	6
+ND	IOH12114	6
+CLCN7	IOH13032	6
+C6orf115	IOH13372	6
+MAP2K1IP1	IOH14346	6
+GNAI3	IOH14567	6
+MSH2	IOH14676	6
+CIZ1	IOH22942	6
+ND	IOH22998	6
+CSHL1	IOH23169	6
+APBA2BP	IOH26656	6
+SLC40A1	IOH26826	6
+C13orf24	IOH27047	8
+ND	IOH27200	6
+FLJ22655	IOH27356	6
+ND	IOH28170	6
+ND	IOH28317	6
+ND	IOH29373	6
+ND	IOH3215	6
+PLA2R1	IOH34764	6
+ND	IOH35161	6
+ASB11	IOH35526	8
+GBP6	IOH36042	6
+VENTX	IOH36691	6
+N.D.	IOH38444	6
+DNAJB12	IOH39966	6
+ND	IOH40055	6
+ND	IOH4012	6
+GRHL1	IOH40153	6
+HIST1H2BA	IOH40168	6
+RAD51L3	IOH40582	6
+SLC25A24	IOH40595	6
+PHYHIPL	IOH40856	6
+C9orf86	IOH40918	6
+FKBP1B	IOH4141	6
+	IOH41508	6
+LOH11CR2A	IOH41880	6
+MDGA2	IOH43907	6
+ND	IOH44125	6
+MGC71993	IOH45613	6
+ND	IOH4726	6
+ZHX1	IOH55729	6
+PEX16	IOH56721	6
+ND	IOH57152	6
+PIGL	IOH57310	6
+ND	IOH61782	6
+CNNM3	IOH6547	6
+empty	empty	516
+nd	nd	22
+
+histogram for mask = True
+ids_per_name	number_of_names
+rows_per_name	number_of_names
+rows_per_id	number_of_ids
+
+names with many ids for mask = True
+
+ids with many rows for mask = True
+checking for ids with multiple mask values
+
+histogram for mask = False
+ids_per_name	number_of_names
+1	9486
+2	2175
+3	390
+4	55
+5	8
+6	3
+8	1
+9	1
+10	1
+13	1
+14	1
+20	1
+25	1
+87	1
+884	1
+1149	1
+rows_per_name	number_of_names
+2	9092
+4	2366
+6	526
+8	84
+10	21
+12	5
+14	1
+18	2
+22	6
+24	2
+26	2
+28	1
+40	1
+52	1
+78	1
+96	11
+100	1
+176	1
+536	1
+1960	1
+2346	1
+rows_per_id	number_of_ids
+2	15298
+4	1361
+6	45
+8	2
+22	1
+516	1
+1536	1
+
+names with many ids for mask = False
+	884
+CMTM1	8
+CREM	14
+IGHA1	6
+IGHG1	25
+IGHM	10
+IGKC	20
+IGL@	13
+MAX	6
+N.D.	87
+ND	1149
+RPL14	6
+TRA@	9
+
+ids with many rows for mask = False
+IgG/ AF647 555	CONTROL	1536
+ENOX1	IOH11193	6
+ND	IOH12114	6
+CLCN7	IOH13032	6
+C6orf115	IOH13372	6
+MAP2K1IP1	IOH14346	6
+GNAI3	IOH14567	6
+MSH2	IOH14676	6
+CIZ1	IOH22942	6
+ND	IOH22998	6
+CSHL1	IOH23169	6
+APBA2BP	IOH26656	6
+SLC40A1	IOH26826	6
+C13orf24	IOH27047	8
+ND	IOH27200	6
+FLJ22655	IOH27356	6
+ND	IOH28170	6
+ND	IOH28317	6
+ND	IOH29373	6
+ND	IOH3215	6
+PLA2R1	IOH34764	6
+ND	IOH35161	6
+ASB11	IOH35526	8
+GBP6	IOH36042	6
+VENTX	IOH36691	6
+N.D.	IOH38444	6
+DNAJB12	IOH39966	6
+ND	IOH40055	6
+ND	IOH4012	6
+GRHL1	IOH40153	6
+HIST1H2BA	IOH40168	6
+RAD51L3	IOH40582	6
+SLC25A24	IOH40595	6
+PHYHIPL	IOH40856	6
+C9orf86	IOH40918	6
+FKBP1B	IOH4141	6
+	IOH41508	6
+LOH11CR2A	IOH41880	6
+MDGA2	IOH43907	6
+ND	IOH44125	6
+MGC71993	IOH45613	6
+ND	IOH4726	6
+ZHX1	IOH55729	6
+PEX16	IOH56721	6
+ND	IOH57152	6
+PIGL	IOH57310	6
+ND	IOH61782	6
+CNNM3	IOH6547	6
+empty	empty	516
+nd	nd	22
+
+histogram for mask = True
+ids_per_name	number_of_names
+rows_per_name	number_of_names
+rows_per_id	number_of_ids
+
+names with many ids for mask = True
+
+ids with many rows for mask = True
+checking for ids with multiple mask values
+
+histogram for mask = False
+ids_per_name	number_of_names
+1	9486
+2	2175
+3	390
+4	55
+5	8
+6	3
+8	1
+9	1
+10	1
+13	1
+14	1
+20	1
+25	1
+87	1
+884	1
+1149	1
+rows_per_name	number_of_names
+2	9092
+4	2366
+6	526
+8	84
+10	21
+12	5
+14	1
+18	2
+22	6
+24	2
+26	2
+28	1
+40	1
+52	1
+78	1
+96	11
+100	1
+176	1
+536	1
+1960	1
+2346	1
+rows_per_id	number_of_ids
+2	15298
+4	1361
+6	45
+8	2
+22	1
+516	1
+1536	1
+
+names with many ids for mask = False
+	884
+CMTM1	8
+CREM	14
+IGHA1	6
+IGHG1	25
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 0 rows with flag <= -100
+gpr.delete_rows: 0 rows deleted, new length is 38400
+gpr.add_columns: added 1 columns: idname
+gpr.add_columns: added 3 columns: ratio_naive zscore_naive zscore_mean_naive
+gpr.write: writing 103 by 10 data matrix to /Users/joel/Dropbox/GPR files/results/2000138325_2012-03-02_V3-top.txt
+dataframe.write: writing 30 by 7 data frame to /Users/joel/Dropbox/GPR files/results/2000138325_2012-03-02_V3-summary.txt
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files file 2000138326_2012-03-02_V2.gpr base 2000138326_2012-03-02_V2 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2000138326_2012-03-02_V2.gpr output /Users/joel/Dropbox/GPR files/results/2000138326_2012-03-02_V2-top.txt summary /Users/joel/Dropbox/GPR files/results/2000138326_2012-03-02_V2-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2000138326_2012-03-02_V2.gpr => /Users/joel/Dropbox/GPR files/results/2000138326_2012-03-02_V2-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2000138326_2012-03-02_V2.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 0 rows with flag <= -100
+gpr.delete_rows: 0 rows deleted, new length is 38400
+gpr.add_columns: added 1 columns: idname
+gpr.add_columns: added 3 columns: ratio_naive zscore_naive zscore_mean_naive
+gpr.write: writing 179 by 10 data matrix to /Users/joel/Dropbox/GPR files/results/2000138326_2012-03-02_V2-top.txt
+dataframe.write: writing 112 by 7 data frame to /Users/joel/Dropbox/GPR files/results/2000138326_2012-03-02_V2-summary.txt
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files file 2000138327_2012-03-02_V1.gpr base 2000138327_2012-03-02_V1 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2000138327_2012-03-02_V1.gpr output /Users/joel/Dropbox/GPR files/results/2000138327_2012-03-02_V1-top.txt summary /Users/joel/Dropbox/GPR files/results/2000138327_2012-03-02_V1-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2000138327_2012-03-02_V1.gpr => /Users/joel/Dropbox/GPR files/results/2000138327_2012-03-02_V1-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2000138327_2012-03-02_V1.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+IGHM	10
+IGKC	20
+IGL@	13
+MAX	6
+N.D.	87
+ND	1149
+RPL14	6
+TRA@	9
+
+ids with many rows for mask = False
+IgG/ AF647 555	CONTROL	1536
+ENOX1	IOH11193	6
+ND	IOH12114	6
+CLCN7	IOH13032	6
+C6orf115	IOH13372	6
+MAP2K1IP1	IOH14346	6
+GNAI3	IOH14567	6
+MSH2	IOH14676	6
+CIZ1	IOH22942	6
+ND	IOH22998	6
+CSHL1	IOH23169	6
+APBA2BP	IOH26656	6
+SLC40A1	IOH26826	6
+C13orf24	IOH27047	8
+ND	IOH27200	6
+FLJ22655	IOH27356	6
+ND	IOH28170	6
+ND	IOH28317	6
+ND	IOH29373	6
+ND	IOH3215	6
+PLA2R1	IOH34764	6
+ND	IOH35161	6
+ASB11	IOH35526	8
+GBP6	IOH36042	6
+VENTX	IOH36691	6
+N.D.	IOH38444	6
+DNAJB12	IOH39966	6
+ND	IOH40055	6
+ND	IOH4012	6
+GRHL1	IOH40153	6
+HIST1H2BA	IOH40168	6
+RAD51L3	IOH40582	6
+SLC25A24	IOH40595	6
+PHYHIPL	IOH40856	6
+C9orf86	IOH40918	6
+FKBP1B	IOH4141	6
+	IOH41508	6
+LOH11CR2A	IOH41880	6
+MDGA2	IOH43907	6
+ND	IOH44125	6
+MGC71993	IOH45613	6
+ND	IOH4726	6
+ZHX1	IOH55729	6
+PEX16	IOH56721	6
+ND	IOH57152	6
+PIGL	IOH57310	6
+ND	IOH61782	6
+CNNM3	IOH6547	6
+empty	empty	516
+nd	nd	22
+
+histogram for mask = True
+ids_per_name	number_of_names
+rows_per_name	number_of_names
+rows_per_id	number_of_ids
+
+names with many ids for mask = True
+
+ids with many rows for mask = True
+checking for ids with multiple mask values
+
+histogram for mask = False
+ids_per_name	number_of_names
+1	9486
+2	2175
+3	390
+4	55
+5	8
+6	3
+8	1
+9	1
+10	1
+13	1
+14	1
+20	1
+25	1
+87	1
+884	1
+1149	1
+rows_per_name	number_of_names
+2	9092
+4	2366
+6	526
+8	84
+10	21
+12	5
+14	1
+18	2
+22	6
+24	2
+26	2
+28	1
+40	1
+52	1
+78	1
+96	11
+100	1
+176	1
+536	1
+1960	1
+2346	1
+rows_per_id	number_of_ids
+2	15298
+4	1361
+6	45
+8	2
+22	1
+516	1
+1536	1
+
+names with many ids for mask = False
+	884
+CMTM1	8
+CREM	14
+IGHA1	6
+IGHG1	25
+IGHM	10
+IGKC	20
+IGL@	13
+MAX	6
+N.D.	87
+ND	1149
+RPL14	6
+TRA@	9
+
+ids with many rows for mask = False
+IgG/ AF647 555	CONTROL	1536
+ENOX1	IOH11193	6
+ND	IOH12114	6
+CLCN7	IOH13032	6
+C6orf115	IOH13372	6
+MAP2K1IP1	IOH14346	6
+GNAI3	IOH14567	6
+MSH2	IOH14676	6
+CIZ1	IOH22942	6
+ND	IOH22998	6
+CSHL1	IOH23169	6
+APBA2BP	IOH26656	6
+SLC40A1	IOH26826	6
+C13orf24	IOH27047	8
+ND	IOH27200	6
+FLJ22655	IOH27356	6
+ND	IOH28170	6
+ND	IOH28317	6
+ND	IOH29373	6
+ND	IOH3215	6
+PLA2R1	IOH34764	6
+ND	IOH35161	6
+ASB11	IOH35526	8
+GBP6	IOH36042	6
+VENTX	IOH36691	6
+N.D.	IOH38444	6
+DNAJB12	IOH39966	6
+ND	IOH40055	6
+ND	IOH4012	6
+GRHL1	IOH40153	6
+HIST1H2BA	IOH40168	6
+RAD51L3	IOH40582	6
+SLC25A24	IOH40595	6
+PHYHIPL	IOH40856	6
+C9orf86	IOH40918	6
+FKBP1B	IOH4141	6
+	IOH41508	6
+LOH11CR2A	IOH41880	6
+MDGA2	IOH43907	6
+ND	IOH44125	6
+MGC71993	IOH45613	6
+ND	IOH4726	6
+ZHX1	IOH55729	6
+PEX16	IOH56721	6
+ND	IOH57152	6
+PIGL	IOH57310	6
+ND	IOH61782	6
+CNNM3	IOH6547	6
+empty	empty	516
+nd	nd	22
+
+histogram for mask = True
+ids_per_name	number_of_names
+rows_per_name	number_of_names
+rows_per_id	number_of_ids
+
+names with many ids for mask = True
+
+ids with many rows for mask = True
+checking for ids with multiple mask values
+
+histogram for mask = False
+ids_per_name	number_of_names
+1	9486
+2	2175
+3	390
+4	55
+5	8
+6	3
+8	1
+9	1
+10	1
+13	1
+14	1
+20	1
+25	1
+87	1
+884	1
+1149	1
+rows_per_name	number_of_names
+2	9092
+4	2366
+6	526
+8	84
+10	21
+12	5
+14	1
+18	2
+22	6
+24	2
+26	2
+28	1
+40	1
+52	1
+78	1
+96	11
+100	1
+176	1
+536	1
+1960	1
+2346	1
+rows_per_id	number_of_ids
+2	15298
+4	1361
+6	45
+8	2
+22	1
+516	1
+1536	1
+
+names with many ids for mask = False
+	884
+CMTM1	8
+CREM	14
+IGHA1	6
+IGHG1	25
+IGHM	10
+IGKC	20
+IGL@	13
+MAX	6
+N.D.	87
+ND	1149
+RPL14	6
+TRA@	9
+
+ids with many rows for mask = False
+IgG/ AF647 555	CONTROL	1536
+ENOX1	IOH11193	6
+ND	IOH12114	6
+CLCN7	IOH13032	6
+C6orf115	IOH13372	6
+MAP2K1IP1	IOH14346	6
+GNAI3	IOH14567	6
+MSH2	IOH14676	6
+CIZ1	IOH22942	6
+ND	IOH22998	6
+CSHL1	IOH23169	6
+APBA2BP	IOH26656	6
+SLC40A1	IOH26826	6
+C13orf24	IOH27047	8
+ND	IOH27200	6
+FLJ22655	IOH27356	6
+ND	IOH28170	6
+ND	IOH28317	6
+ND	IOH29373	6
+ND	IOH3215	6
+PLA2R1	IOH34764	6
+ND	IOH35161	6
+ASB11	IOH35526	8
+GBP6	IOH36042	6
+VENTX	IOH36691	6
+N.D.	IOH38444	6
+DNAJB12	IOH39966	6
+ND	IOH40055	6
+ND	IOH4012	6
+GRHL1	IOH40153	6
+HIST1H2BA	IOH40168	6
+RAD51L3	IOH40582	6
+SLC25A24	IOH40595	6
+PHYHIPL	IOH40856	6
+C9orf86	IOH40918	6
+FKBP1B	IOH4141	6
+	IOH41508	6
+LOH11CR2A	IOH41880	6
+MDGA2	IOH43907	6
+ND	IOH44125	6
+MGC71993	IOH45613	6
+ND	IOH4726	6
+ZHX1	IOH55729	6
+PEX16	IOH56721	6
+ND	IOH57152	6
+PIGL	IOH57310	6
+ND	IOH61782	6
+CNNM3	IOH6547	deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 0 rows with flag <= -100
+gpr.delete_rows: 0 rows deleted, new length is 38400
+gpr.add_columns: added 1 columns: idname
+gpr.add_columns: added 3 columns: ratio_naive zscore_naive zscore_mean_naive
+gpr.write: writing 89 by 10 data matrix to /Users/joel/Dropbox/GPR files/results/2000138327_2012-03-02_V1-top.txt
+dataframe.write: writing 46 by 7 data frame to /Users/joel/Dropbox/GPR files/results/2000138327_2012-03-02_V1-summary.txt
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files file 2000138328_2012-03-02_H12.gpr base 2000138328_2012-03-02_H12 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2000138328_2012-03-02_H12.gpr output /Users/joel/Dropbox/GPR files/results/2000138328_2012-03-02_H12-top.txt summary /Users/joel/Dropbox/GPR files/results/2000138328_2012-03-02_H12-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2000138328_2012-03-02_H12.gpr => /Users/joel/Dropbox/GPR files/results/2000138328_2012-03-02_H12-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2000138328_2012-03-02_H12.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 0 rows with flag <= -100
+gpr.delete_rows: 0 rows deleted, new length is 38400
+gpr.add_columns: added 1 columns: idname
+gpr.add_columns: added 3 columns: ratio_naive zscore_naive zscore_mean_naive
+gpr.write: writing 124 by 10 data matrix to /Users/joel/Dropbox/GPR files/results/2000138328_2012-03-02_H12-top.txt
+dataframe.write: writing 75 by 7 data frame to /Users/joel/Dropbox/GPR files/results/2000138328_2012-03-02_H12-summary.txt
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files file 2000138329_2012-03-02_H11.gpr base 2000138329_2012-03-02_H11 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2000138329_2012-03-02_H11.gpr output /Users/joel/Dropbox/GPR files/results/2000138329_2012-03-02_H11-top.txt summary /Users/joel/Dropbox/GPR files/results/2000138329_2012-03-02_H11-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2000138329_2012-03-02_H11.gpr => /Users/joel/Dropbox/GPR files/results/2000138329_2012-03-02_H11-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2000138329_2012-03-02_H11.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 0 rows with flag <= -100
+gpr.delete_rows: 0 rows deleted, new length is 38400
+gpr.add_columns: added 1 columns: idname
+gpr.add_columns: added 3 columns: ratio_naive zscore_naive zscore_mean_naive
+gpr.write: writing 287 by 10 data matrix to /Users/joel/Dropbox/GPR files/results/2000138329_2012-03-02_H11-top.txt
+dataframe.write: writing 195 by 7 data frame to /Users/joel/Dropbox/GPR files/results/2000138329_2012-03-02_H11-summary.txt
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files file 2000138330_2012-03-02_H10.gpr base 2000138330_2012-03-02_H10 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2000138330_2012-03-02_H10.gpr output /Users/joel/Dropbox/GPR files/results/2000138330_2012-03-02_H10-top.txt summary /Users/joel/Dropbox/GPR files/results/2000138330_2012-03-02_H10-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2000138330_2012-03-02_H10.gpr => /Users/joel/Dropbox/GPR files/results/2000138330_2012-03-02_H10-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2000138330_2012-03-02_H10.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+6
+empty	empty	516
+nd	nd	22
+
+histogram for mask = True
+ids_per_name	number_of_names
+rows_per_name	number_of_names
+rows_per_id	number_of_ids
+
+names with many ids for mask = True
+
+ids with many rows for mask = True
+checking for ids with multiple mask values
+
+histogram for mask = False
+ids_per_name	number_of_names
+1	9486
+2	2175
+3	390
+4	55
+5	8
+6	3
+8	1
+9	1
+10	1
+13	1
+14	1
+20	1
+25	1
+87	1
+884	1
+1149	1
+rows_per_name	number_of_names
+2	9092
+4	2366
+6	526
+8	84
+10	21
+12	5
+14	1
+18	2
+22	6
+24	2
+26	2
+28	1
+40	1
+52	1
+78	1
+96	11
+100	1
+176	1
+536	1
+1960	1
+2346	1
+rows_per_id	number_of_ids
+2	15298
+4	1361
+6	45
+8	2
+22	1
+516	1
+1536	1
+
+names with many ids for mask = False
+	884
+CMTM1	8
+CREM	14
+IGHA1	6
+IGHG1	25
+IGHM	10
+IGKC	20
+IGL@	13
+MAX	6
+N.D.	87
+ND	1149
+RPL14	6
+TRA@	9
+
+ids with many rows for mask = False
+IgG/ AF647 555	CONTROL	1536
+ENOX1	IOH11193	6
+ND	IOH12114	6
+CLCN7	IOH13032	6
+C6orf115	IOH13372	6
+MAP2K1IP1	IOH14346	6
+GNAI3	IOH14567	6
+MSH2	IOH14676	6
+CIZ1	IOH22942	6
+ND	IOH22998	6
+CSHL1	IOH23169	6
+APBA2BP	IOH26656	6
+SLC40A1	IOH26826	6
+C13orf24	IOH27047	8
+ND	IOH27200	6
+FLJ22655	IOH27356	6
+ND	IOH28170	6
+ND	IOH28317	6
+ND	IOH29373	6
+ND	IOH3215	6
+PLA2R1	IOH34764	6
+ND	IOH35161	6
+ASB11	IOH35526	8
+GBP6	IOH36042	6
+VENTX	IOH36691	6
+N.D.	IOH38444	6
+DNAJB12	IOH39966	6
+ND	IOH40055	6
+ND	IOH4012	6
+GRHL1	IOH40153	6
+HIST1H2BA	IOH40168	6
+RAD51L3	IOH40582	6
+SLC25A24	IOH40595	6
+PHYHIPL	IOH40856	6
+C9orf86	IOH40918	6
+FKBP1B	IOH4141	6
+	IOH41508	6
+LOH11CR2A	IOH41880	6
+MDGA2	IOH43907	6
+ND	IOH44125	6
+MGC71993	IOH45613	6
+ND	IOH4726	6
+ZHX1	IOH55729	6
+PEX16	IOH56721	6
+ND	IOH57152	6
+PIGL	IOH57310	6
+ND	IOH61782	6
+CNNM3	IOH6547	6
+empty	empty	516
+nd	nd	22
+
+histogram for mask = True
+ids_per_name	number_of_names
+rows_per_name	number_of_names
+rows_per_id	number_of_ids
+
+names with many ids for mask = True
+
+ids with many rows for mask = True
+checking for ids with multiple mask values
+
+histogram for mask = False
+ids_per_name	number_of_names
+1	9486
+2	2175
+3	390
+4	55
+5	8
+6	3
+8	1
+9	1
+10	1
+13	1
+14	1
+20	1
+25	1
+87	1
+884	1
+1149	1
+rows_per_name	number_of_names
+2	9092
+4	2366
+6	526
+8	84
+10	21
+12	5
+14	1
+18	2
+22	6
+24	2
+26	2
+28	1
+40	1
+52	1
+78	1
+96	11
+100	1
+176	1
+536	1
+1960	1
+2346	1
+rows_per_id	number_of_ids
+2	15298
+4	1361
+6	45
+8	2
+22	1
+516	1
+1536	1
+
+names with many ids for mask = False
+	884
+CMTM1	8
+CREM	14
+IGHA1	6
+IGHG1	25
+IGHM	10
+IGKC	20
+IGL@	13
+MAX	6
+N.D.	87
+ND	1149
+RPL14	6
+TRA@	9
+
+ids with many rows for mask = False
+IgG/ AF647 555	CONTROL	1536
+ENOX1	IOH11193	6
+ND	IOH12114	6
+CLCN7	IOH13032	6
+C6orf115	IOH13372	6
+MAP2K1IP1	IOH14346	6
+GNAI3	IOH14567	6
+MSH2	IOH14676	6
+CIZ1	IOH22942	6
+ND	IOH22998	6
+CSHL1	IOH23169	6
+APBA2BP	IOH26656	6
+SLC40A1	IOH26826	6
+C13orf24	IOH27047	8
+ND	IOH27200	6
+FLJ22655	IOH27356	6
+ND	IOH28170	6
+ND	IOH28317	6
+ND	IOH29373	6
+ND	IOH3215	6
+PLA2R1	IOH34764	6
+ND	IOH35161	6
+ASB11	IOH35526	8
+GBP6	IOH36042	6
+VENTX	IOH36691	6
+N.D.	IOH38444	6
+DNAJB12	IOH39966	6
+ND	IOH40055	6
+ND	IOH4012	6
+GRHL1	IOH40153	6
+HIST1H2BA	IOH40168	6
+RAD51L3	IOH40582	6
+SLC25A24	IOH40595	6
+PHYHIPL	IOH40856	6
+C9orf86	IOH40918	6
+FKBP1B	IOH4141	6
+	IOH41508	6
+LOH11CR2A	IOH41880	6
+MDGA2	IOH43907	6
+ND	IOH44125	6
+MGC71993	IOH45613	6
+ND	IOH4726	6
+ZHX1	IOH55729	6
+PEX16	IOH56721	6
+ND	IOH57152	6
+PIGL	IOH57310	6
+ND	IOH61782	6
+CNNM3	IOH6547	6
+empty	empty	516
+nd	nd	22
+
+histogram for mask = True
+ids_per_name	number_of_names
+rows_per_name	number_of_names
+rows_per_id	number_of_ids
+
+names with many ids for mask = True
+
+ids with many rows for mask = True
+checking for ids with multiple mask values
+
+histogram for mask = False
+ids_per_name	number_of_names
+1	9486
+2	2175
+3	390
+4	55
+5	8
+6	3
+8	1
+9	1
+10	1
+13	1
+14	1
+20	1
+25	1
+87	1
+884	1
+1149	1
+rows_per_name	number_of_names
+2	9092
+4	2366
+6	526
+8	84
+10	21
+12	5
+14	1
+18	2
+22	6
+24	2
+26	2
+28	1
+40	1
+52	1
+78	1
+96	11
+100	1
+176	1
+536	1
+1960	1
+2346	1
+rows_per_id	number_of_ids
+2	15298
+4	1361
+6	45
+8	2
+22	1
+516	1
+1536	1
+
+names with many ids for mask = False
+	884
+CMTM1	8
+CREM	14
+IGHA1	6
+IGHG1	25
+IGHM	10
+IGKC	20
+IGL@	13
+MAX	6
+N.D.	87
+ND	1149
+RPL14	6
+TRA@	9
+
+ids with many rows for mask = False
+IgG/ AF647 555	CONTROL	1536
+ENOX1	IOH11193	6
+ND	IOH12114	6
+CLCN7	IOH13032	6
+C6orf115	IOH13372	6
+MAP2K1IP1	IOH14346	6
+GNdeconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 0 rows with flag <= -100
+gpr.delete_rows: 0 rows deleted, new length is 38400
+gpr.add_columns: added 1 columns: idname
+gpr.add_columns: added 3 columns: ratio_naive zscore_naive zscore_mean_naive
+gpr.write: writing 166 by 10 data matrix to /Users/joel/Dropbox/GPR files/results/2000138330_2012-03-02_H10-top.txt
+gpr.write: ... 20001
+dataframe.write: writing 108 by 7 data frame to /Users/joel/Dropbox/GPR files/results/2000138330_2012-03-02_H10-summary.txt
+deconv.process_gpr_dir: dir /Users/joel/Dropbox/GPR files file 2000138331_2012-03-02_H9.gpr base 2000138331_2012-03-02_H9 ext .gpr
+deconv.process_gpr_dir: input /Users/joel/Dropbox/GPR files/2000138331_2012-03-02_H9.gpr output /Users/joel/Dropbox/GPR files/results/2000138331_2012-03-02_H9-top.txt summary /Users/joel/Dropbox/GPR files/results/2000138331_2012-03-02_H9-summary.txt
+deconv.process_gpr_file: /Users/joel/Dropbox/GPR files/2000138331_2012-03-02_H9.gpr => /Users/joel/Dropbox/GPR files/results/2000138331_2012-03-02_H9-top.txt
+gpr.__init__: reading from /Users/joel/Dropbox/GPR files/2000138331_2012-03-02_H9.gpr
+gpr.__init__: 38400 data rows
+gpr.__init__: ... 10000
+gpr.__init__: ... 20000
+gpr.__init__: ... 30000
+deconv.process_gpr_file: n_row_orig 38400
+gpr.add_columns: added 1 columns: row_number_orig
+deconv.process_gpr_file: deleting 0 rows with flag <= -100
+gpr.delete_rows: 0 rows deleted, new length is 38400
+AI3	IOH14567	6
+MSH2	IOH14676	6
+CIZ1	IOH22942	6
+ND	IOH22998	6
+CSHL1	IOH23169	6
+APBA2BP	IOH26656	6
+SLC40A1	IOH26826	6
+C13orf24	IOH27047	8
+ND	IOH27200	6
+FLJ22655	IOH27356	6
+ND	IOH28170	6
+ND	IOH28317	6
+ND	IOH29373	6
+ND	IOH3215	6
+PLA2R1	IOH34764	6
+ND	IOH35161	6
+ASB11	IOH35526	8
+GBP6	IOH36042	6
+VENTX	IOH36691	6
+N.D.	IOH38444	6
+DNAJB12	IOH39966	6
+ND	IOH40055	6
+ND	IOH4012	6
+GRHL1	IOH40153	6
+HIST1H2BA	IOH40168	6
+RAD51L3	IOH40582	6
+SLC25A24	IOH40595	6
+PHYHIPL	IOH40856	6
+C9orf86	IOH40918	6
+FKBP1B	IOH4141	6
+	IOH41508	6
+LOH11CR2A	IOH41880	6
+MDGA2	IOH43907	6
+ND	IOH44125	6
+MGC71993	IOH45613	6
+ND	IOH4726	6
+ZHX1	IOH55729	6
+PEX16	IOH56721	6
+ND	IOH57152	6
+PIGL	IOH57310	6
+ND	IOH61782	6
+CNNM3	IOH6547	6
+empty	empty	516
+nd	nd	22
+
+histogram for mask = True
+ids_per_name	number_of_names
+rows_per_name	number_of_names
+rows_per_id	number_of_ids
+
+names with many ids for mask = True
+
+ids with many rows for mask = True
+checking for ids with multiple mask values
+
+histogram for mask = False
+ids_per_name	number_of_names
+1	9486
+2	2175
+3	390
+4	55
+5	8
+6	3
+8	1
+9	1
+10	1
+13	1
+14	1
+20	1
+25	1
+87	1
+884	1
+1149	1
+rows_per_name	number_of_names
+2	9092
+4	2366
+6	526
+8	84
+10	21
+12	5
+14	1
+18	2
+22	6
+24	2
+26	2
+28	1
+40	1
+52	1
+78	1
+96	11
+100	1
+176	1
+536	1
+1960	1
+2346	1
+rows_per_id	number_of_ids
+2	15298
+4	1361
+6	45
+8	2
+22	1
+516	1
+1536	1
+
+names with many ids for mask = False
+	884
+CMTM1	8
+CREM	14
+IGHA1	6
+IGHG1	25
+IGHM	10
+IGKC	20
+IGL@	13
+MAX	6
+N.D.	87
+ND	1149
+RPL14	6
+TRA@	9
+
+ids with many rows for mask = False
+IgG/ AF647 555	CONTROL	1536
+ENOX1	IOH11193	6
+ND	IOH12114	6
+CLCN7	IOH13032	6
+C6orf115	IOH13372	6
+MAP2K1IP1	IOH14346	6
+GNAI3	IOH14567	6
+MSH2	IOH14676	6
+CIZ1	IOH22942	6
+ND	IOH22998	6
+CSHL1	IOH23169	6
+APBA2BP	IOH26656	6
+SLC40A1	IOH26826	6
+C13orf24	IOH27047	8
+ND	IOH27200	6
+FLJ22655	IOH27356	6
+ND	IOH28170	6
+ND	IOH28317	6
+ND	IOH29373	6
+ND	IOH3215	6
+PLA2R1	IOH34764	6
+ND	IOH35161	6
+ASB11	IOH35526	8
+GBP6	IOH36042	6
+VENTX	IOH36691	6
+N.D.	IOH38444	6
+DNAJB12	IOH39966	6
+ND	IOH40055	6
+ND	IOH4012	6
+GRHL1	IOH40153	6
+HIST1H2BA	IOH40168	6
+RAD51L3	IOH40582	6
+SLC25A24	IOH40595	6
+PHYHIPL	IOH40856	6
+C9orf86	IOH40918	6
+FKBP1B	IOH4141	6
+	IOH41508	6
+LOH11CR2A	IOH41880	6
+MDGA2	IOH43907	6
+ND	IOH44125	6
+MGC71993	IOH45613	6
+ND	IOH4726	6
+ZHX1	IOH55729	6
+PEX16	IOH56721	6
+ND	IOH57152	6
+PIGL	IOH57310	6
+ND	IOH61782	6
+CNNM3	IOH6547	6
+empty	empty	516
+nd	nd	22
+
+histogram for mask = True
+ids_per_name	number_of_names
+rows_per_name	number_of_names
+rows_per_id	number_of_ids
+
+names with many ids for mask = True
+
+ids with many rows for mask = True
+checking for ids with multiple mask values
+Traceback (most recent call last):
+  File "deconv.py", line 369, in <module>
+    main()
+  File "deconv.py", line 363, in main
+    process_gpr_dir(data_dir, results_dir, channel_fg, channel_bg)
+  File "deconv.py", line 219, in process_gpr_dir
+    process_gpr_file(input_file, output_file, summary_file, channel_fg, channel_bg)
+  File "deconv.py", line 163, in process_gpr_file
+    assert(sum(bg == 0) == 0), 'bg has %d zero values' % sum(bg==0)
+AssertionError: bg has 11 zero values
