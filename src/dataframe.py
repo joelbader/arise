@@ -79,7 +79,11 @@ class DataFrame:
                 data_tmp[h] = [ ]
             for data_line in data_lines:
                 toks = data_line.strip().split(sep)
-                assert(len(toks) == n_column), 'expected %d columns found %d: %s' % (n_column, len(toks), data_line)
+                # pad with blanks if too few values
+                if (len(toks) < n_column):
+                    logger.warn('expected %d columns found %d: %s' , n_column, len(toks), data_line)
+                    toks += [''] * (n_column - len(toks))
+                assert(len(toks)==n_column), 'expected %d columns found %d: %s' % (n_column, len(toks), data_line)
                 for (j, h) in enumerate(headers):
                     new_val = try_to_convert(toks[j])
                     data_tmp[h].append(new_val)

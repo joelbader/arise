@@ -22,6 +22,7 @@ def get_data_dir():
     data_dir = '../data'
     data_dir = '/Users/joel/Dropbox/GPR files'
     data_dir = '/Users/joel/Dropbox/GPR files/2012-04-25-IgM'
+    data_dir = '/Users/joel/Dropbox/GPR files/2012-05-03 Validations'    
     logger.info('data_dir %s', data_dir)
     return(data_dir)
     
@@ -51,10 +52,10 @@ def get_control_filename():
     file with four columns: id, name, control, expt
     counts how many times this (id, name) pair is marked as a control
     """
-    filename = 'control.txt'
+    filename = 'control_seth_2012_04_26.txt'
     return(filename)
 
-def get_control_from_file(filename):
+def get_control_from_file(filename, simple=True):
     """
     read the file as a data frame
     for each id, check how many times it occurs as control or experimental
@@ -62,37 +63,43 @@ def get_control_from_file(filename):
     """
     logger.info('reading controls from %s', filename)
     control = DataFrame(filename=filename)
-    (id, name, control, exptl) = control.get_columns('id', 'name', 'control', 'exptl')
-    id_to_name = dict()
     control_dict = dict()
-    for (i, n, c, e) in zip(id, name, control, exptl):
-        isND = n in [ 'ND', 'nd', 'N.D.' ]
-        isControl = (i == 'CONTROL')
-        isIgg = (n == 'IgG')
-        if ((c >= e) or isND or isControl or isIgg):
-            control_dict[(i, n)] = True
-            
-    # insert some special cases
-    control_dict[('CONTROL', 'IgG')] = True
-
-    for (i, n) in zip(id, name):
-        if i not in id_to_name:
-            id_to_name[i] = dict()
-        id_to_name[i][n] = True
     
-    id_to_names = dict()
-    for i in id_to_name:
-        names = sorted(id_to_name[i].keys())
-        cnt = len(names)
-        name_str = ','.join(names)
-        id_to_names[i] = dict()
-        id_to_names[i]['cnt'] = cnt
-        id_to_names[i]['names'] = name_str
-    ids = sorted(id_to_names.keys())
-    cnts = [ id_to_names[x]['cnt'] for x in ids ]
-    names = [ id_to_names[x]['names'] for x in ids ]
-    df = DataFrame(data=[ ('id', ids), ('cnt', cnts), ('names', names)])
-    df.write('id_to_names.txt')
+    if (simple):
+        (ids, names) = control.get_columns('id','name')
+        for (id, name) in zip(ids, names):
+            control_dict[(id,name)] = True
+    else:
+        (id, name, control, exptl) = control.get_columns('id', 'name', 'control', 'exptl')
+        id_to_name = dict()
+        for (i, n, c, e) in zip(id, name, control, exptl):
+            isND = n in [ 'ND', 'nd', 'N.D.' ]
+            isControl = (i == 'CONTROL')
+            isIgg = (n == 'IgG')
+            if ((c >= e) or isND or isControl or isIgg):
+                control_dict[(i, n)] = True
+                
+        # insert some special cases
+        control_dict[('CONTROL', 'IgG')] = True
+    
+        for (i, n) in zip(id, name):
+            if i not in id_to_name:
+                id_to_name[i] = dict()
+            id_to_name[i][n] = True
+        
+        id_to_names = dict()
+        for i in id_to_name:
+            names = sorted(id_to_name[i].keys())
+            cnt = len(names)
+            name_str = ','.join(names)
+            id_to_names[i] = dict()
+            id_to_names[i]['cnt'] = cnt
+            id_to_names[i]['names'] = name_str
+        ids = sorted(id_to_names.keys())
+        cnts = [ id_to_names[x]['cnt'] for x in ids ]
+        names = [ id_to_names[x]['names'] for x in ids ]
+        df = DataFrame(data=[ ('id', ids), ('cnt', cnts), ('names', names)])
+        df.write('id_to_names.txt')
     return(control_dict)
 
 def print_control_dict(control_dict):
@@ -209,7 +216,7 @@ def process_gpr_file(input_file, output_file, summary_file, channel_fg, channel_
     columns_added = [ ]
 
     # start by extracting the flags and adding an index for the original row number
-    (flags, ids, names) = gpr.get_columns(['Flags', 'ID', 'Name'])
+    (flags, ids, names, fg, bg) = gpr.get_columns(['Flags', 'ID', 'Name', channel_fg, channel_bg])
     n_row_orig = len(flags)
     logger.info('n_row_orig %d', n_row_orig)
     row_number_orig = np.array(range(1, n_row_orig + 1))
@@ -219,27 +226,33 @@ def process_gpr_file(input_file, output_file, summary_file, channel_fg, channel_
 
     # identify rows with bad flags and delete them
     # follow the semantics of a numpy masked array: delete where mask is True
-    mask1 = None
-    if (control_dict is None):
-        mask1 = flags <= FLAG_BAD
-    else:
-        mask1 = [ x in control_dict for x in zip(ids, names) ]
-    # also get rid of anything with id == CONTROL
-    mask2 = [ id == 'CONTROL' for id in ids ]
-    mask = [ x[0] or x[1] for x in zip(mask1, mask2) ]
+    
+    # controls from a dictionary
+    mask_control = [ False for x in ids ]
+    if (control_dict is not None):
+        control_ids = dict()
+        # for controls, just worry about ID, not name
+        for (i, n) in control_dict.keys():
+            control_ids[i] = True
+        mask_control = [ i in control_ids for i in ids ]
+        
+    # user interface permits manual flagging of bad data, usually -100
+    mask_flag = flags <= FLAG_BAD
+    
+    # some text values are clearly controls
+    mask_text = [ id == 'CONTROL' for id in ids ]
+    
+    # bad signal
+    mask_signal = [ (x[0] <= 0) or (x[1] <= 0) for x in zip(fg, bg) ]
+    
+    mask = [ x[0] or x[1] or x[2] or x[3] for x in zip(mask_control, mask_flag, mask_text, mask_signal) ]
     logger.info('deleting %d control rows', sum(mask))
     gpr.delete_rows(mask)
 
 
-    # identify rows with background <= 0 and delete them
-    (fg, bg) = gpr.get_columns([channel_fg, channel_bg])
-    mask = [ (x[0] <= 0) or (x[1] <= 0) for x in zip(fg, bg) ]
-    logger.info('deleting %d rows with fg or bg <= 0', sum(mask))
-    gpr.delete_rows(mask)
-
     # re-extract just the good columns
-    columns_extracted = [ 'Name', 'ID', channel_fg, channel_bg, 'Flags' ]
-    (name, id, fg, bg, flags) = gpr.get_columns(columns_extracted)
+    columns_extracted = [ 'Name', 'ID', channel_fg, channel_bg ]
+    (name, id, fg, bg) = gpr.get_columns(columns_extracted)
     n_row = len(name)
     assert(sum(bg == 0) == 0), 'bg has %d zero values' % sum(bg==0)
     
@@ -447,11 +460,15 @@ def main():
     control_dict = get_control_from_file(control_file)
     print_control_dict(control_dict)
     
-    process_gpr_dir(data_dir, results_dir, channel_fg, channel_bg, control_dict)
+    doFiles = True
+    if doFiles:
+        process_gpr_dir(data_dir, results_dir, channel_fg, channel_bg, control_dict)
 
-    pool_filename = get_pool_filename(results_dir)
-    pool_to_file = DataFrame(filename=pool_filename)
-    deconv_pools(results_dir, pool_to_file)
+    doDeconv = False
+    if (doDeconv):
+        pool_filename = get_pool_filename(results_dir)
+        pool_to_file = DataFrame(filename=pool_filename)
+        deconv_pools(results_dir, pool_to_file)
 
 if __name__ == '__main__':
     main()

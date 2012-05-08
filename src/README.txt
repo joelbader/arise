@@ -24,6 +24,7 @@ file.gpr => file-hits.txt
 
 pool-hits.txt => clone-hits.txt
 ** autogenerate a pool-to-file map from the filenames
+** probably good to include the directory in the filename
 - read file-to-pool map
 - read top hits
 - find hits shared by row and column
