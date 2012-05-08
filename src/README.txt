@@ -1,3 +1,7 @@
+deconv process
+- use arparse parse command-line arguments
+- make into a webserver trigger
+
 control wells
 - read a gpr file that has seth's flag = -100 indicating a control well
 - generate a table with these ids
