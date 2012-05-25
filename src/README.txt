@@ -21,6 +21,7 @@ file.gpr => file-hits.txt
 - calculate mean and std (masked)
 - calculate z-score
 -- using ratio
+-- using ratio(635 medians)/ratio(532 medians) to correct for GST
 ** using log(ratio)
 - print gpr augmented with z-score up to threshold
 ** create a results directory if it doesn't exist
