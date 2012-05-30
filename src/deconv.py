@@ -11,10 +11,27 @@ from dataframe import DataFrame
 import numpy as np
 import numpy.ma
 
+import argparse # command line arguments
+
 #logging.basicConfig(format='%(levelname)s %(name)s.%(funcName)s: %(message)s')
 logging.basicConfig(format='%(funcName)s: %(message)s')
 logger = logging.getLogger(name='deconv')
 logger.setLevel(logging.INFO)
+
+ap = argparse.ArgumentParser(description ='Deconvolute protein array pooling data.', \
+                             epilog = 'copyright (c) 2012 joel.bader@jhu.edu')
+ap.add_argument('data_dir', help='directory for reading gpr data files')
+ap.add_argument('results_dir', help='directory for writing results')
+ap.add_argument('--control_filename', default='~/Dropbox/deconv/src/control_seth_2012_04_26.txt', \
+                help='file with controls, header "id name" then one row for each id and name')
+ap.add_argument('--create_map', action='store_true', help='create pool-to-file map from filenames')
+ap.add_argument('--map_filename', default = 'pool_to_file.txt', help='file in results directory with pooling map')
+ap.add_argument('--signal_fg', default = 'F635 Median', help='gpr column with signal foreground')
+ap.add_argument('--signal_bg', default = 'B635 Median', help='gpr column with signal background')
+ap.add_argument('--norm_fg', default = 'F532 Median', help='gpr column with normalization foreground')
+ap.add_argument('--norm_bg', default = 'B532 Median', help='gpr column with normalization background')
+ap.add_argument('--normalize', action='store_true', help='normalize signal fg/bg by norm fg/bg')
+ap.add_argument('--log', action='store_true', help='take the log before calculating z-scores')
 
 def get_data_dir():
     """ directory holding the pooled experiment results """
@@ -449,6 +466,8 @@ def deconv_pools(results_dir, pool_to_file):
 
 def main():
     
+    
+    args = ap.parse_args()
     # for each gpr file in the data directory,
     #   analyze the file and generate results for that file
     data_dir = get_data_dir()
