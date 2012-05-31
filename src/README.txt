@@ -1,7 +1,8 @@
 deconv process
 - use argparse parse command-line arguments
 -- put defaults into argparse help
--- move to Dropbox/deconv
+- move to Dropbox/deconv
+-- remove data files to make directory smaller
 * make into a webserver trigger
 
 control wells
