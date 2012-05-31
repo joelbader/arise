@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 """
 Deconvolution for antibody pools
+copyright (c) 2012
 joel.bader@jhu.edu
 """
 
@@ -22,48 +23,18 @@ ap = argparse.ArgumentParser(description ='Deconvolute protein array pooling dat
                              epilog = 'copyright (c) 2012 joel.bader@jhu.edu')
 ap.add_argument('data_dir', help='directory for reading gpr data files')
 ap.add_argument('results_dir', help='directory for writing results')
-ap.add_argument('--control_filename', default='~/Dropbox/deconv/src/control_seth_2012_04_26.txt', \
+ap.add_argument('--control_filename', default='/Users/joel/Dropbox/deconv/src/control_seth_2012_04_26.txt', \
                 help='file with controls, header "id name" then one row for each id and name (default: %(default)s)')
 ap.add_argument('--create_map', action='store_true', help='create pool-to-file map by parsing gpr filenames (default: %(default)s)')
-ap.add_argument('--pool_filename', default = 'pool_to_file.txt', help='RESULTS_DIR/POOL_FILENAME has the pool-to-file map (default: %(default)s)')
+ap.add_argument('--map_filename', default = 'map_pool_to_file.txt', help='RESULTS_DIR/POOL_FILENAME has the pool-to-file map (default: %(default)s)')
 ap.add_argument('--signal_fg', default = 'F635 Median', help='gpr signal foreground (default: %(default)s)')
 ap.add_argument('--signal_bg', default = 'B635 Median', help='gpr signal background (default: %(default)s)')
 ap.add_argument('--norm_fg', default = 'F532 Median', help='gpr normalization foreground (default: %(default)s)')
 ap.add_argument('--norm_bg', default = 'B532 Median', help='gpr normalization background (default: %(default)s)')
-ap.add_argument('--normalize', action='store_true', help='normalize signal fg/bg by norm fg/bg (default: %(default)s)')
-ap.add_argument('--log', action='store_true', help='take the log before calculating z-scores (default: %(default)s)')
-
-def get_data_dir():
-    """ directory holding the pooled experiment results """
-    # data_dir = '/Users/joel/Dropbox/Pooled data and individual retests_12511/Pools'
-    data_dir = '../data'
-    data_dir = '/Users/joel/Dropbox/GPR files'
-    data_dir = '/Users/joel/Dropbox/GPR files/2012-04-25-IgM'
-    data_dir = '/Users/joel/Dropbox/GPR files/2012-05-03 Validations'    
-    logger.info('data_dir %s', data_dir)
-    return(data_dir)
-    
-def get_results_dir(data_dir=None):
-    """ directory to write the results """
-    results_dir = '../results'
-    results_dir = '/Users/joel/Dropbox/GPR files/results'
-    if (data_dir is not None):
-        results_dir = os.path.join(data_dir, 'results')
-    logger.info('results_dir %s', results_dir)
-    return(results_dir)
-
-def get_channel():
-    """ foreground and background channel """
-    (channel_fg, channel_bg) = [ 'F635 Median', 'B635 Median' ]
-    return(channel_fg, channel_bg)
-    
-def get_control_filename():
-    """
-    file with four columns: id, name, control, expt
-    counts how many times this (id, name) pair is marked as a control
-    """
-    filename = 'control_seth_2012_04_26.txt'
-    return(filename)
+ap.add_argument('--do_norm', action='store_true', help='normalize signal fg/bg by norm fg/bg (default: %(default)s)')
+ap.add_argument('--do_log', action='store_true', help='take the log before calculating z-scores (default: %(default)s)')
+ap.add_argument('--skip_gpr', action='store_true', help='skip the gpr analysis (default: %(default)s)')
+ap.add_argument('--skip_deconv', action='store_true', help='skip the deconvolution (default: %(default)s)')
 
 def get_control_from_file(filename, simple=True):
     """
@@ -112,12 +83,12 @@ def get_control_from_file(filename, simple=True):
         df.write('id_to_names.txt')
     return(control_dict)
 
-def print_control_dict(control_dict):
+def print_control_dict(control_dict, control_dict_filename):
     keys = sorted(control_dict.keys())
     ids = [ x[0] for x in keys ]
     names = [ x[1] for x in keys ]
     df = DataFrame(data=[('id', ids), ('name', names)])
-    df.write(filename='control_dict.txt')
+    df.write(filename=control_dict_filename)
     
 
 def get_naive(fg, bg):
@@ -309,7 +280,9 @@ def process_gpr_file(input_file, output_file, summary_file, channel_fg, channel_
         
 
 
-def process_gpr_dir(data_dir, results_dir, channel_fg, channel_bg, control_dict):
+def process_gpr_dir(data_dir, results_dir, signal_fg, signal_bg, \
+                    norm_fg, norm_bg, do_norm, do_log, \
+                    control_dict):
     """ process each gpr file in the data_dir, writing results to results_dir """
     file_list = sorted(os.listdir(data_dir))
     for file_name in file_list:
@@ -324,6 +297,10 @@ def process_gpr_dir(data_dir, results_dir, channel_fg, channel_bg, control_dict)
 
 POOL_DIRECTIONS = ['H', 'V']
 POOL_RANGE = range(1, 13)
+
+def create_map_file(data_dir, map_filename):
+    
+    return None
 
 def parse_pool_name(p):
     direction = p[0]
@@ -459,23 +436,29 @@ def deconv_pools(results_dir, pool_to_file):
 
 def main(args):
     
-
+    # create the results directory (if needed)
+    if not os.path.exists(args.results_dir):
+        logger.info('making results directory %s', args.results_dir)
+        os.makedirs(args.results_dir)    
     
     # get a dictionary of controls
     control_dict = get_control_from_file(args.control_filename)
-    print_control_dict(control_dict)
+    control_dict_filename = os.path.join(args.results_dir, 'control_dict.txt')
+    print_control_dict(control_dict, control_dict_filename)
     
     # for each gpr file in the data directory,
     #   analyze the file and generate results for that file
-    if doFiles:
+    if not args.skip_gpr:
         process_gpr_dir(args.data_dir, args.results_dir, args.signal_fg, args.signal_bg, \
-                        args.norm_fg, args.norm_bg, args.normalize, args.log, \
+                        args.norm_fg, args.norm_bg, args.do_norm, args.do_log, \
                         control_dict)
 
-    doDeconv = False
-    if (doDeconv):
-        pool_fullpath = os.path.join(args.results_dir, args.pool_filename)
-        pool_to_file = DataFrame(filename=pool_fullpath)
+    map_fullpath = os.path.join(args.results_dir, args.map_filename)
+    if args.create_map:
+        create_map_file(args.data_dir, map_fullpath)
+
+    if not args.skip_deconv:
+        pool_to_file = DataFrame(filename=map_fullpath)
         deconv_pools(args.results_dir, pool_to_file)
 
 if __name__ == '__main__':
