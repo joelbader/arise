@@ -11,6 +11,7 @@ from gpr import GPR
 from dataframe import DataFrame
 import numpy as np
 import numpy.ma
+import re
 
 import argparse # command line arguments
 
@@ -91,7 +92,7 @@ def print_control_dict(control_dict, control_dict_filename):
     df.write(filename=control_dict_filename)
     
 
-def get_naive(fg, bg):
+def get_naive(fg, bg, do_log):
     """
     calculate ratio as fg / bg
     calculate mean and stdev of ratio
@@ -99,6 +100,8 @@ def get_naive(fg, bg):
     return ratio and zscore
     """
     ratio = np.array(fg, dtype=float) / np.array(bg, dtype=float)
+    if do_log:
+        ratio = np.log2(ratio)
     mean = ratio.mean()
     stdev = ratio.std(ddof = 1) # subtract 1 ddof for mean to be consistent with excel stdev
     zscore = (ratio - mean)/stdev
@@ -170,7 +173,10 @@ def get_good_ids_rows(id_list, zscore_list, z_threshold = 2.5):
             id_subset.append(i)
     return(id_subset, row_subset)
 
-def process_gpr_file(input_file, output_file, summary_file, channel_fg, channel_bg, control_dict=None):
+def process_gpr_file(input_file, output_file, summary_file, \
+                     signal_fg, signal_bg, norm_fg, norm_bg, \
+                     do_norm, do_log, \
+                     control_dict=None):
     """
     open input_file as a gpr
     extract columns corresponding to F635 Median and B635 Median (fore- and back-ground)
@@ -197,7 +203,7 @@ def process_gpr_file(input_file, output_file, summary_file, channel_fg, channel_
     columns_added = [ ]
 
     # start by extracting the flags and adding an index for the original row number
-    (flags, ids, names, fg, bg) = gpr.get_columns(['Flags', 'ID', 'Name', channel_fg, channel_bg])
+    (flags, ids, names, fg, bg) = gpr.get_columns(['Flags', 'ID', 'Name', signal_fg, signal_bg])
     n_row_orig = len(flags)
     logger.info('n_row_orig %d', n_row_orig)
     row_number_orig = np.array(range(1, n_row_orig + 1))
@@ -232,7 +238,7 @@ def process_gpr_file(input_file, output_file, summary_file, channel_fg, channel_
 
 
     # re-extract just the good columns
-    columns_extracted = [ 'Name', 'ID', channel_fg, channel_bg ]
+    columns_extracted = [ 'Name', 'ID', signal_fg, signal_bg ]
     (name, id, fg, bg) = gpr.get_columns(columns_extracted)
     n_row = len(name)
     assert(sum(bg == 0) == 0), 'bg has %d zero values' % sum(bg==0)
@@ -249,7 +255,7 @@ def process_gpr_file(input_file, output_file, summary_file, channel_fg, channel_
     gpr.add_columns( ('idname', idname))
     columns_added += ['idname']
     
-    (ratio_naive, zscore_naive) = get_naive(fg, bg)    
+    (ratio_naive, zscore_naive) = get_naive(fg, bg, do_log)    
     (id_to_mean_naive, row_to_mean_naive, id_to_zscores) = apply_by_group(np.mean, idname, zscore_naive)
     (id_to_mean_ratio, row_to_mean_ratio, id_to_ratios) = apply_by_group(np.mean, idname, ratio_naive)
 
@@ -293,28 +299,63 @@ def process_gpr_dir(data_dir, results_dir, signal_fg, signal_bg, \
             output_file = os.path.join(results_dir, base + '-top.txt')
             summary_file = os.path.join(results_dir, base + '-summary.txt')
             logger.info('input %s output %s summary %s', input_file, output_file, summary_file)
-            process_gpr_file(input_file, output_file, summary_file, channel_fg, channel_bg, control_dict)
+            process_gpr_file(input_file, output_file, summary_file, signal_fg, signal_bg, \
+                             norm_fg, norm_bg, do_norm, do_log,
+                             control_dict)
 
 POOL_DIRECTIONS = ['H', 'V']
 POOL_RANGE = range(1, 13)
 
 def create_map_file(data_dir, map_filename):
-    
+    file_list = sorted(os.listdir(data_dir))
+    pool_list = [ ]
+    base_list = [ ]
+    for file_name in file_list:
+        (base, ext) = os.path.splitext(file_name)
+        if (ext == '.gpr') or (ext == '.GPR'):
+            logger.info('dir %s file %s base %s ext %s', data_dir, file_name, base, ext)
+            toks = re.split('_|-', base) # split on underscore or dash
+            
+            # start looking from the end for a token that is a valid pool name
+            toks.reverse()
+            pool_str = ''
+            for tok in toks:
+                if is_valid_pool_name(tok):
+                    pool_str = tok
+                    break
+            if not is_valid_pool_name(pool_str):
+                logger.warn('%s has no valid pool name, skipping %s', ext, file_name)
+                continue
+            if pool_str in pool_list:
+                logger.error('pool %s is repeated, ignoring', ext)
+            pool_list.append(pool_str)
+            base_list.append(base)
+    df = DataFrame(data = [('pool', pool_list), ('file', base_list)])
+    df.write(map_filename)
     return None
 
-def parse_pool_name(p):
-    direction = p[0]
-    number = int(p[1:])
-    return(direction, number)
+def is_int(str_val):
+    try:
+        int(str_val)
+        return True
+    except ValueError:
+        return False
 
 def is_valid_pool_name(p):
-    (direction, number) = parse_pool_name(p)
     ret = True
+    if len(p) < 2:
+        return False
+    direction = p[0]
+    number_str = p[1:]
     if direction not in ['H', 'V']:
-        ret = False
-    if number not in POOL_RANGE:
-        ret = False
-    return(ret)
+        return False
+    if not is_int(number_str):
+        return False
+    else:
+        number_val = int(number_str)
+        if number_val not in POOL_RANGE:
+            return False
+    return True
     
 def is_available(f):
     ret = os.path.isfile(f)
@@ -433,6 +474,11 @@ def deconv_pools(results_dir, pool_to_file):
     (intersection_hit_dict, intersection_hit_df) = get_intersection_hit(pool_hit, HORIZONTAL, VERTICAL)
     filename = os.path.join(results_dir, 'intersection_hit.txt')
     intersection_hit_df.write(filename=filename)
+    
+    # and now write a copy to the directory above the results directory
+    (head_path, sub_dir) = os.path.split(results_dir)
+    filename = os.path.join(head_path, 'intersection_hit_' + sub_dir + '.txt')
+    intersection_hit_df.write(filename=filename)
 
 def main(args):
     
@@ -458,8 +504,8 @@ def main(args):
         create_map_file(args.data_dir, map_fullpath)
 
     if not args.skip_deconv:
-        pool_to_file = DataFrame(filename=map_fullpath)
-        deconv_pools(args.results_dir, pool_to_file)
+        map_dataframe = DataFrame(filename=map_fullpath)
+        deconv_pools(args.results_dir, map_dataframe)
 
 if __name__ == '__main__':
     args = ap.parse_args()
