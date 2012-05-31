@@ -1,7 +1,7 @@
 deconv process
-* use argparse parse command-line arguments
-** put defaults into argparse help
-** move to Dropbox/deconv
+- use argparse parse command-line arguments
+-- put defaults into argparse help
+-- move to Dropbox/deconv
 * make into a webserver trigger
 
 control wells
