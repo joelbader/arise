@@ -270,17 +270,17 @@ def process_gpr_file(input_file, output_file, summary_file, \
     gpr.add_columns( ('idname', idname))
     columns_added += ['idname']
     
-    (ratio_naive, zscore_naive) = get_ratio_zscore(fg, bg, n_fg, n_bg, do_norm, do_log)    
-    (id_to_mean_naive, row_to_mean_naive, id_to_zscores) = apply_by_group(np.mean, idname, zscore_naive)
-    (id_to_mean_ratio, row_to_mean_ratio, id_to_ratios) = apply_by_group(np.mean, idname, ratio_naive)
+    (ratio, zscore) = get_ratio_zscore(fg, bg, n_fg, n_bg, do_norm, do_log)    
+    (id_to_mean_zscore, row_to_mean_zscore, id_to_zscores) = apply_by_group(np.mean, idname, zscore)
+    (id_to_mean_ratio, row_to_mean_ratio, id_to_ratios) = apply_by_group(np.mean, idname, ratio)
 
-    gpr.add_columns(('ratio_naive', ratio_naive),
-        ('zscore_naive', zscore_naive),
-        ('zscore_mean_naive', row_to_mean_naive))
-    columns_added += ['ratio_naive', 'zscore_naive', 'zscore_mean_naive' ]
+    gpr.add_columns(('ratio', ratio),
+        ('zscore', zscore),
+        ('zscore_mean', row_to_mean_zscore))
+    columns_added += ['ratio', 'zscore', 'zscore_mean' ]
     
     # collect rows where flag is good and either zscore is above a threshold
-    (id_subset, row_subset) = get_good_ids_rows(idname, zscore_naive)
+    (id_subset, row_subset) = get_good_ids_rows(idname, zscore)
     
     columns_display = columns_extracted + columns_added
     gpr.write(output_file, rows=row_subset, columns=columns_display)
@@ -289,7 +289,7 @@ def process_gpr_file(input_file, output_file, summary_file, \
     # id, name, zscore_mean, zscores
     id_list = [ idname_to_id[i] for i in id_subset ]
     name_list = [ idname_to_name[i] for i in id_subset ]
-    zscore_list = [ id_to_mean_naive[i] for i in id_subset ]
+    zscore_list = [ id_to_mean_zscore[i] for i in id_subset ]
     ratio_list = [ id_to_mean_ratio[i] for i in id_subset ]
     zscores_list = [ ';'.join([ str(x) for x in id_to_zscores[i] ]) for i in id_subset]
     ratios_list = [ ';'.join([ str(x) for x in id_to_ratios[i] ]) for i in id_subset]

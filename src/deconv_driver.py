@@ -17,11 +17,12 @@ dropbox_base = '/Users/joel/Dropbox'
 deconv_cmd = os.path.join(dropbox_base, 'deconv', 'src', 'deconv.py')
 gpr_base = os.path.join(dropbox_base, 'GPR_files')
 if __name__ == '__main__':
-    data_subdirs = ['2012-03-05']
+    data_subdirs = ['2012-03-05', '2012-03-05_IgG_FF', '2012-04-25-IgG', \
+                    '2012-04-25-IgG_FF', '2012-04-25-IgM', '2012-05-03 Validations']
     args_base = ['python', deconv_cmd,'--create_map']
     for subdir in data_subdirs:
-        for norm_flag in ['--do_norm']:
-            for log_flag in ['']:
+        for norm_flag in ['', '--do_norm']:
+            for log_flag in ['', '--do_log']:
                 args = args_base
                 if norm_flag != '':
                     args.append(norm_flag)

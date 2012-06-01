@@ -7,7 +7,7 @@ deconv process
 -- put defaults into argparse help
 - move to Dropbox/deconv
 -- remove data files to make directory smaller
-* make into a webserver trigger
+* make into a webserver trigger, check for new directories
 
 control wells
 - read a gpr file that has seth's flag = -100 indicating a control well
