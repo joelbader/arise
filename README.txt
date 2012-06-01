@@ -41,4 +41,5 @@ pool-hits.txt => clone-hits.txt
 - read file-to-pool map
 - read top hits
 - find hits shared by row and column
-- print as 12x12 table
+- print as 12x12 table (standalone converter)
+* print as 12x12 table during analysis

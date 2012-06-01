@@ -1,0 +1,192 @@
+norm_flag 
+log_flag 
+['python', '/Users/joel/Dropbox/deconv/src/deconv.py', '--create_map']
+***
+python /Users/joel/Dropbox/deconv/src/deconv.py --create_map /Users/joel/Dropbox/GPR_files/2012-03-05 /Users/joel/Dropbox/GPR_files/results/2012-03-05
+***
+
+return value: 0
+norm_flag 
+log_flag --do_log
+['python', '/Users/joel/Dropbox/deconv/src/deconv.py', '--create_map']
+***
+python /Users/joel/Dropbox/deconv/src/deconv.py --create_map --do_log /Users/joel/Dropbox/GPR_files/2012-03-05 /Users/joel/Dropbox/GPR_files/results/2012-03-05_log
+***
+
+return value: 0
+norm_flag --do_norm
+log_flag 
+['python', '/Users/joel/Dropbox/deconv/src/deconv.py', '--create_map']
+***
+python /Users/joel/Dropbox/deconv/src/deconv.py --create_map --do_norm /Users/joel/Dropbox/GPR_files/2012-03-05 /Users/joel/Dropbox/GPR_files/results/2012-03-05_norm
+***
+
+return value: 0
+norm_flag --do_norm
+log_flag --do_log
+['python', '/Users/joel/Dropbox/deconv/src/deconv.py', '--create_map']
+***
+python /Users/joel/Dropbox/deconv/src/deconv.py --create_map --do_norm --do_log /Users/joel/Dropbox/GPR_files/2012-03-05 /Users/joel/Dropbox/GPR_files/results/2012-03-05_norm_log
+***
+
+return value: 0
+norm_flag 
+log_flag 
+['python', '/Users/joel/Dropbox/deconv/src/deconv.py', '--create_map']
+***
+python /Users/joel/Dropbox/deconv/src/deconv.py --create_map /Users/joel/Dropbox/GPR_files/2012-03-05_IgG_FF /Users/joel/Dropbox/GPR_files/results/2012-03-05_IgG_FF
+***
+
+return value: 0
+norm_flag 
+log_flag --do_log
+['python', '/Users/joel/Dropbox/deconv/src/deconv.py', '--create_map']
+***
+python /Users/joel/Dropbox/deconv/src/deconv.py --create_map --do_log /Users/joel/Dropbox/GPR_files/2012-03-05_IgG_FF /Users/joel/Dropbox/GPR_files/results/2012-03-05_IgG_FF_log
+***
+
+return value: 0
+norm_flag --do_norm
+log_flag 
+['python', '/Users/joel/Dropbox/deconv/src/deconv.py', '--create_map']
+***
+python /Users/joel/Dropbox/deconv/src/deconv.py --create_map --do_norm /Users/joel/Dropbox/GPR_files/2012-03-05_IgG_FF /Users/joel/Dropbox/GPR_files/results/2012-03-05_IgG_FF_norm
+***
+
+return value: 0
+norm_flag --do_norm
+log_flag --do_log
+['python', '/Users/joel/Dropbox/deconv/src/deconv.py', '--create_map']
+***
+python /Users/joel/Dropbox/deconv/src/deconv.py --create_map --do_norm --do_log /Users/joel/Dropbox/GPR_files/2012-03-05_IgG_FF /Users/joel/Dropbox/GPR_files/results/2012-03-05_IgG_FF_norm_log
+***
+
+return value: 0
+norm_flag 
+log_flag 
+['python', '/Users/joel/Dropbox/deconv/src/deconv.py', '--create_map']
+***
+python /Users/joel/Dropbox/deconv/src/deconv.py --create_map /Users/joel/Dropbox/GPR_files/2012-04-25-IgG /Users/joel/Dropbox/GPR_files/results/2012-04-25-IgG
+***
+
+return value: 0
+norm_flag 
+log_flag --do_log
+['python', '/Users/joel/Dropbox/deconv/src/deconv.py', '--create_map']
+***
+python /Users/joel/Dropbox/deconv/src/deconv.py --create_map --do_log /Users/joel/Dropbox/GPR_files/2012-04-25-IgG /Users/joel/Dropbox/GPR_files/results/2012-04-25-IgG_log
+***
+
+return value: 0
+norm_flag --do_norm
+log_flag 
+['python', '/Users/joel/Dropbox/deconv/src/deconv.py', '--create_map']
+***
+python /Users/joel/Dropbox/deconv/src/deconv.py --create_map --do_norm /Users/joel/Dropbox/GPR_files/2012-04-25-IgG /Users/joel/Dropbox/GPR_files/results/2012-04-25-IgG_norm
+***
+
+return value: 0
+norm_flag --do_norm
+log_flag --do_log
+['python', '/Users/joel/Dropbox/deconv/src/deconv.py', '--create_map']
+***
+python /Users/joel/Dropbox/deconv/src/deconv.py --create_map --do_norm --do_log /Users/joel/Dropbox/GPR_files/2012-04-25-IgG /Users/joel/Dropbox/GPR_files/results/2012-04-25-IgG_norm_log
+***
+
+return value: 0
+norm_flag 
+log_flag 
+['python', '/Users/joel/Dropbox/deconv/src/deconv.py', '--create_map']
+***
+python /Users/joel/Dropbox/deconv/src/deconv.py --create_map /Users/joel/Dropbox/GPR_files/2012-04-25-IgG_FF /Users/joel/Dropbox/GPR_files/results/2012-04-25-IgG_FF
+***
+
+return value: 0
+norm_flag 
+log_flag --do_log
+['python', '/Users/joel/Dropbox/deconv/src/deconv.py', '--create_map']
+***
+python /Users/joel/Dropbox/deconv/src/deconv.py --create_map --do_log /Users/joel/Dropbox/GPR_files/2012-04-25-IgG_FF /Users/joel/Dropbox/GPR_files/results/2012-04-25-IgG_FF_log
+***
+
+return value: 0
+norm_flag --do_norm
+log_flag 
+['python', '/Users/joel/Dropbox/deconv/src/deconv.py', '--create_map']
+***
+python /Users/joel/Dropbox/deconv/src/deconv.py --create_map --do_norm /Users/joel/Dropbox/GPR_files/2012-04-25-IgG_FF /Users/joel/Dropbox/GPR_files/results/2012-04-25-IgG_FF_norm
+***
+
+return value: 0
+norm_flag --do_norm
+log_flag --do_log
+['python', '/Users/joel/Dropbox/deconv/src/deconv.py', '--create_map']
+***
+python /Users/joel/Dropbox/deconv/src/deconv.py --create_map --do_norm --do_log /Users/joel/Dropbox/GPR_files/2012-04-25-IgG_FF /Users/joel/Dropbox/GPR_files/results/2012-04-25-IgG_FF_norm_log
+***
+
+return value: 0
+norm_flag 
+log_flag 
+['python', '/Users/joel/Dropbox/deconv/src/deconv.py', '--create_map']
+***
+python /Users/joel/Dropbox/deconv/src/deconv.py --create_map /Users/joel/Dropbox/GPR_files/2012-04-25-IgM /Users/joel/Dropbox/GPR_files/results/2012-04-25-IgM
+***
+
+return value: 0
+norm_flag 
+log_flag --do_log
+['python', '/Users/joel/Dropbox/deconv/src/deconv.py', '--create_map']
+***
+python /Users/joel/Dropbox/deconv/src/deconv.py --create_map --do_log /Users/joel/Dropbox/GPR_files/2012-04-25-IgM /Users/joel/Dropbox/GPR_files/results/2012-04-25-IgM_log
+***
+
+return value: 0
+norm_flag --do_norm
+log_flag 
+['python', '/Users/joel/Dropbox/deconv/src/deconv.py', '--create_map']
+***
+python /Users/joel/Dropbox/deconv/src/deconv.py --create_map --do_norm /Users/joel/Dropbox/GPR_files/2012-04-25-IgM /Users/joel/Dropbox/GPR_files/results/2012-04-25-IgM_norm
+***
+
+return value: 0
+norm_flag --do_norm
+log_flag --do_log
+['python', '/Users/joel/Dropbox/deconv/src/deconv.py', '--create_map']
+***
+python /Users/joel/Dropbox/deconv/src/deconv.py --create_map --do_norm --do_log /Users/joel/Dropbox/GPR_files/2012-04-25-IgM /Users/joel/Dropbox/GPR_files/results/2012-04-25-IgM_norm_log
+***
+
+return value: 0
+norm_flag 
+log_flag 
+['python', '/Users/joel/Dropbox/deconv/src/deconv.py', '--create_map']
+***
+python /Users/joel/Dropbox/deconv/src/deconv.py --create_map /Users/joel/Dropbox/GPR_files/2012-05-03 Validations /Users/joel/Dropbox/GPR_files/results/2012-05-03 Validations
+***
+
+return value: 0
+norm_flag 
+log_flag --do_log
+['python', '/Users/joel/Dropbox/deconv/src/deconv.py', '--create_map']
+***
+python /Users/joel/Dropbox/deconv/src/deconv.py --create_map --do_log /Users/joel/Dropbox/GPR_files/2012-05-03 Validations /Users/joel/Dropbox/GPR_files/results/2012-05-03 Validations_log
+***
+
+return value: 0
+norm_flag --do_norm
+log_flag 
+['python', '/Users/joel/Dropbox/deconv/src/deconv.py', '--create_map']
+***
+python /Users/joel/Dropbox/deconv/src/deconv.py --create_map --do_norm /Users/joel/Dropbox/GPR_files/2012-05-03 Validations /Users/joel/Dropbox/GPR_files/results/2012-05-03 Validations_norm
+***
+
+return value: 0
+norm_flag --do_norm
+log_flag --do_log
+['python', '/Users/joel/Dropbox/deconv/src/deconv.py', '--create_map']
+***
+python /Users/joel/Dropbox/deconv/src/deconv.py --create_map --do_norm --do_log /Users/joel/Dropbox/GPR_files/2012-05-03 Validations /Users/joel/Dropbox/GPR_files/results/2012-05-03 Validations_norm_log
+***
+
+return value: 0
