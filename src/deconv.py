@@ -391,6 +391,9 @@ def write_pool_hit(pool_to_file, pool_hit):
     zscore_list = [ ]
     ratio_list = [ ]
     for (p, f) in zip(pool_to_file.data['pool'], pool_to_file.data['file']):
+        # some pools have no hits
+        if p not in pool_hit:
+            continue
         for h in pool_hit[p]:
             pool_list.append(p)
             file_list.append(f)
