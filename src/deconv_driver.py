@@ -20,8 +20,8 @@ if __name__ == '__main__':
     data_subdirs = ['2012-03-05']
     args_base = ['python', deconv_cmd,'--create_map']
     for subdir in data_subdirs:
-        for norm_flag in ['']:
-            for log_flag in ['--do_log']:
+        for norm_flag in ['--do_norm']:
+            for log_flag in ['']:
                 args = args_base
                 if norm_flag != '':
                     args.append(norm_flag)

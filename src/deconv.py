@@ -33,7 +33,7 @@ ap.add_argument('--signal_bg', default = 'B635 Median', help='gpr signal backgro
 ap.add_argument('--norm_fg', default = 'F532 Median', help='gpr normalization foreground (default: %(default)s)')
 ap.add_argument('--norm_bg', default = 'B532 Median', help='gpr normalization background (default: %(default)s)')
 ap.add_argument('--do_norm', action='store_true', help='normalize signal fg/bg by norm fg/bg (default: %(default)s)')
-ap.add_argument('--do_log', action='store_true', help='take the log before calculating z-scores (default: %(default)s)')
+ap.add_argument('--do_log', action='store_true', help='take log2 before calculating z-scores (default: %(default)s)')
 ap.add_argument('--skip_gpr', action='store_true', help='skip the gpr analysis (default: %(default)s)')
 ap.add_argument('--skip_deconv', action='store_true', help='skip the deconvolution (default: %(default)s)')
 
@@ -92,7 +92,7 @@ def print_control_dict(control_dict, control_dict_filename):
     df.write(filename=control_dict_filename)
     
 
-def get_naive(fg, bg, do_log):
+def get_ratio_zscore(fg, bg, n_fg, n_bg, do_norm, do_log):
     """
     calculate ratio as fg / bg
     calculate mean and stdev of ratio
@@ -100,6 +100,9 @@ def get_naive(fg, bg, do_log):
     return ratio and zscore
     """
     ratio = np.array(fg, dtype=float) / np.array(bg, dtype=float)
+    if do_norm:
+        ratio_norm = np.array(n_fg, dtype=float) / np.array(n_bg, dtype=float)
+        ratio = ratio / ratio_norm
     if do_log:
         ratio = np.log2(ratio)
     mean = ratio.mean()
@@ -204,6 +207,8 @@ def process_gpr_file(input_file, output_file, summary_file, \
 
     # start by extracting the flags and adding an index for the original row number
     (flags, ids, names, fg, bg) = gpr.get_columns(['Flags', 'ID', 'Name', signal_fg, signal_bg])
+    if do_norm:
+        (n_fg, n_bg) = gpr.get_columns([norm_fg, norm_bg])
     n_row_orig = len(flags)
     logger.info('n_row_orig %d', n_row_orig)
     row_number_orig = np.array(range(1, n_row_orig + 1))
@@ -232,7 +237,11 @@ def process_gpr_file(input_file, output_file, summary_file, \
     # bad signal
     mask_signal = [ (x[0] <= 0) or (x[1] <= 0) for x in zip(fg, bg) ]
     
-    mask = [ x[0] or x[1] or x[2] or x[3] for x in zip(mask_control, mask_flag, mask_text, mask_signal) ]
+    mask_norm = [ False for x in fg ]
+    if do_norm:
+        mask_norm = [ (x[0] <= 0) or (x[1] <= 0) for x in zip(n_fg, n_bg) ]
+    
+    mask = [ x[0] or x[1] or x[2] or x[3] or x[4] for x in zip(mask_control, mask_flag, mask_text, mask_signal, mask_norm) ]
     logger.info('deleting %d control rows', sum(mask))
     gpr.delete_rows(mask)
 
@@ -240,6 +249,12 @@ def process_gpr_file(input_file, output_file, summary_file, \
     # re-extract just the good columns
     columns_extracted = [ 'Name', 'ID', signal_fg, signal_bg ]
     (name, id, fg, bg) = gpr.get_columns(columns_extracted)
+    n_fg = None
+    n_bg = None
+    if do_norm:
+        columns_norm = [norm_fg, norm_bg]
+        columns_extracted = columns_extracted + columns_norm
+        (n_fg, n_bg) = gpr.get_columns(columns_norm)
     n_row = len(name)
     assert(sum(bg == 0) == 0), 'bg has %d zero values' % sum(bg==0)
     
@@ -255,7 +270,7 @@ def process_gpr_file(input_file, output_file, summary_file, \
     gpr.add_columns( ('idname', idname))
     columns_added += ['idname']
     
-    (ratio_naive, zscore_naive) = get_naive(fg, bg, do_log)    
+    (ratio_naive, zscore_naive) = get_ratio_zscore(fg, bg, n_fg, n_bg, do_norm, do_log)    
     (id_to_mean_naive, row_to_mean_naive, id_to_zscores) = apply_by_group(np.mean, idname, zscore_naive)
     (id_to_mean_ratio, row_to_mean_ratio, id_to_ratios) = apply_by_group(np.mean, idname, ratio_naive)
 
